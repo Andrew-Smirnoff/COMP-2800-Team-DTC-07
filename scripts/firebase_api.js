@@ -10,3 +10,13 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+
+// This chunk of code below is for adding data into db
+
+// goes to the database and gets the collection named aaa, and adds to it
+// db.collection("aaa").add({
+// this will be sent to the database
+// first is the document name it will add to
+// second is the data being sent to that document
+//     fsfsdfsd: "jjjjjj"
+// })
