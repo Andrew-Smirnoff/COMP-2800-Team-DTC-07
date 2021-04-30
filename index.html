@@ -10,15 +10,21 @@
 
 <body>
     <p>Hello, Team07!</p>
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related    -->
-    <!----------------------------------------------->
 
-    <!-- Link to the api keys for team43 firebase -->
+    <!-- This is database srtuff. No touching. -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="./scripts/firebase_api.js"></script>
 
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related    -->
-    <!----------------------------------------------->
+    <script>
+        // goes to the database and gets the collection named aaa, and adds to it
+        db.collection("aaa").add({
+            // this will be sent to the databse
+            // first is the document name it will add to
+            // second is the data being sent to that document
+            fsfsdfsd: "jjjjjj"
+        })
+    </script>
 </body>
 
 </html>
