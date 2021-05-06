@@ -1,0 +1,47 @@
+body {
+    background-image: url("../images/cliff.png");
+    background-color: #cccccc;
+    background-size: 100vh;
+}
+
+section {
+    display: grid;
+    grid-template-rows: repeat(4, 20vh);
+    grid-template-areas: 
+    "one"
+    "two"
+    "three"
+    "four"
+}
+
+.greeting {
+    font-size: 10vw;
+    color: rgb(133, 34, 133);
+    margin-top: 20vh;
+}
+
+#start {
+    background-color: #e7e7e7; 
+    color: black;
+    width: 80vw;
+    height: 5vh;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    font-size: larger;
+
+    margin-top: 10vh;
+    margin-left: 10vw;
+}
+
+#logout {
+    background-color: #e7e7e7; 
+    color: black;
+    width: 80vw;
+    height: 5vh;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    font-size: larger;
+    margin-left: 10vw;
+}
+
+
