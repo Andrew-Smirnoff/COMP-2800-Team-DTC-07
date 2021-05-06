@@ -56,19 +56,3 @@ var uiConfig = {
 };
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
-
-storageUserName();
-
-function storageUserName() {
-    firebase.auth().onAuthStateChanged(function (user) {        // Check the user that's logged in
-        if (user) {
-            db.collection('users')
-                .doc(user.uid)                                  // the user's UID
-                .get()                                          //READ !!
-                .then(function (doc) {
-                    var name = doc.data().name;                 // point to user's name in the document
-                    sessionStorage.setItem('name', name);       // store the user's name in sessionStorage
-                })
-            }
-    })
-};
