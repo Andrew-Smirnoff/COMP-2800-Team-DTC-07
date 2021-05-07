@@ -1,7 +1,7 @@
 body {
     background-image: url("../images/cliff.png");
     background-color: #cccccc;
-    background-size: 100vh;
+    background-size: 100%;
 }
 
 section {
@@ -22,11 +22,11 @@ section {
 }
 
 #start {
-    background-color: #e7e7e7; 
+    background-color: #9354A4; 
     color: black;
     width: 80vw;
     height: 5vh;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border: none;
 
     font-size: larger;
 
@@ -35,18 +35,18 @@ section {
 }
 
 #logout {
-    background-color: #e7e7e7; 
+    background-color: #9354A4; 
     color: black;
+    border: none;
     width: 80vw;
     height: 5vh;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
     font-size: larger;
     margin-left: 10vw;
 }
 
 .bottom-navbar {
-    background-color:gray;
+    background-color:#9354A4;
     position: fixed;
     width: 100vw;
     bottom: 0vh;
@@ -56,3 +56,9 @@ section {
     justify-content: space-around;
 }
 
+.iconify {
+    color: #2D1D36;
+    margin-top: 5px;
+    width: 50px;
+    height: auto;
+}
