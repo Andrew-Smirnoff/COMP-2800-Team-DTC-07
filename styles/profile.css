@@ -45,7 +45,7 @@ a{
     bottom: 0vh;
     height: 8vh;
     display: flex;
-    height: auto;
+    justify-content: space-around;
 }
 
 .iconify{
