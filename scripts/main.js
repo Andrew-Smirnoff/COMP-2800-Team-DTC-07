@@ -11,11 +11,7 @@ function startApp() {
                     var friends = doc.data().friends;                  // point to user's name in the document
                     sessionStorage.setItem('name', name);
                     sessionStorage.setItem('friends', friends);
-                    $("#name-goes-here").text(sessionStorage.getItem('name'));
-                    // here is where you can edit stuff using session storage.
-                    // It is important that it is done here, ex.
-                    // let h1 = document.querySelector("h1")
-                    // h1.innerHTML = sessionStorage.getItem('name')       
+                    $("#name-goes-here").text(sessionStorage.getItem('name'));      
                 })
         }
     })
