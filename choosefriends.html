@@ -19,28 +19,22 @@
 
 <body>
 
-    <!-------------------------------------->
-    <!-- The following is HTML for layout -->
-    <!-------------------------------------->
-    <!-- Header Navigation Bar -->
-    <!-- <h1 class="display-4"> Hello, <span id="name-goes-here">CST!</span> </h1> -->
+    <div>
+        <button id="back">Back</button>
+        <img src="./images/logo_title.png" id="logo">
+    </div>
+
     <section class="grid-container">
-
-        <div class="grid-item">
-            <button id="back">Back</button> 
-            <img src="./images/logo_title.png" id="logo">
-        </div>
-
-        <form>
-            
-        </form>
-
-        <!-- <div class="grid-item">
-            <h1 class="greeting">Welcome, <span id="name-goes-here">wait for the name :)</span></h1>
-        </div>
-        <div class="grid-item"><button id="start">Start Game</button></div>
-        <div class="grid-item"><a href='login.html'><button id="logout">Log Out</button></a></div> -->
         
+        <form></form>
+
+        <div id="round-container">
+            <h1>Rounds</h1>
+            <button class="btns" id="decrement-btn"><h1>-</h1></button>
+            <input type="text" id="round-num" value="1" min="1" max="100">
+            <button class="btns" id="increment-btn"><h1>+</h1></button>  
+        </div>
+
         <div class="grid-item">
             <div class="bottom-navbar">
                 <a href='/'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>

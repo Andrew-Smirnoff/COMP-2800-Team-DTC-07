@@ -7,6 +7,17 @@ body {
 section {
     display: grid;
     grid-template-rows: repeat(3, 33.3vh);
+    grid-template-areas: 
+    "one"
+    "two"
+    "three";
+}
+
+#back {
+    width: 20vw;
+    height: 5vh;
+    margin-top: 3vh;
+    margin-left: 2vh;
 }
 
 #logo{
@@ -15,30 +26,6 @@ section {
     width:300px;
     display: block;
     grid-area: one;
-}
-
-#start {
-    background-color: #9354A4; 
-    color: black;
-    width: 80vw;
-    height: 5vh;
-    border: none;
-
-    font-size: larger;
-
-    margin-top: 10vh;
-    margin-left: 10vw;
-}
-
-#logout {
-    background-color: #9354A4; 
-    color: black;
-    border: none;
-    width: 80vw;
-    height: 5vh;
-
-    font-size: larger;
-    margin-left: 10vw;
 }
 
 .bottom-navbar {
@@ -60,16 +47,50 @@ section {
 }
 
 form{
-    display: grid;
-    grid-template-columns: 3fr 1fr 8fr;
-    height: 300px;
+    height: 30vh;
     overflow: scroll;
+    
+    width: 90vw;
+    margin: auto;
+    box-shadow: 5px 8px #43264b;
 }
 
-label{
-    grid-column: 1;
+.friends_list {
+    font-size: 5vh;
+
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+
+    margin-left: 2vw;
 }
 
-input{
-    grid-column: 2;
+.friend_div {
+    border: black 1px solid;
+    margin-bottom: 2vh;
+    background-color: #9354A4;
+}
+
+.checkbox {
+    float: right;
+    zoom: 4.5;
+    margin-top: 2.5px;
+}
+
+#round-container {
+    margin-top: 5vh;
+    margin-left: 5vw;
+}
+
+#round-num {
+    width: 10vw;
+}
+
+.btns {
+    width: 10vw;
+    height: 5vh;
+    border-radius: 50%;
+}
+
+#btns-and-input {
+    float: left;
 }
