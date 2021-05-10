@@ -5,14 +5,14 @@ img {
     margin-right: auto;
     margin-top: 20px;
     border-radius: 50%;
-    border: 5px solid black;
+    border: 5px solid #9354a4;
 }
 
 body {
     background-image: url("../images/door.png");
     background-color: #cccccc;
     background-size: 100%;
-    padding-top: 30px;
+    position: fixed;
 }
 
 .name{
@@ -31,4 +31,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(147, 84, 164, 70%);
+}
+
+.pictures{
+    overflow: scroll;
+    height: 100vh;
 }
