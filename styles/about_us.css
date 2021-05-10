@@ -1,0 +1,34 @@
+img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 5px solid black;
+}
+
+body {
+    background-image: url("../images/door.png");
+    background-color: #cccccc;
+    background-size: 100%;
+    padding-top: 30px;
+}
+
+.name{
+    text-align: center;
+}
+
+.description{
+    text-align: center;
+}
+
+.designer{
+    margin-top: 15px;
+    width: 70%;
+    padding: 5px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(147, 84, 164, 70%);
+}
