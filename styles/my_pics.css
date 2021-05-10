@@ -1,0 +1,9 @@
+.grid-container {
+    display: grid;
+}
+
+body {
+    background-image: url("../images/cave.png");
+    background-color: #cccccc;
+    background-size: 100%;
+}
