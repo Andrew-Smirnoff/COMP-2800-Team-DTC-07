@@ -1,0 +1,56 @@
+#profile_pic{
+    border-radius: 50%;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: block;
+    border: 8px solid black;
+}
+
+body {
+    background-image: url("../images/cave.png");
+    background-color: #cccccc;
+    background-size: 100%;
+}
+
+h1{
+    background-color: #9354A4;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    margin-top: 25px;
+    font-size: 36px;
+}
+
+#friends{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #9354A4;
+    border:none;
+    border:2px solid black;
+    font-size: 36px;
+    margin-top: 30px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bottom-navbar{
+    background-color: #9354A4;
+    position: fixed;
+    width: 100vw;
+    bottom: 0vh;
+    height: 8vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.iconify{
+    color: #2d1d36;
+    margin-top: 5px;
+    width: 50px;
+    height: auto;
+}
