@@ -52,7 +52,16 @@ function select_friends() {
             console.log(this.value);
             friend = this.value;
             friendsList.push(friend);
-            console.log(friendsList)
+            console.log(friendsList);
+            sessionStorage.setItem('friendsList', friendsList);
         });
     });
+}
+
+function enter_rounds() {
+$('#begin').click(function (){
+    console.log($('#round-num').val());
+    let round_num = $('#round-num').val();
+    sessionStorage.setItem('round_num', round_num);
+});
 }
