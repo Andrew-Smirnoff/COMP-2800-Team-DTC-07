@@ -5,6 +5,7 @@ function main() {
     increment_btn();
     decrement_btn();
     select_friends();
+    enter_rounds();
 }
 
 function before_game() {
