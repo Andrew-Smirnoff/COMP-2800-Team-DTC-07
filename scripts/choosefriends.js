@@ -1,6 +1,7 @@
 main();
 
 function main() {
+    shuffle();
     before_game();
     increment_btn();
     decrement_btn();
@@ -66,7 +67,6 @@ function select_friends() {
 
 function enter_rounds() {
 $('#begin').click(function (){
-    shuffle();
     console.log($('#round-num').val());
     let round_num = $('#round-num').val();
     sessionStorage.setItem('round_num', round_num);
