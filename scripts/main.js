@@ -10,8 +10,7 @@ function startApp() {
                     var name = doc.data().name;
                     var friends = doc.data().friends;                  // point to user's name in the document
                     sessionStorage.setItem('name', name);
-                    sessionStorage.setItem('friends', friends);
-                    $("#name-goes-here").text(sessionStorage.getItem('name'));      
+                    sessionStorage.setItem('friends', friends);    
                 })
         }
     })
