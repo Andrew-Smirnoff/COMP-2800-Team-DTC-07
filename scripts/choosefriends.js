@@ -6,6 +6,7 @@ function main() {
     decrement_btn();
     select_friends();
     enter_rounds();
+    shuffle();
 }
 
 function before_game() {
@@ -70,4 +71,21 @@ $('#begin').click(function (){
     let round_num = $('#round-num').val();
     sessionStorage.setItem('round_num', round_num);
 });
+}
+
+function shuffle(){
+    let shuffled = []
+    let unshuffled = []
+    db.collection("scenarios").get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            unshuffled.push(doc.data())
+        });
+        while(unshuffled.length > 0){
+            let new_index = Math.floor(Math.random() * unshuffled.length)
+            let new_scenario = unshuffled[new_index]['scenario']
+            unshuffled.splice(new_index, 1)
+            shuffled.push(new_scenario)
+        }
+        sessionStorage.setItem('scenarios', shuffled)
+    });
 }
