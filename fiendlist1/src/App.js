@@ -1,22 +1,13 @@
-import userEvent from '@testing-library/user-event';
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css'
-import FiendForm from './components/FiendForm';
-import FiendList from './components/FiendList';
+import TodoList from './components/TodoList';
 
-
-  function App() {
-  
+function App() {
   return (
-    <div className="App">
-      <header>
-        <h1>FiendList ;)</h1>
-        <FiendForm  />
-      </header>
+    <div className='todo-app'>
+      <TodoList />
     </div>
   );
 }
-
 
 export default App;
