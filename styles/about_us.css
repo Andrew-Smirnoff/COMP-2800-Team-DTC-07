@@ -27,7 +27,6 @@ body {
     margin-top: 15px;
     width: 70%;
     padding: 5px;
-    display: grid;
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(147, 84, 164, 70%);
@@ -36,4 +35,14 @@ body {
 .pictures{
     overflow: scroll;
     height: 100vh;
+}
+
+#about_description{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 3px;
+    text-align: center;
+    background-color: rgba(147, 84, 164, 70%);
 }
