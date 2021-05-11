@@ -4,6 +4,7 @@ function main() {
     before_game();
     increment_btn();
     decrement_btn();
+    select_friends();
 }
 
 function before_game() {
@@ -44,12 +45,14 @@ function decrement_btn() {
     });
 }
 
-$('#begin').click(function () {
-    let friendsList = [];
-    $('input[name="friend-name"]:checked').each(function () {
-        console.log(this.value);
-        friend = this.value;
-        friendsList.push(friend);
-        console.log(friendsList)
+function select_friends() {
+    $('#begin').click(function () {
+        let friendsList = [];
+        $('input[name="friend-name"]:checked').each(function () {
+            console.log(this.value);
+            friend = this.value;
+            friendsList.push(friend);
+            console.log(friendsList)
+        });
     });
-});
+}
