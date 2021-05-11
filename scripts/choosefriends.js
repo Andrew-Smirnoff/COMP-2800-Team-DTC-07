@@ -5,6 +5,7 @@ function main() {
     increment_btn();
     decrement_btn();
     select_friends();
+    enter_rounds();
 }
 
 function before_game() {
@@ -52,7 +53,8 @@ function select_friends() {
             console.log(this.value);
             friend = this.value;
             friendsList.push(friend);
-            console.log(friendsList)
+            console.log(friendsList);
+            sessionStorage.setItem('friendsList', friendsList);
         });
         if(friendsList.length < 2 || friendsList.length > 5){
             $(document).ready(function(){
@@ -61,4 +63,12 @@ function select_friends() {
               friendsList = []
         }
     });
+}
+
+function enter_rounds() {
+$('#begin').click(function (){
+    console.log($('#round-num').val());
+    let round_num = $('#round-num').val();
+    sessionStorage.setItem('round_num', round_num);
+});
 }
