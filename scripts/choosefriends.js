@@ -67,7 +67,6 @@ function select_friends() {
 function enter_rounds() {
 $('#begin').click(function (){
     shuffle();
-    console.log(sessionStorage.getItem('scenarios'))
     console.log($('#round-num').val());
     let round_num = $('#round-num').val();
     sessionStorage.setItem('round_num', round_num);
