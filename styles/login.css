@@ -5,10 +5,27 @@
     display: block;
 }
 
+#about_us {
+    display: block;
+    background-color: #9354A4; 
+    color: black;
+    border: none;
+    width: 80vw;
+    height: 5vh;
+    font-size: larger;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
 body {
     background-image: url("../images/door.png");
     background-color: #cccccc;
     background-size: 100%;
+    display: grid;
+    grid-template-rows: 8fr 1fr;
+    height: 100vh;
 }
 
 form{

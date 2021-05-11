@@ -44,16 +44,6 @@ section {
     margin-left: 10vw;
 }
 
-#about_us {
-    background-color: #9354A4; 
-    color: black;
-    border: none;
-    width: 80vw;
-    height: 5vh;
-    font-size: larger;
-    margin-left: 10vw;
-}
-
 .bottom-navbar {
     background-color:#9354A4;
     position: fixed;
