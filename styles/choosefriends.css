@@ -101,3 +101,8 @@ form{
 #begin {
     display: block;
 }
+
+.toast{
+    margin-left: auto;
+    margin-right: auto;
+}

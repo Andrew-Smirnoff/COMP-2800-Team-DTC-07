@@ -54,5 +54,11 @@ function select_friends() {
             friendsList.push(friend);
             console.log(friendsList)
         });
+        if(friendsList.length < 2 || friendsList.length > 5){
+            $(document).ready(function(){
+                $('.toast').toast('show');
+              });
+              friendsList = []
+        }
     });
 }
