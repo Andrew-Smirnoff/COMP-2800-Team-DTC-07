@@ -1,3 +1,6 @@
+const min_round_num = 2;
+const max_round_num = 9;
+
 main();
 
 function main() {
@@ -73,6 +76,12 @@ function enter_rounds() {
         // shuffle();
         console.log($('#round-num').val());
         let round_num = $('#round-num').val();
+        if (round_num < min_round_num || round_num > max_round_num) {
+            $(document).ready(function () {
+                $('.toast-round').toast('show');
+            });
+            round_num = 1;
+        }
         sessionStorage.setItem('round_num', round_num);
     });
 }
