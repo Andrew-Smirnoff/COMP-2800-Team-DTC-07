@@ -6,7 +6,6 @@ function main() {
     decrement_btn();
     select_friends();
     enter_rounds();
-    shuffle();
     redirect();
 }
 
@@ -80,7 +79,7 @@ function enter_rounds() {
 
 function redirect() {
     $('#begin').click(function () {
-        document.location.href = '/game.html';
+        shuffle()
     });
 }
 
@@ -91,9 +90,12 @@ function shuffle(){
         snap.forEach(function(doc){
             all_scenarios.push(doc.data().scenario[0])
         })
+        for(i = 0; i < sessionStorage.getItem('round_num'); i++){
+            let rand = Math.floor(Math.random() * all_scenarios.length);
+            shuffled.push(all_scenarios[rand])
+            all_scenarios.splice(rand, 1)
+        }
+        sessionStorage.setItem('scenarios', shuffled)
+        console.log(typeof(sessionStorage.getItem('friends')))
     })
-    for(i = 0; i < all_scenarios.length; i++){
-        let rand = Math.floor(Math.random() * all_scenarios.length);
-        shuffled.push(all_scenarios[rand])
-    }
 }
