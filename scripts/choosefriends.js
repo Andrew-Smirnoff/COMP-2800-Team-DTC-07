@@ -82,3 +82,22 @@ function redirect() {
         document.location.href = '/game.html';
     });
 }
+
+function shuffle(){
+    let shuffled = []
+    for(i = 0; i < sessionStorage.getItem('round_num'); i++){
+        let rand = Math.floor((Math.random() * 10) + 1);
+        db.collection("scenario").where("random", "==", rand)
+        .get()
+        .then(function (snap) {             //collection of scenarios, just one
+            snap.forEach(function (doc) {   //just cycle thru one
+                var list = doc.data().scenario;  //get array called "scenario"
+                if (list) {
+                    list.forEach(function (item) {   //cycle thru array
+                        shuffled.push(item)
+                    })
+                }
+            })
+        })
+    }
+}
