@@ -104,7 +104,7 @@ function shuffle(){
             shuffled.push(all_scenarios[rand])
             all_scenarios.splice(rand, 1)
         }
-        sessionStorage.setItem('scenarios', shuffled)
-        console.log(typeof(sessionStorage.getItem('friends')))
+        sessionStorage.setItem('scenarios', JSON.stringify(shuffled))
+        document.location.href = "./game.html";
     })
 }
