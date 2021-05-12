@@ -6,11 +6,15 @@ function main() {
     decrement_btn();
     select_friends();
     enter_rounds();
+    redirect();
 }
 
 function before_game() {
     let friends_list = sessionStorage.getItem('friends')
+    // console.log(friends_list);
+    // console.log('friends_list_type: ', typeof(friends_list));
     friends_list = friends_list.split(",")
+    // console.log('friends_list_type2: ', typeof(friends_list));  
     let form = document.querySelector('form')
     for (i = 0; i < friends_list.length; i++) {
         let new_box = document.createElement('input');
@@ -55,37 +59,26 @@ function select_friends() {
             console.log(friendsList);
             sessionStorage.setItem('friendsList', friendsList);
         });
-        if(friendsList.length < 2 || friendsList.length > 5){
-            $(document).ready(function(){
+        if (friendsList.length < 2 || friendsList.length > 5) {
+            $(document).ready(function () {
                 $('.toast').toast('show');
-              });
-              friendsList = []
+            });
+            friendsList = []
         }
     });
 }
 
 function enter_rounds() {
-$('#begin').click(function (){
-    shuffle();
-    console.log($('#round-num').val());
-    let round_num = $('#round-num').val();
-    sessionStorage.setItem('round_num', round_num);
-});
+    $('#begin').click(function () {
+        // shuffle();
+        console.log($('#round-num').val());
+        let round_num = $('#round-num').val();
+        sessionStorage.setItem('round_num', round_num);
+    });
 }
 
-function shuffle(){
-    let shuffled = []
-    let unshuffled = []
-    db.collection("scenarios").get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            unshuffled.push(doc.data())
-        });
-        while(unshuffled.length > 0){
-            let new_index = Math.floor(Math.random() * unshuffled.length)
-            let new_scenario = unshuffled[new_index]['scenario']
-            unshuffled.splice(new_index, 1)
-            shuffled.push(new_scenario)
-        }
-        sessionStorage.setItem('scenarios', shuffled)
+function redirect() {
+    $('#begin').click(function () {
+        document.location.href = '/game.html';
     });
 }
