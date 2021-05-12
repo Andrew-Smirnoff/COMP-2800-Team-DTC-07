@@ -96,7 +96,10 @@ function shuffle(){
             all_scenarios.splice(rand, 1)
         }
         console.log(shuffled)
+        let temp = []
         sessionStorage.setItem('scenarios', JSON.stringify(shuffled))
+        sessionStorage.setItem('all_scenarios', JSON.stringify(temp))
+        sessionStorage.setItem('player_counter', 0)
         document.location.href = "./game.html";
     })
 }
