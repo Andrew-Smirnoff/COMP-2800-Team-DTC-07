@@ -3,9 +3,10 @@
 }
 
 body {
-    /* background-image: url("../images/store.png"); */
+    background-image: url("../images/store.png");
     background-color: #cccccc;
     background-size: 100%;
+
 }
 
 .bottom-navbar{
@@ -27,9 +28,10 @@ body {
 
 /* Style the tab */
 .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    margin-top: 25vh;
+    overflow: scroll;
+    border: 3px solid rgb(5, 4, 4);
+    background-color: #9354A4;
   }
   
   /* Style the buttons that are used to open the tab content */
@@ -41,22 +43,34 @@ body {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-    background-color: #ddd;
+    width: 49vw;
   }
   
   /* Create an active/current tablink class */
   .tab button.active {
-    background-color: #ccc;
+    background-color: rgb(173, 104, 187);
   }
   
   /* Style the tab content */
   .tabcontent {
     display: none;
-    padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+  }
+
+  img {
+      border-radius: 50%;
+      width: 15vh;
+  }
+
+  .pic-container {
+      background-color: #9354A4;
+
+      display: grid;
+      grid-template-columns: 33vw 33vw 33vw;
+  }
+
+  .price {
+      color: black;
+      
   }
