@@ -15,7 +15,7 @@
 
     <!-- Optional styles and scripts of your own -->
     <link rel="stylesheet" href="styles/choosefriends.css">
-    <link rel="shortcut icon" type="image/jpg" href="images/icon_without_background.png"/>
+    <link rel="shortcut icon" type="image/jpg" href="images/icon_without_background.png" />
 </head>
 
 <body>
@@ -26,27 +26,50 @@
             <button id="back">Back</button>
             <img src="./images/logo_title.png" id="logo">
         </div>
-        
+
         <form></form>
 
         <div id="round-container">
             <h1>Rounds</h1>
-            <button class="btns" id="decrement-btn"><h1>-</h1></button>
+            <button class="btns" id="decrement-btn">
+                <h1>-</h1>
+            </button>
             <input type="text" id="round-num" value="1" min="1" max="100">
-            <button class="btns" id="increment-btn"><h1>+</h1></button> 
-            
+            <button class="btns" id="increment-btn">
+                <h1>+</h1>
+            </button>
+
             <button type="submit" id="begin">BEGIN GAME</button>
+            
             <div class="toast">
                 <div class="toast-header">
-                  Insufficient Players
+                    Insufficient Players
                 </div>
                 <div class="toast-body">
-                  You must select 2-5 other players.
+                    You must select 2-5 other players.
                 </div>
-              </div>
+            </div>
+
+            <div class="toast">
+                <div class="toast-header">
+                    Insufficient Players
+                </div>
+                <div class="toast-body">
+                    You must select 2-5 other players.
+                </div>
+            </div>
+
+            <div class="toast-round">
+                <div class="toast-header">
+                    Round number goes over the limit.
+                </div>
+                <div class="toast-body">
+                    Please enter round number between 2 and 10.
+                </div>
+            </div>
         </div>
 
-        
+
         <div class="grid-item">
             <div class="bottom-navbar">
                 <a href='/'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
