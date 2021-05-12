@@ -4,7 +4,6 @@ const max_round_num = 9;
 main();
 
 function main() {
-    shuffle();
     before_game();
     increment_btn();
     decrement_btn();
