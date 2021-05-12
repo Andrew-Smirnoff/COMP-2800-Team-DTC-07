@@ -77,6 +77,7 @@ function redirect() {
             round_num = 1;
             sessionStorage.setItem('round_num', round_num);
         } else {
+            sessionStorage.setItem('round_num', round_num);
             shuffle()
         }
     });
@@ -94,6 +95,7 @@ function shuffle(){
             shuffled.push(all_scenarios[rand])
             all_scenarios.splice(rand, 1)
         }
+        console.log(shuffled)
         sessionStorage.setItem('scenarios', JSON.stringify(shuffled))
         document.location.href = "./game.html";
     })
