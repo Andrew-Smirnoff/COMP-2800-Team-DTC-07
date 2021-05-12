@@ -1,10 +1,13 @@
+greeting();
+showQuotes();
+
 // console.log(sessionStorage.getItem('scenarios'));
 
 // let scenarioString = sessionStorage.getItem('scenarios');
 // console.log('scenarioString_type: ', typeof(scenarioString));
 
 // createScenarios();
-showQuotes();
+// showQuotes();
 
 // function createScenarios() {
 //     for (let i = 1; i <= 10; i++) { //create 10
@@ -26,20 +29,44 @@ showQuotes();
 //     }
 // }
 
+// function showQuotes() {
+//     let rand = 5;
+//     db.collection("scenarios").where("random", "==", rand)
+//         .get()
+//         .then(function (snap) {             //collection of scenarios, just one
+//             snap.forEach(function (doc) {   //just cycle thru one
+//                 //console.log(doc.data());
+//                 var list = doc.data().scenario;  //get array called "scenario"
+//                 if (list) {
+//                     list.forEach(function (item) {   //cycle thru array
+//                         console.log(item);
+//                         $("#quotes-go-here").append(item+ "\n");
+//                     })
+//                 }
+//             })
+//         })
+// }
+
+function greeting(){
+    $('#name-goes-here').text(sessionStorage.getItem('name'))
+}
+
 function showQuotes() {
-    let rand = 5;
-    db.collection("scenarios").where("random", "==", rand)
+    let rand = Math.floor((Math.random() * 10) + 1);
+    db.collection("scenario").where("random", "==", rand)
         .get()
         .then(function (snap) {             //collection of scenarios, just one
+            console.log('snap ', snap)
             snap.forEach(function (doc) {   //just cycle thru one
-                //console.log(doc.data());
                 var list = doc.data().scenario;  //get array called "scenario"
                 if (list) {
                     list.forEach(function (item) {   //cycle thru array
                         console.log(item);
-                        $("#quotes-go-here").append(item+ "\n");
+                        $("#scenario-goes-here").append(item+ "\n");
                     })
                 }
             })
         })
 }
+
+
