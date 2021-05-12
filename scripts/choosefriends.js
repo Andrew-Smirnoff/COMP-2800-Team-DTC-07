@@ -1,5 +1,5 @@
 const min_round_num = 2;
-const max_round_num = 10;
+const max_round_num = 9;
 
 main();
 
