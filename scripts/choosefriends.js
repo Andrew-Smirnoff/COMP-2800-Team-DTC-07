@@ -1,3 +1,6 @@
+const min_round_num = 2;
+const max_round_num = 9;
+
 main();
 
 function main() {
@@ -5,13 +8,15 @@ function main() {
     before_game();
     increment_btn();
     decrement_btn();
-    select_friends();
-    enter_rounds();
+    redirect();
 }
 
 function before_game() {
     let friends_list = sessionStorage.getItem('friends')
+    // console.log(friends_list);
+    // console.log('friends_list_type: ', typeof(friends_list));
     friends_list = friends_list.split(",")
+    // console.log('friends_list_type2: ', typeof(friends_list));  
     let form = document.querySelector('form')
     for (i = 0; i < friends_list.length; i++) {
         let new_box = document.createElement('input');
@@ -47,45 +52,52 @@ function decrement_btn() {
     });
 }
 
-function select_friends() {
+function redirect() {
     $('#begin').click(function () {
         let friendsList = [];
+        round_num = $('#round-num').val();
         $('input[name="friend-name"]:checked').each(function () {
             friend = this.value;
             friendsList.push(friend);
             console.log(friendsList);
             sessionStorage.setItem('friendsList', friendsList);
         });
-        if(friendsList.length < 2 || friendsList.length > 5){
-            $(document).ready(function(){
+        if (friendsList.length < 2 || friendsList.length > 5) {
+            $(document).ready(function () {
+                $(".toast-header").text("Insufficient Players");
+                $(".toast-body").text("Please select two to five players to begin the game.");
                 $('.toast').toast('show');
-              });
-              friendsList = []
+            });
+            friendsList = []
+        } else if (round_num < min_round_num || round_num > max_round_num) {
+            $(document).ready(function () {
+                $(".toast-header").text("Insufficient Number of Rounds");
+                $(".toast-body").text("You must play two to nine rounds to begin the game.");
+                $('.toast').toast('show');
+            });
+            round_num = 1;
+            sessionStorage.setItem('round_num', round_num);
+        } else {
+            sessionStorage.setItem('round_num', round_num);
+            shuffle()
         }
     });
-}
-
-function enter_rounds() {
-$('#begin').click(function (){
-    console.log($('#round-num').val());
-    let round_num = $('#round-num').val();
-    sessionStorage.setItem('round_num', round_num);
-});
 }
 
 function shuffle(){
+    let all_scenarios = []
     let shuffled = []
-    let unshuffled = []
-    db.collection("scenarios").get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            unshuffled.push(doc.data())
-        });
-        while(unshuffled.length > 0){
-            let new_index = Math.floor(Math.random() * unshuffled.length)
-            let new_scenario = unshuffled[new_index]['scenario']
-            unshuffled.splice(new_index, 1)
-            shuffled.push(new_scenario)
+    db.collection("scenario").get().then(function(snap){
+        snap.forEach(function(doc){
+            all_scenarios.push(doc.data().scenario[0])
+        })
+        for(i = 0; i < sessionStorage.getItem('round_num'); i++){
+            let rand = Math.floor(Math.random() * all_scenarios.length);
+            shuffled.push(all_scenarios[rand])
+            all_scenarios.splice(rand, 1)
         }
-        sessionStorage.setItem('scenarios', shuffled)
-    });
+        console.log(shuffled)
+        sessionStorage.setItem('scenarios', JSON.stringify(shuffled))
+        document.location.href = "./game.html";
+    })
 }
