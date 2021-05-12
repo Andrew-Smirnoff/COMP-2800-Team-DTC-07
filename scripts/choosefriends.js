@@ -63,9 +63,6 @@ function redirect() {
         $('input[name="friend-name"]:checked').each(function () {
             friend = this.value;
             friendsList.push(friend);
-            // friendsList.push(name);  //push the main player into the list
-            // console.log(friendsList);
-            // sessionStorage.setItem('all_friends', friendsList);
         }
         );
         if (friendsList.length < 2 || friendsList.length > 5) {
@@ -87,7 +84,6 @@ function redirect() {
             sessionStorage.setItem('round_num', round_num);
             shuffle()
         }
-        // friendsList.push(name);  //push the main player into the list
         sessionStorage.setItem('all_friends', friendsList);
     });
 }
