@@ -6,6 +6,7 @@ function main() {
     decrement_btn();
     select_friends();
     enter_rounds();
+    shuffle();
     redirect();
 }
 
@@ -84,20 +85,15 @@ function redirect() {
 }
 
 function shuffle(){
+    let all_scenarios = []
     let shuffled = []
-    for(i = 0; i < sessionStorage.getItem('round_num'); i++){
-        let rand = Math.floor((Math.random() * 10) + 1);
-        db.collection("scenario").where("random", "==", rand)
-        .get()
-        .then(function (snap) {             //collection of scenarios, just one
-            snap.forEach(function (doc) {   //just cycle thru one
-                var list = doc.data().scenario;  //get array called "scenario"
-                if (list) {
-                    list.forEach(function (item) {   //cycle thru array
-                        shuffled.push(item)
-                    })
-                }
-            })
+    db.collection("scenario").get().then(function(snap){
+        snap.forEach(function(doc){
+            all_scenarios.push(doc.data().scenario[0])
         })
+    })
+    for(i = 0; i < all_scenarios.length; i++){
+        let rand = Math.floor(Math.random() * all_scenarios.length);
+        shuffled.push(all_scenarios[rand])
     }
 }
