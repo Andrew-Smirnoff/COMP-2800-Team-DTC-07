@@ -1,29 +1,6 @@
 let players = []
 let stories = []
 
-const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
-
-const refresh = async () => {
-    while (1 > 0) {
-      await sleep(2000)
-      db.collection("user_stories").get().then(function (snap) {
-        snap.forEach(function (doc) {
-            stories.push(doc.data())
-            if(stories.length >= players.length){
-                // Redirect
-                
-            } else {
-                stories = []
-                console.log("NOT DONE")
-            }
-        })
-    })    
-    }
-  }
-  refresh();
-
 db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
     $("#scenario-goes-here").text(snap.data()['scenarios'][0])
 })
@@ -45,15 +22,15 @@ $("#submit-btn").click(function(){
     $("#story").val('')
     db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function(snap){
         let story_array = snap.data()['stories']
-        let dict = {'name': sessionStorage.getItem('name'), 'story': new_story}
+        let dict = {'name': sessionStorage.getItem('name'), 'story': new_story, 'points': 0}
         story_array.push(dict)
         db.collection("rooms").doc(sessionStorage.getItem('room')).update({
             stories: story_array
         }).then(function(){
             db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function(snap){
                 console.log(snap.data()['stories'])
-                if(snap.data()['stories'].length >= 4){
-                    document.location.href = "./voting.html";
+                if(snap.data()['stories'].length >= 1){
+                    document.location.href = "./answer_waiting.html";
                 }
             })
         })

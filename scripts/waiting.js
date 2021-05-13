@@ -9,7 +9,6 @@ const refresh = async () => {
       await sleep(2000)
       db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
         players_waiting = snap.data()['players']
-        console.log(players_waiting)
         if(players_waiting.length >= 1){
             shuffle();
         }
