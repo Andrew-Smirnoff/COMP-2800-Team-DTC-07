@@ -1,4 +1,4 @@
-function storeChoice(evt, cityName) {
+function storeChoice(evt, choiceName) {
     // Declare all variables
     var i, tabcontent, tablinks;
   
@@ -15,8 +15,25 @@ function storeChoice(evt, cityName) {
     }
   
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(choiceName).style.display = "grid";
     evt.currentTarget.className += " active";
   }
 
-  document.getElementById("defaultOpen").click();
+document.getElementById("defaultOpen").click();
+
+
+function displayBalance() {
+  db.collection("users").get()
+    .then(function (snap) {
+      snap.forEach(function (doc) {
+        // console.log(doc.data().name)
+        // console.log(doc.data().coins)
+        if (doc.data().name == sessionStorage.name) {
+          console.log(doc.data().coins)
+          $('#balance-goes-here').text(doc.data().coins);    
+        }
+      })
+
+    })
+}
+displayBalance();
