@@ -6,7 +6,10 @@ body {
     background-image: url("../images/store.png");
     background-color: #cccccc;
     background-size: 100%;
+}
 
+main {
+    margin-bottom: 8vh;
 }
 
 .bottom-navbar{
@@ -47,6 +50,12 @@ body {
   
   .tab button.active {
     background-color: #a65eb9;
+  }
+
+  .tabcontent {
+    height: 56.5vh;
+    overflow-y:scroll;
+    width:100%;
   }
 
  .profile-pic {

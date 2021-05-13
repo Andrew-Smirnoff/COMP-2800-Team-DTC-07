@@ -1,3 +1,5 @@
+
+// for tab display
 function storeChoice(evt, choiceName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -21,7 +23,7 @@ function storeChoice(evt, choiceName) {
 
 document.getElementById("defaultOpen").click();
 
-
+// for display user coin balance
 function displayBalance() {
   db.collection("users").get()
     .then(function (snap) {
@@ -37,3 +39,4 @@ function displayBalance() {
     })
 }
 displayBalance();
+
