@@ -40,3 +40,24 @@ function displayBalance() {
 }
 displayBalance();
 
+function displayProfilePicsInStore() {
+  db.collection("profile_pictures").get()
+  .then(function(snap) {
+    snap.forEach(function (doc) {
+      // console.log('doc: ', doc.data())
+      // console.log('name: ', doc.data().name)
+      let name = doc.data().name;
+      let price = doc.data().price;
+      let pic_url = doc.data().url;
+      // console.log(name);
+      // console.log(price);
+      console.log(pic_url);
+
+      $('.tabcontent').append("<div class='pic-container'></div>");
+      $('.pic-container:last').append("<img class='profile-pic' src=' " + pic_url + " ' alt='Avatar'>");
+      $('.pic-container:last').append("<p class='price'> price " + price + "</p>");
+      $('.pic-container:last').append("<button>buy</button>");
+    })
+  })
+}
+displayProfilePicsInStore();
