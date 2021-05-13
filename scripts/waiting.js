@@ -10,7 +10,7 @@ const refresh = async () => {
       db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
         players_waiting = snap.data()['players']
         console.log(players_waiting)
-        if(players_waiting.length >= 2){
+        if(players_waiting.length >= 1){
             shuffle();
         }
         let old_li = document.querySelectorAll('li')
@@ -41,12 +41,10 @@ function shuffle(){
             shuffled.push(all_scenarios[rand])
             all_scenarios.splice(rand, 1)
         }
-        for(i = 0; i < shuffled.length; i++){
-            db.collection("scenario_cards").doc(i.toString()).set({
-                scenario: shuffled[i]
-            }).then(function(){
-                document.location.href = "./game2.html";
-            })
-        }
+        db.collection("rooms").doc(sessionStorage.getItem('room')).update({
+            scenarios: shuffled
+        }).then(function(){
+            document.location.href = "./game2.html";
+        })
     })
 }

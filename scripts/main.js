@@ -25,9 +25,9 @@ $("#start").click(function(){
         if(snap.exists){
             let players = snap.data()['players']
             players.push(sessionStorage.getItem('name'))
-            db.collection('rooms').doc(room_number).set({
-                room_number: room_number,
-                players: players
+            db.collection('rooms').doc(room_number).update({
+                players: players,
+                stories: []
             }).then(function(){
                 sessionStorage.setItem('room', room_number)
                 document.location.href = "./waiting.html";
@@ -35,7 +35,8 @@ $("#start").click(function(){
         } else {
             db.collection('rooms').doc(room_number).set({
                 players: [sessionStorage.getItem('name')],
-                room_number: room_number
+                room_number: room_number,
+                stories: []
             }).then(function(){
                 sessionStorage.setItem('room', room_number)
                 document.location.href = "./waiting.html";

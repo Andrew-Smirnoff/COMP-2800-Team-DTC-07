@@ -13,7 +13,7 @@ const refresh = async () => {
             stories.push(doc.data())
             if(stories.length >= players.length){
                 // Redirect
-                console.log('DONE')
+                
             } else {
                 stories = []
                 console.log("NOT DONE")
@@ -24,28 +24,38 @@ const refresh = async () => {
   }
   refresh();
 
-db.collection("scenario_cards").get().then(function (snap) {
-    snap.forEach(function (doc) {
-        $("#scenario-goes-here").text(doc.data()['scenario'])
-    })
+db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
+    $("#scenario-goes-here").text(snap.data()['scenarios'][0])
 })
 
-db.collection("waiting").get().then(function (snap) {
-    snap.forEach(function (doc) {
-        players = doc.data()['players']
-        for (i = 0; i < players.length; i++) {
-            let new_li = document.createElement('li')
-            let ul = document.querySelector('ul')
-            new_li.innerHTML = players[i]
-            ul.appendChild(new_li)
-        }
-    })
+// setting list of names
+db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
+    let players = snap.data()['players']
+    for (i = 0; i < players.length; i++) {
+        let new_li = document.createElement('li')
+        let ul = document.querySelector('ul')
+        new_li.innerHTML = players[i]
+        ul.appendChild(new_li)
+    }
 })
 
+// submitting a story to DB
 $("#submit-btn").click(function(){
     let new_story = $("#story").val();
     $("#story").val('')
-    db.collection("user_stories").doc(sessionStorage.getItem('name')).set({
-        story: new_story
+    db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function(snap){
+        let story_array = snap.data()['stories']
+        let dict = {'name': sessionStorage.getItem('name'), 'story': new_story}
+        story_array.push(dict)
+        db.collection("rooms").doc(sessionStorage.getItem('room')).update({
+            stories: story_array
+        }).then(function(){
+            db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function(snap){
+                console.log(snap.data()['stories'])
+                if(snap.data()['stories'].length >= 4){
+                    document.location.href = "./voting.html";
+                }
+            })
+        })
     })
 })
