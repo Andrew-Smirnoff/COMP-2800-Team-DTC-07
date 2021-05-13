@@ -2,7 +2,7 @@ main();
 
 function main(){
     sessionStorage.setItem('player_counter', 0);
-    sessionStorage.setItem('all_scenarios', JSON.stringify([]));
+    sessionStorage.setItem('all_scenarios', JSON.stringify({}));
     greeting();
     showStory();
     display_names();
@@ -15,6 +15,7 @@ function setup_submit(){
         let player_list = sessionStorage.getItem('friendsList').split(',')
         let player_counter = sessionStorage.getItem('player_counter')
         let new_story = $("#story").val();
+        user_scenarios.set('foo', 'bar')
         user_scenarios.push(new_story)
         $("#story").val('')
         player_counter++

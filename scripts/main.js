@@ -18,3 +18,28 @@ function startApp() {
         }
     })
 }
+
+$("#start").click(function(){
+    let room_number = $("#room_number").val();
+    db.collection('rooms').doc(room_number).get().then(function(snap){
+        if(snap.exists){
+            let players = snap.data()['players']
+            players.push(sessionStorage.getItem('name'))
+            db.collection('rooms').doc(room_number).set({
+                room_number: room_number,
+                players: players
+            }).then(function(){
+                sessionStorage.setItem('room', room_number)
+                document.location.href = "./waiting.html";
+            })
+        } else {
+            db.collection('rooms').doc(room_number).set({
+                players: [sessionStorage.getItem('name')],
+                room_number: room_number
+            }).then(function(){
+                sessionStorage.setItem('room', room_number)
+                document.location.href = "./waiting.html";
+            })
+        }
+    })
+})
