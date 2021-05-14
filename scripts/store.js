@@ -1,3 +1,6 @@
+$("#back").click(function(){
+    document.location.href = "./main.html";
+})
 
 // for tab display
 function storeChoice(evt, choiceName) {
