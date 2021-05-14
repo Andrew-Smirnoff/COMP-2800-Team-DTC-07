@@ -40,7 +40,8 @@ $("#start").click(function(){
             db.collection('rooms').doc(room_number).set({
                 players: [sessionStorage.getItem('name')],
                 room_number: room_number,
-                stories: [dict]
+                stories: [dict],
+                votes: 0
             }).then(function(){
                 sessionStorage.setItem('room', room_number)
                 document.location.href = "./waiting.html";

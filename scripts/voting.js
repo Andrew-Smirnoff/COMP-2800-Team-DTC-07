@@ -23,15 +23,18 @@ $('#submit').click(function(){
         let vote = this.value;
         db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
             let stories = snap.data()['stories']
+            let vote_count = snap.data()['votes']
+            vote_count++;
             for(i = 0; i < stories.length; i++){
                 if(stories[i]['name'] == vote){
                     stories[i]['points'] ++;
                     stories[i]['current_points'] ++;
                     console.log(stories)
                     db.collection('rooms').doc(sessionStorage.getItem('room')).update({
-                        stories: stories
+                        stories: stories,
+                        votes: vote_count
                     }).then(function(){
-                        document.location.href = "./results.html";
+                        document.location.href = "./vote_waiting.html";
                     })
                 }
             }

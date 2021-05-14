@@ -16,29 +16,6 @@ db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (
     }
 })
 
-// submitting a story to DB
-/*
-$("#submit-btn").click(function(){
-    let new_story = $("#story").val();
-    $("#story").val('')
-    db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function(snap){
-        let story_array = snap.data()['stories']
-        let dict = {'name': sessionStorage.getItem('name'), 'story': new_story, 'points': 0}
-        story_array.push(dict)
-        db.collection("rooms").doc(sessionStorage.getItem('room')).update({
-            stories: story_array
-        }).then(function(){
-            db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function(snap){
-                console.log(snap.data()['stories'])
-                if(snap.data()['stories'].length >= 1){
-                    document.location.href = "./answer_waiting.html";
-                }
-            })
-        })
-    })
-})
-*/
-
 $("#submit-btn").click(function(){
     let all_stories = []
     let story = $("#story").val();

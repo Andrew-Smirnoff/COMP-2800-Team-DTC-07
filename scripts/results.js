@@ -14,10 +14,12 @@ $("#continue").click(function () {
         let stories = snap.data()['stories'];
         for (i = 0; i < stories.length; i++) {
             stories[i]['current_points'] = 0
+            stories[i]['story'] = ""
         }
         console.log(stories)
         db.collection('rooms').doc(sessionStorage.getItem('room')).update({
-            stories: stories
+            stories: stories,
+            votes: 0
         }).then(function () {
             document.location.href = "./game2.html";
         })
