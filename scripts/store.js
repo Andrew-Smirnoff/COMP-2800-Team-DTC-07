@@ -40,6 +40,12 @@ function displayBalance() {
 }
 displayBalance();
 
+function displayBalanceAfterBuying(balance) {
+  
+  $('#balance-goes-here').text(balance);
+
+}
+
 function displayProfilePicsInStore() {
   db.collection("profile_pictures").get()
     .then(function (snap) {
@@ -62,43 +68,50 @@ function displayProfilePicsInStore() {
 }
 displayProfilePicsInStore();
 
+// to get document_id in sessionStorage
+function getDocumentId() {
+  firebase.auth().onAuthStateChanged((user) => {
+    let document_id = user.uid
+    console.log('document_id: ', document_id)
+    sessionStorage.setItem('document_id', document_id)
+  });
+}
+getDocumentId();
+
+// to get item_price in sessionStorage
 function buy(id) {
-  // console.log(id)
+  console.log('btn-id: ', id) // btn-id: Tired, Angry, Solider...
   db.collection("profile_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
         if (id == doc.data().name) {
-          var item_price = doc.data().price;
-          console.log(item_price);  // get the corresponding item price
-          sessionStorage.setItem('item_price', item_price);
-
-          firebase.auth().onAuthStateChanged((user) => {
-            let document_id = user.uid
-            console.log('document_id: ', document_id)
-            sessionStorage.setItem('document_id', document_id)
-          });
-
-          // db.collection("users").get()
-          // .then(function(snap){
-          //   snap.forEach(function(doc){
-          //     if (doc.data().name == sessionStorage.getItem('name')) {
-
-          //       db('users').doc(document_id).update({'coins': doc.data().coins - item_price})
-          //       // console.log()
-          //     }
-          //   })
-          // })
+          let item_price = doc.data().price;
+          console.log('item_price: ', item_price)
+          // sessionStorage.setItem('item_price', item_price)
+          let document_id = sessionStorage.getItem('document_id');
+          console.log('33', document_id);
+          console.log('44', typeof (document_id));
+          updateDatabase(document_id, item_price);          
         }
+        
       })
     })
 }
 
-function updateCoinsDatabase() {
-  let item_price = sessionStorage.getItem('item_price')
-  db.collection("users")
-            .doc(sessionStorage.getItem('document_id'))
-            .update({
-              "coins": doc.data().coins - item_price
-            });
+function updateDatabase(document_id, item_price) {
+
+  db.collection('users').doc(document_id).get().then((doc) => {
+    console.log('3: ', doc.data());
+    console.log('coins', doc.data().coins)
+    let balance = doc.data().coins - item_price;
+    
+    db.collection("users")
+      .doc(document_id).update({
+        "coins": balance
+      })
+      displayBalanceAfterBuying(balance);
+      console.log('current balance', balance)
+  })
+  
 }
-updateCoinsDatabase();
+
