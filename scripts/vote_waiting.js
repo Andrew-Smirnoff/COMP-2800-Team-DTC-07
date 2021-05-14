@@ -7,7 +7,7 @@ const sleep = (milliseconds) => {
       await sleep(2000)
       db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
         let votes = snap.data()['votes']
-        if (votes == 2) {
+        if (votes == 3) {
           document.location.href = "./results.html";
         }
         next_page = true;
