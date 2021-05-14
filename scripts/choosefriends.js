@@ -102,6 +102,8 @@ function shuffle() {
         }
         console.log(shuffled)
         sessionStorage.setItem('scenarios', JSON.stringify(shuffled))
+        sessionStorage.setItem('all_scenarios', JSON.stringify({}))
+        sessionStorage.setItem('player_counter', 0)
         document.location.href = "./game.html";
     })
 }
