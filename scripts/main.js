@@ -36,6 +36,7 @@ $("#start").click(function(){
                 document.location.href = "./waiting.html";
             })
         } else {
+            sessionStorage.setItem('is_host', true)
             let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0}
             db.collection('rooms').doc(room_number).set({
                 players: [sessionStorage.getItem('name')],
