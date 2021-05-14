@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 
     <!-- Optional styles and scripts of your own -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/waiting.css">
 </head>
 
 <body>
@@ -25,13 +25,9 @@
     <!-- Header Navigation Bar -->
     <!-- <h1 class="display-4"> Hello, <span id="name-goes-here">CST!</span> </h1> -->
     <section class="grid-container">
+        <h1 id='waiting'>Waiting for players...</h1>
+        <ul id='player_list'></ul>
 
-        <div class="grid-item">
-            <h1 class="greeting">Welcome, <span id="name-goes-here">wait for the name :)</span></h1>
-        </div>
-        <textarea id='room_number'></textarea>
-        <div class="grid-item"><button id="start">Start Game</button></div>
-        <div class="grid-item"><a href='login.html'><button id="logout">Log Out</button></a></div>
         <div class="grid-item">
             <div class="bottom-navbar">
                 <a href='/'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
@@ -56,7 +52,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebase_api.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/vote_waiting.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->

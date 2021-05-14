@@ -12,9 +12,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-
-    <!-- Optional styles and scripts of your own -->
-    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
@@ -24,23 +21,11 @@
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
     <!-- <h1 class="display-4"> Hello, <span id="name-goes-here">CST!</span> </h1> -->
-    <section class="grid-container">
+    <h1>Voting Time</h1>
+    <form>
 
-        <div class="grid-item">
-            <h1 class="greeting">Welcome, <span id="name-goes-here">wait for the name :)</span></h1>
-        </div>
-        <textarea id='room_number'></textarea>
-        <div class="grid-item"><button id="start">Start Game</button></div>
-        <div class="grid-item"><a href='login.html'><button id="logout">Log Out</button></a></div>
-        <div class="grid-item">
-            <div class="bottom-navbar">
-                <a href='/'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
-                <a href='/'><span class="iconify" data-icon="eva:book-fill" data-inline="false"></span></a>
-                <a href='./profile.html'><span class="iconify" data-icon="mdi:account-box" data-inline="false"></span></a>
-            </div>
-        </div>
-
-    </section>
+    </form>
+    <button id="submit">SUBMIT</button>
 
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!----------------------------------------------->
@@ -56,7 +41,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebase_api.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/voting.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
