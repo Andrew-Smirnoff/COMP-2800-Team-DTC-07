@@ -1,0 +1,84 @@
+#logo{
+    margin-left: auto;
+    margin-right: auto;
+    width:300px;
+    display: block;
+}
+
+#about_us {
+    display: block;
+    background-color: #9354A4; 
+    color: black;
+    border: none;
+    width: 80vw;
+    height: 5vh;
+    font-size: larger;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+body {
+    background-image: url("../images/door.png");
+    background-color: #cccccc;
+    background-size: 100%;
+    display: grid;
+    grid-template-rows: 8fr 1fr;
+    height: 100vh;
+}
+
+form{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.firebaseui-container{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.firebaseui-card-header{
+    background-color: white;
+}
+
+.firebaseui-title{
+    text-align: center;
+}
+
+.firebaseui-card-content{
+    background-color: white;
+}
+
+.firebaseui-form-actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.mdl-button--raised.mdl-button--colored {
+    background: #9354a4;
+    color: rgb(255,255,255);
+    border: 1px solid black;
+    width: 110px;
+    height: 40px;
+    font-size: 20px;
+    grid-column: 3;
+}
+
+.mdl-button--raised.mdl-button--colored:hover {
+    background-color: #70407d;
+}
+
+.mdl-button--primary.mdl-button--primary {
+    background: #2d1d36;
+    color: white;
+    border: 1px solid black;
+    width: 110px;
+    height: 40px;
+    font-size: 20px;
+    grid-column: 1;
+    margin-left: 0px;
+}
+
+.firebaseui-card-footer {
+    padding: 0 24px;
+    display: none;
+}

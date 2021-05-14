@@ -1,0 +1,50 @@
+img {
+    width: 65%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 5px solid #9354a4;
+}
+
+body {
+    background-image: url("../images/door.png");
+    background-color: #cccccc;
+    background-size: 100%;
+    position: fixed;
+}
+
+.name{
+    text-align: center;
+}
+
+.description{
+    text-align: center;
+}
+
+.designer{
+    margin-top: 15px;
+    width: 70%;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2d1d36;
+    color: #9354a4;
+}
+
+.pictures{
+    overflow: scroll;
+    height: 100vh;
+}
+
+#about_description{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 3px;
+    text-align: center;
+    color: #9354a4;
+    background-color: #2d1d36;;
+}
