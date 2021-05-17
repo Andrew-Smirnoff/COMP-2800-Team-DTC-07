@@ -52,15 +52,19 @@ function decrement_btn() {
 }
 
 function redirect() {
+
+    friendsList = [];
+    let name = sessionStorage.getItem('name')
+    friendsList.push(name);
+
     $('#begin').click(function () {
-        let friendsList = [];
+        
         round_num = $('#round-num').val();
         $('input[name="friend-name"]:checked').each(function () {
             friend = this.value;
             friendsList.push(friend);
-            console.log(friendsList);
-            sessionStorage.setItem('friendsList', friendsList);
-        });
+        }
+        );
         if (friendsList.length < 2 || friendsList.length > 5) {
             $(document).ready(function () {
                 $(".toast-header").text("Insufficient Players");
@@ -80,17 +84,18 @@ function redirect() {
             sessionStorage.setItem('round_num', round_num);
             shuffle()
         }
+        sessionStorage.setItem('all_friends', friendsList);
     });
 }
 
-function shuffle(){
+function shuffle() {
     let all_scenarios = []
     let shuffled = []
-    db.collection("scenario").get().then(function(snap){
-        snap.forEach(function(doc){
+    db.collection("scenario").get().then(function (snap) {
+        snap.forEach(function (doc) {
             all_scenarios.push(doc.data().scenario[0])
         })
-        for(i = 0; i < sessionStorage.getItem('round_num'); i++){
+        for (i = 0; i < sessionStorage.getItem('round_num'); i++) {
             let rand = Math.floor(Math.random() * all_scenarios.length);
             shuffled.push(all_scenarios[rand])
             all_scenarios.splice(rand, 1)
