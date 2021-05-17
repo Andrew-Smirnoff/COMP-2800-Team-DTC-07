@@ -15,8 +15,14 @@ body {
     background-size: 100%;
 }
 
+#story {
+    border-color:#9354A4;
+    background-color: #2d1d36;
+    color:#9354A4;
+}
+
 .scenario-container {
-    background-color:gray;
+    background-color:#9354A4;
     grid-area: one;
     height: 20vh;
     width: 90vw;
@@ -59,6 +65,12 @@ input {
     height: 25vh;
     margin-left: auto;
     margin-right: auto;
+}
+
+#submit-btn {
+    color: #2d1d36;
+    background-color:#9354A4;
+    border: none;
 }
 
 .bottom-navbar {
