@@ -1,7 +1,6 @@
 players_waiting = []
 
 if(JSON.parse(sessionStorage.getItem('is_host')) == true){
-    console.log('hey')
     let host_header = document.createElement('h1');
     host_header.innerHTML = "You are the host"
     $("#host").append(host_header)
@@ -16,7 +15,7 @@ const refresh = async () => {
       await sleep(2000)
       db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
         players_waiting = snap.data()['players']
-        if(players_waiting.length >= 3){
+        if(players_waiting.length >= 1){
             shuffle();
         }
         let old_li = document.querySelectorAll('li')
