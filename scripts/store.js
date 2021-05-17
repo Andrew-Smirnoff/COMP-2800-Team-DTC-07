@@ -80,10 +80,10 @@ function displayBackgroundPicsInStore() {
         let price = doc.data().price;
         let url = doc.data().url;
 
-        $('.bgtabcontent').append("<div class='pic-cointainer'></div>");
-        $('.pic-container:last').append("<img class='profile-pic' src=' " + url + " ' alt='Background'>");
-        $('.pic-container:last').append("<p class='price'> price " + price + "</p>");
-        $('.pic-container:last').append("<button class ='buy-btn' id='" + name + " 'onclick='buy(this.id)'>buy</button>");
+        $('.bgtabcontent').append("<div class='pic-container1'></div>");
+        $('.pic-container1:last').append("<img class='bg-pic' src=' " + url + " ' alt='Background'>");
+        $('.pic-container1:last').append("<p class='price'> price " + price + "</p>");
+        $('.pic-container1:last').append("<button class ='bg-buy-btn' id='" + name + " 'onclick='buy(this.id)'>buy</button>");
       })
     }
   )
