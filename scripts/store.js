@@ -68,6 +68,28 @@ function displayProfilePicsInStore() {
 }
 displayProfilePicsInStore();
 
+function displayBackgroundPicsInStore() {
+  db.collection("background_pictures").get().then(
+    function (snap) {
+      snap.forEach(function (doc) {
+        console.log(doc.data().name);
+        console.log(doc.data().price);
+        console.log(doc.data().url);
+
+        let name = doc.data().name;
+        let price = doc.data().price;
+        let url = doc.data().url;
+
+        $('.bgtabcontent').append("<div class='pic-cointainer'></div>");
+        $('.pic-container:last').append("<img class='profile-pic' src=' " + url + " ' alt='Background'>");
+        $('.pic-container:last').append("<p class='price'> price " + price + "</p>");
+        $('.pic-container:last').append("<button class ='buy-btn' id='" + name + " 'onclick='buy(this.id)'>buy</button>");
+      })
+    }
+  )
+}
+displayBackgroundPicsInStore();
+
 // to get document_id in sessionStorage
 function getDocumentId() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -93,7 +115,6 @@ function buy(id) {
           console.log('44', typeof (document_id));
           updateDatabase(document_id, item_price);          
         }
-        
       })
     })
 }
