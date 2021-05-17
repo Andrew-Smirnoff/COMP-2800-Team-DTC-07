@@ -49,11 +49,12 @@ $("#submit-btn").click(function(){
             }
             db.collection("rooms").doc(sessionStorage.getItem('room')).update({
                 stories: all_stories
+            }).then(function(){
+                document.location.href = "./answer_waiting.html";
             })
         })
     }).then(() => {
         console.log("Transaction successfully committed!");
-        document.location.href = "./answer_waiting.html";
     }).catch((error) => {
         console.log("Transaction failed: ", error);
     });
