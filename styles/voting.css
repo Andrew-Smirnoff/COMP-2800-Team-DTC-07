@@ -1,0 +1,28 @@
+body {
+    background-image: url("../images/cliff.png");
+    background-color: #cccccc;
+    background-size: 100%;
+}
+
+body div {
+    grid-area: one;
+    height: 5vh;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 6vh;
+}
+
+#scroll {
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#submit {
+    color: #2d1d36;
+    background-color:#9354A4;
+    border: none;
+}
