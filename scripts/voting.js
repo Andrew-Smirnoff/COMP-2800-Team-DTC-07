@@ -30,11 +30,13 @@ $('#submit').click(function(){
                     stories[i]['points'] ++;
                     stories[i]['current_points'] ++;
                     console.log(stories)
-                    db.collection('rooms').doc(sessionStorage.getItem('room')).update({
-                        stories: stories,
-                        votes: vote_count
-                    }).then(function(){
-                        document.location.href = "./vote_waiting.html";
+                    db.runTransaction((transaction) => {
+                        return db.collection('rooms').doc(sessionStorage.getItem('room')).update({
+                            stories: stories,
+                            votes: vote_count
+                        }).then(function(){
+                            document.location.href = "./vote_waiting.html";
+                        })
                     })
                 }
             }
