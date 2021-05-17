@@ -40,7 +40,7 @@ $("#submit-btn").click(function(){
     let all_stories = []
     let story = $("#story").val();
     db.runTransaction((transaction) => {
-        db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
+        return db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
             all_stories = snap.data()['stories']
             for(i = 0; i < all_stories.length; i++){
                 if(all_stories[i]['name'] == sessionStorage.getItem('name')){
