@@ -18,15 +18,9 @@ $("#submit").click(function () {
                 stories[i]['story'] = ""
             }
             transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories,
-            votes: 0, rounds: snap.data()['rounds'] - 1})
+            votes: 0})
         })
     }).then(function () {
-        db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-            if(Math.floor(snap.data()['rounds'] / snap.data()['players'].length) == 0){
-                document.location.href = "./winner.html";
-            } else {
-                document.location.href = "./game2.html";
-            }
-        })
+        document.location.href = "./game2.html";
     })
 })

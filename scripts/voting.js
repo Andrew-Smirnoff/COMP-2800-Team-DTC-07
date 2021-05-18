@@ -30,8 +30,7 @@ $('#submit').click(function(){
                     if(stories[i]['name'] == vote){
                         stories[i]['points'] ++;
                         stories[i]['current_points'] ++;
-                        console.log(stories)
-                        transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories, votes: vote_count})
+                        transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories, votes: vote_count, rounds: snap.data()['rounds'] - 1})
                     }
                 }
             })
