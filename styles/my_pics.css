@@ -1,14 +1,14 @@
-.grid-container {
+/* .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: 50px, 20px, 40px, 20px; 
+    grid-template-columns: auto;
+    grid-template-rows: 30%, 10%, 50%, 10%;
     grid-template-areas: 
-    "one one"
-    "two two"
-    "three three"
-    "four four";
+    "one"
+    "two"
+    "three"
+    "four";
     
-}
+} */
 
 body {
     background-image: url("../images/Background\ pictures/cave.png");
@@ -31,13 +31,12 @@ body {
     grid-area: two;
 }
 
-.tabcontent pics {
+.tabcontent {
     grid-area: three;
 }
 
 .bottom-navbar {
-    grid-area: four; 
-    height: 30px; 
+    height: 100px; 
 }
 
 .tabcontent {
