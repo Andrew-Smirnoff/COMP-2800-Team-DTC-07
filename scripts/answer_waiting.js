@@ -10,6 +10,9 @@ const refresh = async () => {
       let all_stories = []
       for(let i = 0; i < snap.data()['stories'].length; i++){
         all_stories.push(snap.data()['stories'][i]['current_round'])
+        if (all_stories[i] == "") {
+          next_page = false
+        }
       }
       all_stories = all_stories.filter(check_round_number)
       if(all_stories.length == snap.data()['stories'].length){
