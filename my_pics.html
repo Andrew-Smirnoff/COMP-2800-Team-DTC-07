@@ -9,6 +9,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -24,8 +25,10 @@
                 <img class="prof-pics profpic2" src='./images/Profile pictures/cosplayer.png'>
                 <img class="prof-pics profpic3" src='./images/Profile pictures/scientist.png'>
                 <img class="prof-pics profpic4" src='./images/Profile pictures/pirate.png'>
-                <img class="prof-pics profpic4" src='./images/Profile pictures/pirate.png'>
-                <img class="prof-pics profpic4" src='./images/Profile pictures/pirate.png'>
+                <img class="prof-pics profpic1" src = './images/Profile pictures/fanboy.png'>
+                <img class="prof-pics profpic2" src='./images/Profile pictures/cosplayer.png'>
+                <img class="prof-pics profpic1" src = './images/Profile pictures/fanboy.png'>
+                <img class="prof-pics profpic2" src='./images/Profile pictures/cosplayer.png'>
 
             </div>
             <div id="bg-pics" class="tabcontent">
@@ -34,16 +37,26 @@
                 <img class="backgroundpic profpic3" src = './images/Background pictures/door.png'>
                 <img class="backgroundpic profpic4" src = './images/Background pictures/cliff.png'>
             </div>
+            <div class="bottom-navbar">
+                <a href='/'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
+                <a href='/'><span class="iconify" data-icon="eva:book-fill" data-inline="false"></span></a>
+                <a href='./profile.html'><span class="iconify" data-icon="mdi:account-box" data-inline="false"></span></a>
+            </div>
+
+            
+
             <!-- <div class="bottom-navbar">
                 <p>footer</p>
             </div> -->
         </main>
     </section>
-    <div class="bottom-navbar">
-        <a href='/'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
-        <a href='/'><span class="iconify" data-icon="eva:book-fill" data-inline="false"></span></a>
-        <a href='./profile.html'><span class="iconify" data-icon="mdi:account-box" data-inline="false"></span></a>
-    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <!-- Link to the api keys for your firebase project -->
+    <script src="scripts/firebase_api.js"></script>
     <script src="scripts/my_pics.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 </body>
 </html>

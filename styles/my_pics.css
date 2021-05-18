@@ -1,7 +1,7 @@
 /* .grid-container {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 30%, 10%, 50%, 10%;
+    grid-template-rows: 20%, 10%, 50%, 20%;
     grid-template-areas: 
     "one"
     "two"
@@ -36,16 +36,18 @@ body {
 }
 
 .bottom-navbar {
+    background-color: #9354A4;
     position: fixed;
-    display: block;
-    background-color: slateblue;
-    height: 100px;
-    width: 100px;
+    width: 100vw;
+    bottom: 0vh;
+    height: 8vh;
+    display: flex;
+    justify-content: space-around;
 }
 
 .tabcontent {
-    height: 56.5vh;
-    overflow-y:scroll;
+    height: 110vh;
+    overflow-y: scroll;
     width:100%;
     animation: fadeEffect 1s; 
   }
@@ -59,6 +61,7 @@ body {
     overflow: scroll;
     border: 3px solid rgb(5, 4, 4);
     background-color: #9354A4;
+    margin-bottom: 5px; 
   }
 
   .tab button {
@@ -79,7 +82,8 @@ body {
   .prof-pics {
       border-radius: 50%; 
       margin: 7vw; 
-      width: 35vw; 
+      margin-bottom: 0;
+      width: 35vw;
   }
 
   .backgroundpic {
@@ -90,8 +94,6 @@ body {
 
   #pics {
       display:grid;
-      grid-template-columns: repeat(2, 50vw);
-      grid-template-rows: auto; 
       grid-template-areas:
       "one two";
   }

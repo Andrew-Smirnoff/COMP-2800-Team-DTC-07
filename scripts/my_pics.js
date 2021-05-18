@@ -22,3 +22,14 @@ function openInventory(evt, inventoryType) {
 }
 
 document.getElementById("defaultOpen").click();
+
+
+// to get document_id in sessionStorage
+function getDocumentId() {
+    firebase.auth().onAuthStateChanged((user) => {
+      let document_id = user.uid
+      console.log('document_id: ', document_id)
+      sessionStorage.setItem('document_id', document_id)
+    });
+  }
+  getDocumentId();
