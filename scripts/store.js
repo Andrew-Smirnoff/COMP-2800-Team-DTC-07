@@ -1,13 +1,17 @@
 
-// for tab display
 function storeChoice(evt, choiceName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+
+  var i, tabcontent, bgtabcontent, tablinks;
 
   // Get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
+  }
+
+  bgtabcontent = document.getElementsByClassName("bg-tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    bgtabcontent[i].style.display = "none";
   }
 
   // Get all elements with class="tablinks" and remove the class "active"
@@ -59,7 +63,7 @@ function displayProfilePicsInStore() {
         // console.log(price);
         console.log(pic_url);
 
-        $('.tabcontent').append("<div class='pic-container'></div>");
+        $(".tabcontent:visible").append("<div class='pic-container' ></div>");
         $('.pic-container:last').append("<img class='profile-pic' src=' " + pic_url + " ' alt='Avatar'>");
         $('.pic-container:last').append("<p class='price'> price " + price + "</p>");
         $('.pic-container:last').append("<button class='buy-btn' id='" + name + "' onclick='buy(this.id)'>buy</button>");
@@ -67,6 +71,29 @@ function displayProfilePicsInStore() {
     })
 }
 displayProfilePicsInStore();
+
+function displayBgPicsInStore() {
+  db.collection("background_pictures").get()
+    .then(function (snap) {
+      snap.forEach(function (doc) {
+        // console.log('doc: ', doc.data())
+        // console.log('name: ', doc.data().name)
+        let name = doc.data().name;
+        let price = doc.data().price;
+        let bg_pic_url = doc.data().url;
+        // console.log(name);
+        // console.log(price);
+        // console.log(pic_url);
+
+        $('.bg-tabcontent').append("<div class='bg-pic-container'></div>");
+        $('.bg-pic-container:last').append("<img class='bg-pic' src=' " + bg_pic_url + " ' alt='Avatar'>");
+        $('.bg-pic-container:last').append("<p class='bg-price'> price " + price + "</p>");
+        $('.bg-pic-container:last').append("<button class='bg-buy-btn' id='" + name + "' onclick='buy(this.id)'>buy</button>");
+      })
+    })
+}
+displayBgPicsInStore();
+
 
 // to get document_id in sessionStorage
 function getDocumentId() {

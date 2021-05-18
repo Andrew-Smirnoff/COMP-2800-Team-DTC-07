@@ -1,11 +1,13 @@
 .grid-container {
     display: grid;
+;
 }
 
 body {
     background-image: url("../images/store.png");
-    background-color: #cccccc;
+    background-color: rgb(53, 17, 45);
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 main {
@@ -31,12 +33,11 @@ main {
 
 .tab {
     margin-top: 25vh;
-    overflow: scroll;
+    overflow: hidden;
     border: 3px solid rgb(5, 4, 4);
     background-color: #9354A4;
   }
   
-  /* Style the buttons that are used to open the tab content */
   .tab button {
     background-color: inherit;
     float: left;
@@ -79,7 +80,12 @@ main {
 
   .bg-pic {
       width: 48vw;
-      margin-left: 1vw
+      margin-left: 0;
+  }
+
+  .bg-price {
+      background-color: rgb(129, 63, 102);
+      margin-left: 5px;
   }
 
   #bgs {
