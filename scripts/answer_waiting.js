@@ -8,15 +8,15 @@ const refresh = async () => {
     await sleep(2000)
     db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
       let all_stories = []
-      for(let i = 0; i < snap.data()['stories'].length; i++){
-        all_stories.push(snap.data()['stories'][i]['current_round'])
-        if (all_stories[i] == "") {
+      for(i = 0; i < snap.data()['stories'].length; i++){
+        all_stories.push(snap.data()['stories'][i])
+        if (all_stories[i]['story'] == "") {
           next_page = false
         }
       }
       let filtered = all_stories.filter(check_round_number)
       console.log(filtered)
-      if(all_stories.length != snap.data()['stories'].length){
+      if(filtered.length != 0){
         next_page = false
       }
       if (next_page == true) {
@@ -28,8 +28,8 @@ const refresh = async () => {
 }
 refresh()
 
-function check_round_number(round_number){
+function check_round_number(story){
   db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-    return round_number == snap.data()['stories'][0]['current_round']
+    return story['current_round'] == snap.data()['stories'][0]['current_round']
   })
 }
