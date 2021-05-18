@@ -26,6 +26,6 @@ refresh()
 
 function check_round_number(round_number){
   db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-    return round_number == snap.data()['stories']['round_number']
+    return round_number == snap.data()['stories']['current_round']
   })
 }
