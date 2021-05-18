@@ -36,7 +36,11 @@ body {
 }
 
 .bottom-navbar {
-    height: 100px; 
+    position: fixed;
+    display: block;
+    background-color: slateblue;
+    height: 100px;
+    width: 100px;
 }
 
 .tabcontent {
