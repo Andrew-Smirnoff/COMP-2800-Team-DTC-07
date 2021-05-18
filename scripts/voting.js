@@ -21,25 +21,22 @@ db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(s
 $('#submit').click(function(){
     $('input:checked').each(function () {
         let vote = this.value;
-        db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-            let stories = snap.data()['stories']
-            let vote_count = snap.data()['votes']
-            vote_count++;
-            for(i = 0; i < stories.length; i++){
-                if(stories[i]['name'] == vote){
-                    stories[i]['points'] ++;
-                    stories[i]['current_points'] ++;
-                    console.log(stories)
-                    db.runTransaction((transaction) => {
-                        return db.collection('rooms').doc(sessionStorage.getItem('room')).update({
-                            stories: stories,
-                            votes: vote_count
-                        }).then(function(){
-                            document.location.href = "./vote_waiting.html";
-                        })
-                    })
+        db.runTransaction((transaction) => {
+            return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function(snap){
+                let stories = snap.data()['stories']
+                let vote_count = snap.data()['votes']
+                vote_count++;
+                for(i = 0; i < stories.length; i++){
+                    if(stories[i]['name'] == vote){
+                        stories[i]['points'] ++;
+                        stories[i]['current_points'] ++;
+                        console.log(stories)
+                        transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories, votes: vote_count})
+                    }
                 }
-            }
+            })
+        }).then(function(){
+            document.location.href = "./vote_waiting.html";
         })
     });
 })
