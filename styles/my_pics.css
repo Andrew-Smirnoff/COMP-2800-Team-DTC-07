@@ -1,12 +1,12 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: 50px, 20px, 40px, 20px; 
     grid-template-areas: 
     "one one"
-    "two three"
-    "four four"
-    "five five";
+    "two two"
+    "three three"
+    "four four";
     
 }
 
@@ -26,30 +26,32 @@ body {
     padding-top: 20px; 
 }
 
-.tab-pic {
+.tab {
+    margin-top: 20px; 
     grid-area: two;
 }
 
-.tab-bg {
-    grid-area: three
-}
-
 .tabcontent pics {
-    grid-area: four;
+    grid-area: three;
 }
 
 .bottomnavbar {
-    grid-area: five; 
+    grid-area: four; 
 }
 
 .tabcontent {
     height: 56.5vh;
     overflow-y:scroll;
     width:100%;
+    animation: fadeEffect 1s; 
+  }
+
+  @keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
   }
 
   .tab {
-    margin-top: 25vh;
     overflow: scroll;
     border: 3px solid rgb(5, 4, 4);
     background-color: #9354A4;
@@ -66,9 +68,28 @@ body {
     width: 49vw;
   }
 
+  .tab button.active {
+    background-color: rgb(139, 44, 151);
+  }
+
   .prof-pics {
       border-radius: 50%; 
-      margin: auto; 
-      width: 20vh; 
+      margin: 7vw; 
+      width: 17vh; 
   }
+
+  #pics {
+      display:grid;
+      grid-template-columns: repeat(2, 50vw);
+      grid-template-rows: auto; 
+      grid-template-areas:
+      "one two";
+  }
+
+
+
+
+
+
+
 

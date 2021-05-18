@@ -15,19 +15,25 @@
         <main>
             <img class="main-prof-pic" src='./images/Profile pictures/beepboop.png'>
             <div class="tab">
-                <button class="tab-pic" id="defaultOpen">Pictures</button>
-                <button class="tab-bg">Background</button>
+                <button class="tab-pic" id="defaultOpen" onClick="openInventory(event, 'pics')">Pictures</button>
+                <button class="tab-bg" onClick="openInventory(event, 'bg-pics')">Background</button>
             </div>
             <div id="pics" class="tabcontent">
                 <img class="prof-pics profpic1" src = './images/Profile pictures/fanboy.png'>
                 <img class="prof-pics profpic2" src='./images/Profile pictures/cosplayer.png'>
                 <img class="prof-pics profpic3" src='./images/Profile pictures/scientist.png'>
                 <img class="prof-pics profpic4" src='./images/Profile pictures/pirate.png'>
+                <img class="prof-pics profpic4" src='./images/Profile pictures/pirate.png'>
+                <img class="prof-pics profpic4" src='./images/Profile pictures/pirate.png'>
+            </div>
+            <div id="bg-pics" class="tabcontent">
+                <h1>BEEEEEEP BOOOOOOOOOP</h1>
             </div>
             <div class="bottom-navbar">
                 <p>footer</p>
             </div>
         </main>
     </section>
+    <script src="scripts/my_pics.js"></script>
 </body>
 </html>
