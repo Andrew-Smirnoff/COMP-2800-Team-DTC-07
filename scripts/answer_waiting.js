@@ -14,6 +14,7 @@ const refresh = async () => {
           next_page = false
         }
       }
+      console.log('success')
       all_stories = all_stories.filter(check_round_number)
       if(all_stories.length != snap.data()['stories'].length){
         next_page = false
