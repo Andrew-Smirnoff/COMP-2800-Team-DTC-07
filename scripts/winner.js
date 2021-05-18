@@ -6,3 +6,9 @@ db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(s
         $("ul").append(new_item)
     }
 })
+
+$("#finish").click(function(){
+    db.collection("rooms").doc(sessionStorage.getItem('room')).delete().then(() => {
+        document.location.href = "./main.html";
+    });
+})
