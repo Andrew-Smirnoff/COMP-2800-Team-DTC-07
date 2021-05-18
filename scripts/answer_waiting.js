@@ -14,9 +14,8 @@ const refresh = async () => {
           next_page = false
         }
       }
-      let filtered = all_stories.filter(check_round_number)
-      console.log(filtered)
-      if(filtered.length != 0){
+      let filtered = all_stories.filter(story => story['current_round'] == snap.data()['stories'][0]['current_round'])
+      if(filtered.length != all_stories.length){
         next_page = false
       }
       if (next_page == true) {
@@ -27,9 +26,3 @@ const refresh = async () => {
   }
 }
 refresh()
-
-function check_round_number(story){
-  db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-    return story['current_round'] == snap.data()['stories'][0]['current_round']
-  })
-}
