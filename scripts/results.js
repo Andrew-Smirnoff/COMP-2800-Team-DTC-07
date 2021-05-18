@@ -10,18 +10,17 @@ db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function (
 })
 
 $("#continue").click(function () {
-    db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function (snap) {
-        let stories = snap.data()['stories'];
-        for (i = 0; i < stories.length; i++) {
-            stories[i]['current_points'] = 0
-            stories[i]['story'] = ""
-        }
-        console.log(stories)
-        db.collection('rooms').doc(sessionStorage.getItem('room')).update({
-            stories: stories,
-            votes: 0
-        }).then(function () {
-            document.location.href = "./game2.html";
+    db.runTransaction((transaction) => {
+        return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function (snap) {
+            let stories = snap.data()['stories'];
+            for (i = 0; i < stories.length; i++) {
+                stories[i]['current_points'] = 0
+                stories[i]['story'] = ""
+            }
+            transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories,
+            votes: 0, rounds: snap.data()['rounds'] - 1})
         })
+    }).then(function () {
+        document.location.href = "./game2.html";
     })
 })
