@@ -88,7 +88,7 @@ function displayBgPicsInStore() {
         $('.bg-tabcontent').append("<div class='bg-pic-container'></div>");
         $('.bg-pic-container:last').append("<img class='bg-pic' src=' " + bg_pic_url + " ' alt='Avatar'>");
         $('.bg-pic-container:last').append("<p class='bg-price'> price " + price + "</p>");
-        $('.bg-pic-container:last').append("<button class='bg-buy-btn' id='" + name + "' onclick='buyBgPic(this.id)'>buy</button>");
+        $('.bg-pic-container:last').append("<button class='bg-buy-btn' id='" + name + "' onclick='buyBgPic(this.id);givePlayerBgPic(this.id);'>buy</button>");
       })
     })
 }
