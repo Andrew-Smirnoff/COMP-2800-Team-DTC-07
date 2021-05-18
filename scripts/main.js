@@ -37,9 +37,9 @@ $("#start").click(function(){
                 transaction.set(db.collection('rooms').doc(room_number), {players: [sessionStorage.getItem('name')],
                 room_number: room_number, stories: [dict], votes: 0})
             }
-        }).then(function(){
-            sessionStorage.setItem('room', room_number)
-            document.location.href = "./waiting.html";
         })
+    }).then(function(){
+        sessionStorage.setItem('room', room_number)
+        document.location.href = "./waiting.html";
     })
 })
