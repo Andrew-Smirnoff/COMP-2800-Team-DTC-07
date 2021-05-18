@@ -47,10 +47,7 @@ $("#submit-btn").click(function(){
                     all_stories[i]['story'] = story;
                 }
             }
-            console.log(all_stories)
-            db.collection("rooms").doc(sessionStorage.getItem('room')).update({
-                stories: all_stories
-            })
+            transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: all_stories})
         })
     }).then(function(){
         //document.location.href = "./answer_waiting.html";
