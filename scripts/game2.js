@@ -50,6 +50,6 @@ $("#submit-btn").click(function(){
             transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: all_stories})
         })
     }).then(function(){
-        //document.location.href = "./answer_waiting.html";
+        document.location.href = "./answer_waiting.html";
     })
 })
