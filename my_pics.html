@@ -5,11 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/my_pics.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <title>Document</title>
 </head>
 <body>
     <section class="grid-container">
-        <p>hello</p>
+        <main>
+            <img class="main-prof-pic" src='./images/Profile pictures/beepboop.png'>
+            <div class="tab">
+                <button class="tab-pic" id="defaultOpen">Pictures</button>
+                <button class="tab-bg">Background</button>
+            </div>
+            <div id="pics" class="tabcontent">
+                <img class="prof-pics profpic1" src = './images/Profile pictures/fanboy.png'>
+                <img class="prof-pics profpic2" src='./images/Profile pictures/cosplayer.png'>
+                <img class="prof-pics profpic3" src='./images/Profile pictures/scientist.png'>
+                <img class="prof-pics profpic4" src='./images/Profile pictures/pirate.png'>
+            </div>
+            <div class="bottom-navbar">
+                <p>footer</p>
+            </div>
+        </main>
     </section>
 </body>
 </html>
