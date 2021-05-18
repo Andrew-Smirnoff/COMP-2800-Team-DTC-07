@@ -22,8 +22,8 @@ $("#submit").click(function () {
         })
     }).then(function () {
         db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-            if(snap.data()['rounds'] == 0){
-                console.log('DONE')
+            if(Math.floor(snap.data()['rounds'] / snap.data()['players'].length) == 0){
+                document.location.href = "./winner.html";
             } else {
                 document.location.href = "./game2.html";
             }
