@@ -9,7 +9,8 @@ db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function (
     }
 })
 
-$("#continue").click(function () {
+$("#submit").click(function () {
+    console.log('a')
     db.runTransaction((transaction) => {
         return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function (snap) {
             let stories = snap.data()['stories'];
@@ -21,6 +22,10 @@ $("#continue").click(function () {
             votes: 0, rounds: snap.data()['rounds'] - 1})
         })
     }).then(function () {
-        document.location.href = "./game2.html";
+        if(snap.data()['rounds'] == 0){
+            console.log('DONE')
+        } else {
+            document.location.href = "./game2.html";
+        }
     })
 })
