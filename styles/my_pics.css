@@ -35,8 +35,9 @@ body {
     grid-area: three;
 }
 
-.bottomnavbar {
+.bottom-navbar {
     grid-area: four; 
+    height: 30px; 
 }
 
 .tabcontent {
@@ -75,13 +76,27 @@ body {
   .prof-pics {
       border-radius: 50%; 
       margin: 7vw; 
-      width: 17vh; 
+      width: 35vw; 
+  }
+
+  .backgroundpic {
+      margin: 5vw; 
+      width: 40vw; 
+      border: 2vw solid black;  
   }
 
   #pics {
       display:grid;
       grid-template-columns: repeat(2, 50vw);
       grid-template-rows: auto; 
+      grid-template-areas:
+      "one two";
+  }
+
+  #bg-pics {
+      display:grid;
+      grid-template-columns: repeat(2, 50vw);
+      grid-template-rows: auto;
       grid-template-areas:
       "one two";
   }
