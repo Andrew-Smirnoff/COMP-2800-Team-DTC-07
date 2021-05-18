@@ -45,7 +45,7 @@ function displayBalance() {
 displayBalance();
 
 function displayBalanceAfterBuying(balance) {
-  
+
   $('#balance-goes-here').text(balance);
 
 }
@@ -61,12 +61,12 @@ function displayProfilePicsInStore() {
         let pic_url = doc.data().url;
         // console.log(name);
         // console.log(price);
-        console.log(pic_url);
+        // console.log(pic_url);
 
         $(".tabcontent:visible").append("<div class='pic-container' ></div>");
         $('.pic-container:last').append("<img class='profile-pic' src=' " + pic_url + " ' alt='Avatar'>");
         $('.pic-container:last').append("<p class='price'> price " + price + "</p>");
-        $('.pic-container:last').append("<button class='buy-btn' id='" + name + "' onclick='buyProfilePic(this.id)'>buy</button>");
+        $('.pic-container:last').append("<button class='buy-btn' id='" + name + "' onclick='buyProfilePic(this.id);givePlayerProfilePic(this.id);'>buy</button>");
       })
     })
 }
@@ -118,16 +118,16 @@ function buyProfilePic(id) {
           let document_id = sessionStorage.getItem('document_id');
           console.log('33', document_id);
           console.log('44', typeof (document_id));
-          updateDatabase(document_id, item_price);          
+          updateDatabase(document_id, item_price);
         }
-        
+
       })
     })
 }
 
 // to get item_price in sessionStorage when buying background picture
 function buyBgPic(id) {
-  console.log('btn-id: ', id) 
+  console.log('btn-id: ', id)
   db.collection("background_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
@@ -138,9 +138,9 @@ function buyBgPic(id) {
           let document_id = sessionStorage.getItem('document_id');
           // console.log('33', document_id);
           // console.log('44', typeof (document_id));
-          updateDatabase(document_id, item_price);          
+          updateDatabase(document_id, item_price);
         }
-        
+
       })
     })
 }
@@ -151,14 +151,38 @@ function updateDatabase(document_id, item_price) {
     console.log('3: ', doc.data());
     console.log('coins', doc.data().coins)
     let balance = doc.data().coins - item_price;
-    
+
     db.collection("users")
       .doc(document_id).update({
         "coins": balance
       })
-      displayBalanceAfterBuying(balance);
-      console.log('current balance', balance)
+    displayBalanceAfterBuying(balance);
+    console.log('current balance', balance)
   })
-  
+
 }
+
+// for adding the purchased profile picture(s) url to user account in db
+function givePlayerProfilePic(id) {
+
+  let document_id = sessionStorage.getItem('document_id');  // 2NzrYFa3yoZ82NvAnWViY1tuSZl2 (Kris's tester doc.id)
+
+  console.log('may18 document_id', document_id)
+  db.collection("profile_pictures").get()
+    .then(function (snap) {
+      snap.forEach(function (doc) {
+        if (id == doc.data().name) {
+          let profile_pic_url = doc.data().url;
+          console.log('may18 item_url: ', profile_pic_url);
+
+          db.collection("users")
+            .doc(document_id).update({
+              "profile_pics": firebase.firestore.FieldValue.arrayUnion(profile_pic_url)
+            })
+        }
+
+      })
+    })
+}
+
 
