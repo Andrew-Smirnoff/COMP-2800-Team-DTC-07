@@ -185,4 +185,26 @@ function givePlayerProfilePic(id) {
     })
 }
 
+function givePlayerBgPic(id) {
+
+  let document_id = sessionStorage.getItem('document_id');  // 2NzrYFa3yoZ82NvAnWViY1tuSZl2 (Kris's tester doc.id)
+
+  console.log('may18 document_id', document_id)
+  db.collection("background_pictures").get()
+    .then(function (snap) {
+      snap.forEach(function (doc) {
+        if (id == doc.data().name) {
+          let bg_pic_url = doc.data().url;
+          console.log('may18 item_url: ', bg_pic_url);
+
+          db.collection("users")
+            .doc(document_id).update({
+              "background_pics": firebase.firestore.FieldValue.arrayUnion(bg_pic_url)
+            })
+        }
+
+      })
+    })
+}
+
 
