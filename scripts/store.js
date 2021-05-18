@@ -66,7 +66,7 @@ function displayProfilePicsInStore() {
         $(".tabcontent:visible").append("<div class='pic-container' ></div>");
         $('.pic-container:last').append("<img class='profile-pic' src=' " + pic_url + " ' alt='Avatar'>");
         $('.pic-container:last').append("<p class='price'> price " + price + "</p>");
-        $('.pic-container:last').append("<button class='buy-btn' id='" + name + "' onclick='buy(this.id)'>buy</button>");
+        $('.pic-container:last').append("<button class='buy-btn' id='" + name + "' onclick='buyProfilePic(this.id)'>buy</button>");
       })
     })
 }
@@ -88,7 +88,7 @@ function displayBgPicsInStore() {
         $('.bg-tabcontent').append("<div class='bg-pic-container'></div>");
         $('.bg-pic-container:last').append("<img class='bg-pic' src=' " + bg_pic_url + " ' alt='Avatar'>");
         $('.bg-pic-container:last').append("<p class='bg-price'> price " + price + "</p>");
-        $('.bg-pic-container:last').append("<button class='bg-buy-btn' id='" + name + "' onclick='buy(this.id)'>buy</button>");
+        $('.bg-pic-container:last').append("<button class='bg-buy-btn' id='" + name + "' onclick='buyBgPic(this.id)'>buy</button>");
       })
     })
 }
@@ -105,8 +105,8 @@ function getDocumentId() {
 }
 getDocumentId();
 
-// to get item_price in sessionStorage
-function buy(id) {
+// to get item_price in sessionStorage 
+function buyProfilePic(id) {
   console.log('btn-id: ', id) // btn-id: Tired, Angry, Solider...
   db.collection("profile_pictures").get()
     .then(function (snap) {
@@ -118,6 +118,26 @@ function buy(id) {
           let document_id = sessionStorage.getItem('document_id');
           console.log('33', document_id);
           console.log('44', typeof (document_id));
+          updateDatabase(document_id, item_price);          
+        }
+        
+      })
+    })
+}
+
+// to get item_price in sessionStorage when buying background picture
+function buyBgPic(id) {
+  console.log('btn-id: ', id) 
+  db.collection("background_pictures").get()
+    .then(function (snap) {
+      snap.forEach(function (doc) {
+        if (id == doc.data().name) {
+          let item_price = doc.data().price;
+          console.log('item_price: ', item_price)
+          // sessionStorage.setItem('item_price', item_price)
+          let document_id = sessionStorage.getItem('document_id');
+          // console.log('33', document_id);
+          // console.log('44', typeof (document_id));
           updateDatabase(document_id, item_price);          
         }
         
