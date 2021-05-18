@@ -14,8 +14,11 @@ $("#submit").click(function () {
         return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function (snap) {
             let stories = snap.data()['stories'];
             for (i = 0; i < stories.length; i++) {
-                stories[i]['current_points'] = 0
-                stories[i]['story'] = ""
+                if(stories[i]['name'] == sessionStorage.getItem('name')){
+                    stories[i]['current_points'] = 0
+                    stories[i]['story'] = ""
+                    stories[i]['current_round'] = stories[i]['current_round'] + 1
+                }
             }
             transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories,
             votes: 0})

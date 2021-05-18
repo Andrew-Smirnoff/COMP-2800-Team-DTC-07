@@ -27,13 +27,13 @@ $("#start").click(function(){
                 sessionStorage.setItem('is_host', false)
                 let players = snap.data()['players']
                 let stories = snap.data()['stories']
-                let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0}
+                let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0, "current_round": 0}
                 stories.push(dict)
                 players.push(sessionStorage.getItem('name'))
                 transaction.update(db.collection('rooms').doc(room_number), {players: players, stories: stories})
             } else {
                 sessionStorage.setItem('is_host', true)
-                let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0}
+                let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0, "current_round": 0}
                 transaction.set(db.collection('rooms').doc(room_number), {players: [sessionStorage.getItem('name')],
                 room_number: room_number, stories: [dict], votes: 0})
             }
