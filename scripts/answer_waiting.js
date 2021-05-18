@@ -15,7 +15,7 @@ const refresh = async () => {
         }
       }
       all_stories = all_stories.filter(check_round_number)
-      if(all_stories.length == snap.data()['stories'].length){
+      if(all_stories.length != snap.data()['stories'].length){
         next_page = false
       }
       if (next_page == true) {
