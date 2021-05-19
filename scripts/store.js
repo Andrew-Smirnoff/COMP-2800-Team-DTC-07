@@ -150,14 +150,19 @@ function updateDatabase(document_id, item_price) {
   db.collection('users').doc(document_id).get().then((doc) => {
     console.log('3: ', doc.data());
     console.log('coins', doc.data().coins)
-    let balance = doc.data().coins - item_price;
-
-    db.collection("users")
+    
+    if (doc.data().coins >= item_price) {
+      var balance = doc.data().coins - item_price;
+      db.collection("users")
       .doc(document_id).update({
         "coins": balance
       })
     displayBalanceAfterBuying(balance);
     console.log('current balance', balance)
+    } else {
+      alert('Sorry, you need more coins.')
+    }
+    
   })
 
 }
