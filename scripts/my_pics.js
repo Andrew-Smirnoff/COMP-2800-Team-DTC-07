@@ -39,7 +39,6 @@ function getDocumentId() {
   function getDocumentId() {
       firebase.auth().onAuthStateChanged((user) =>{
         let document_id = user.uid;
-        console.log('document id: ', document_id);
         sessionStorage.setItem('document_id', document_id);
       })
   }
@@ -51,9 +50,9 @@ function getUserProfPics() {
     db.collection("users").get().then(function (snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
-                let arrayOfProfPics = doc.data().profile_pictures;  
+                let arrayOfProfPics = doc.data().profile_pics;  
                 for(i = 0; i < arrayOfProfPics.length; i++) {
-                    $('#pics').append("<img class='prof-pics' src=' " + arrayOfProfPics[i] + " ' alt='Avatar'>");
+                    $('#pics').append("<img class='prof-pics' id='"+ arrayOfProfPics[i] + "'src=' " + arrayOfProfPics[i] + "onclick='changeProfilePic(this.id)' alt='Avatar'>");
                 }
             }
         })
@@ -66,9 +65,9 @@ function getUserBgPics() {
     db.collection("users").get().then(function (snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
-                let arrayOfProfPics = doc.data().background_pictures;  
+                let arrayOfProfPics = doc.data().background_pics;  
                 for(i = 0; i < arrayOfProfPics.length; i++) {
-                    $('#bg-pics').append("<img class='backgound-pic' src=' " + arrayOfProfPics[i] + " ' alt='Avatar'>");
+                    $('#bg-pics').append("<img class='background-pic' id='" + arrayOfProfPics[i] + "'src=' " + arrayOfProfPics[i] + " ' alt='Avatar'>");
                 }
             }
         })
@@ -76,3 +75,28 @@ function getUserBgPics() {
 } 
 getUserBgPics();
 
+// function getMainProfPic() {
+//     db.collection("users").get().then(function(snap) {
+//         snap.forEach(function (doc) {
+//         if(doc.data().name == sessionStorage.name) {
+//             let mainProfPicLink = doc.data().current_profile_picture;
+//             console.log(mainProfPicLink);
+//         })
+//     }) }
+// } getMainProfPic();
+
+function getMainProfilePic() {
+    db.collection("users").get().then(function(snap) {
+        snap.forEach(function (doc) {
+            if(doc.data().name == sessionStorage.name) {
+                let mainProfPicLink = doc.data().current_profile_pic;
+                $('.main-prof-pic').attr("src", mainProfPicLink);
+            }
+        })
+    })
+}getMainProfilePic(); 
+
+
+function changeProfilePic(id) {
+    
+}
