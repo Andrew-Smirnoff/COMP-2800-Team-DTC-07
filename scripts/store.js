@@ -212,7 +212,7 @@ function givePlayerBgPic(id) {
     })
 }
 
-function myFunction() {
+function snackbar() {
   // Get the snackbar DIV
   var x = document.getElementById("snackbar");
 

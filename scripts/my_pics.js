@@ -109,6 +109,6 @@ function changeProfilePic(id) {
 
 function changeBgPic(id) {
     console.log(id);
-    $('body').css('background-image', "url(" + id + ")");
-    $('elementTag/#Id/.Class').css('background-image', 'url("../images/otherimage.jpg")');
+    $('body').css('background-image', "url('" + id + "')");
+    // $('elementTag/#Id/.Class').css('background-image', 'url("../images/otherimage.jpg")');
 }
