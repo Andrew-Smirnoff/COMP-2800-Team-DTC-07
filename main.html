@@ -24,17 +24,32 @@
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
     <!-- <h1 class="display-4"> Hello, <span id="name-goes-here">CST!</span> </h1> -->
+    
+
     <section class="grid-container">
 
         <div class="grid-item">
-            <h1 class="greeting">Welcome, <span id="name-goes-here">wait for the name :)</span></h1>
+            <p>Enter a room password to join an existing room, or enter a new password to create a room.</p>
         </div>
         <textarea placeholder='input room password' id='room_number'></textarea>
+        <div class="toast">
+            <div class="toast-header">
+                Insufficient Players
+            </div>
+            <div class="toast-body">
+                You must select 2-5 other players.
+            </div>
+        </div>
+
         <div class="grid-item"><button id="start">Start Game</button></div>
         <div class="grid-item"><a href='login.html'><button id="logout">Log Out</button></a></div>
         <div class="grid-item">
             <div class="bottom-navbar">
+<<<<<<< HEAD
                 <a href='/store.html'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
+=======
+                <a href='./store.html'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
+>>>>>>> Dev
                 <a href='/'><span class="iconify" data-icon="eva:book-fill" data-inline="false"></span></a>
                 <a href='./profile.html'><span class="iconify" data-icon="mdi:account-box" data-inline="false"></span></a>
             </div>

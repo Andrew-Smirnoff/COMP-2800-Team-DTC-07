@@ -14,6 +14,13 @@ body div {
     margin-top: 6vh;
 }
 
+#scroll {
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
 #submit {
     color: #2d1d36;
     background-color:#9354A4;
