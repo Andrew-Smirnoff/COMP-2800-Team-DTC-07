@@ -45,7 +45,7 @@ if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
                 shuffle();
             } else if(snap.data()['stories'].length < 3){
                 $('.toast-header').text("Not Enough Players")
-                $('.toast-body').text("Could not start the game: Please wait for at least three players.")
+                $('.toast-body').html("Could not start the game: Please wait for at least three <a href='https://cdn.discordapp.com/attachments/836376365519077436/844687181352140820/The_Creation_Of_Fiendship.png'>players.</a>")
                 $('.toast').toast('show');
             } else if($("#round_number").val() < 3){
                 $('.toast-header').text("Not Enough Rounds")

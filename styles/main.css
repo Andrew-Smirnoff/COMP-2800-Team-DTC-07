@@ -12,8 +12,9 @@ body {
     width: 80vw;
     height: 5vh;
 
-    margin-top: 10vh;
+    margin-top: 12vh;
     margin-left: 10vw;
+    margin-right: 10vw;
 }
 
 section {
@@ -26,11 +27,13 @@ section {
     "four"
 }
 
-.greeting {
-    font-size: 8vw;
+p {
+    font-size: 5vw;
     color: #2d1d36;
     margin-top: 25vh;
-    margin-left: 10vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    background-color: #9354A4;
 }
 
 #start {
@@ -75,5 +78,6 @@ section {
 }
 
 .toast{
+    grid-row: 3;
     position: absolute;
 }
