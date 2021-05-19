@@ -160,7 +160,7 @@ function updateDatabase(document_id, item_price) {
     displayBalanceAfterBuying(balance);
     console.log('current balance', balance)
     } else {
-      myFunction();
+      snackbar();
     }
     
   })
