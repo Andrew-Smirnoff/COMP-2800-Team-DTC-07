@@ -150,14 +150,19 @@ function updateDatabase(document_id, item_price) {
   db.collection('users').doc(document_id).get().then((doc) => {
     console.log('3: ', doc.data());
     console.log('coins', doc.data().coins)
-    let balance = doc.data().coins - item_price;
-
-    db.collection("users")
+    
+    if (doc.data().coins >= item_price) {
+      var balance = doc.data().coins - item_price;
+      db.collection("users")
       .doc(document_id).update({
         "coins": balance
       })
     displayBalanceAfterBuying(balance);
     console.log('current balance', balance)
+    } else {
+      myFunction();
+    }
+    
   })
 
 }
@@ -207,4 +212,14 @@ function givePlayerBgPic(id) {
     })
 }
 
+function snackbar() {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 
