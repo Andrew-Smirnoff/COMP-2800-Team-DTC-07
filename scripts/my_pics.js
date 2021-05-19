@@ -33,3 +33,46 @@ function getDocumentId() {
     });
   }
   getDocumentId();
+
+
+  // getting the document_id into the session storage
+  function getDocumentId() {
+      firebase.auth().onAuthStateChanged((user) =>{
+        let document_id = user.uid;
+        console.log('document id: ', document_id);
+        sessionStorage.setItem('document_id', document_id);
+      })
+  }
+  getDocumentId();
+
+
+
+function getUserProfPics() {
+    db.collection("users").get().then(function (snap) {
+        snap.forEach(function (doc) {
+            if(doc.data().name == sessionStorage.name) {
+                let arrayOfProfPics = doc.data().profile_pictures;  
+                for(i = 0; i < arrayOfProfPics.length; i++) {
+                    $('#pics').append("<img class='prof-pics' src=' " + arrayOfProfPics[i] + " ' alt='Avatar'>");
+                }
+            }
+        })
+    })
+} 
+getUserProfPics();
+
+
+function getUserBgPics() {
+    db.collection("users").get().then(function (snap) {
+        snap.forEach(function (doc) {
+            if(doc.data().name == sessionStorage.name) {
+                let arrayOfProfPics = doc.data().background_pictures;  
+                for(i = 0; i < arrayOfProfPics.length; i++) {
+                    $('#bg-pics').append("<img class='backgound-pic' src=' " + arrayOfProfPics[i] + " ' alt='Avatar'>");
+                }
+            }
+        })
+    })
+} 
+getUserBgPics();
+

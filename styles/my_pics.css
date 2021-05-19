@@ -46,7 +46,7 @@ body {
 }
 
 .tabcontent {
-    height: 110vh;
+    height: 50vh;
     overflow-y: scroll;
     width:100%;
     animation: fadeEffect 1s; 
