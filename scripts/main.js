@@ -49,7 +49,7 @@ $("#start").click(function(){
         return transaction.get(db.collection('rooms').doc(room_number)).then(function(snap){
             if(snap.exists){
                 console.log(snap.data()['stories'].length)
-                if(snap.data()['started'] == false && snap.data()['stories'].length < 6){
+                if(snap.data()['started'] == false){
                     sessionStorage.setItem('is_host', false)
                     let players = snap.data()['players']
                     let stories = snap.data()['stories']
@@ -57,6 +57,10 @@ $("#start").click(function(){
                     stories.push(dict)
                     players.push(sessionStorage.getItem('name'))
                     transaction.update(db.collection('rooms').doc(room_number), {players: players, stories: stories})
+                } else if(snap.data()['started'] == true){
+                    $('.toast-header').text("Game Started")
+                    $('.toast-body').text("Could not join this game: it has already started.")
+                    $('.toast').toast('show');
                 }
             } else {
                 sessionStorage.setItem('is_host', true)
@@ -74,7 +78,7 @@ $("#start").click(function(){
     }).then(function(){
         db.collection('rooms').doc($("#room_number").val()).get().then(function(snap){
             console.log(snap.data()['started'])
-            if(snap.data()['started'] == false && snap.data()['stories'].length < 6){
+            if(snap.data()['started'] == false){
                 sessionStorage.setItem('room', room_number)
                 document.location.href = "./waiting.html";
             }

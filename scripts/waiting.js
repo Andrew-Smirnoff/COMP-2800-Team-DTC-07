@@ -19,15 +19,15 @@ if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
     let increment = document.createElement('button')
     increment.innerHTML = '+'
     increment.setAttribute('id', 'increment')
-    $("body").append(decrement)
-    $("body").append(round_number)
-    $("body").append(increment)
+    $("#host_options").append(decrement)
+    $("#host_options").append(round_number)
+    $("#host_options").append(increment)
     $("#round_number").val(5)
 
     let host_button = document.createElement('button')
     host_button.innerHTML = 'Start Game'
     host_button.setAttribute("id", "start_game")
-    $("body").append(host_button)
+    $("#host_options").append(host_button)
 
     $("#decrement").click(function () {
         let round_num = parseInt($("#round_number").val())
@@ -41,8 +41,20 @@ if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
 
     $("#start_game").click(function () {
         db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-            if(doc.data()['stories'].length >= 3 && doc.data()['stories'].length <= 6 && $("#round_number").val() >= 3 && $("#round_number").val() <= 8){
+            if(snap.data()['stories'].length >= 3 && $("#round_number").val() >= 3 && $("#round_number").val() <= 8){
                 shuffle();
+            } else if(snap.data()['stories'].length < 3){
+                $('.toast-header').text("Not Enough Players")
+                $('.toast-body').text("Could not start the game: Please wait for at least three players.")
+                $('.toast').toast('show');
+            } else if($("#round_number").val() < 3){
+                $('.toast-header').text("Not Enough Rounds")
+                $('.toast-body').text("Could not start the game: Please enter a number of round from 3-8.")
+                $('.toast').toast('show');
+            } else if($("#round_number").val() > 8){
+                $('.toast-header').text("Not Enough Rounds")
+                $('.toast-body').text("Could not start the game: Please enter a number of round from 3-8.")
+                $('.toast').toast('show');
             }
         })
     })

@@ -73,3 +73,7 @@ section {
     width: 50px;
     height: auto;
 }
+
+.toast{
+    position: absolute;
+}
