@@ -1,7 +1,4 @@
 // Initialize the FirebaseUI Widget using Firebase.
-sessionStorage.setItem('name', '');
-console.log(sessionStorage.getItem('name'))
-
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
     callbacks: {

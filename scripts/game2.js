@@ -2,7 +2,8 @@ let players = []
 let stories = []
 
 db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
-    $("#scenario-goes-here").text(snap.data()['scenarios'][0])
+    let scenario_index = Math.floor(snap.data()['rounds'] / snap.data()['stories'].length) - 1;
+    $("#scenario-goes-here").text(snap.data()['scenarios'][scenario_index])
 })
 
 // setting list of names
@@ -19,19 +20,17 @@ db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (
 $("#submit-btn").click(function(){
     let all_stories = []
     let story = $("#story").val();
-    db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-        all_stories = snap.data()['stories']
-        for(i = 0; i < all_stories.length; i++){
-            if(all_stories[i]['name'] == sessionStorage.getItem('name')){
-                all_stories[i]['story'] = story;
+    db.runTransaction((transaction) => {
+        return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function(snap){
+            all_stories = snap.data()['stories']
+            for(i = 0; i < all_stories.length; i++){
+                if(all_stories[i]['name'] == sessionStorage.getItem('name')){
+                    all_stories[i]['story'] = story;
+                }
             }
-        }
-        db.collection("rooms").doc(sessionStorage.getItem('room')).update({
-            stories: all_stories
-        }).then(function(){
-            document.location.href = "./answer_waiting.html";
+            transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: all_stories})
         })
     }).then(function(){
-        
+        document.location.href = "./answer_waiting.html";
     })
 })
