@@ -4,16 +4,28 @@ body {
     background-size: 100%;
 }
 
-h1 {
-    background-color: rgba(147, 84, 164, 0.65);
-    grid-area: one;
-    width: 90vw;
+.grid-container {
+    position: relative;
+    text-align: center;
+    width: 83.5vw;
+    background-color:#9354A4;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll {
+    width:100%;
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
     text-align: center;
 
-    margin-top: 6vh;
+}
+
+#submit {
+    color: #2d1d36;
+    background-color:#9354A4;
+    border: none;
 }
 
 .bottom-navbar {

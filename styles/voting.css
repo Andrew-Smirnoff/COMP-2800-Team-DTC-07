@@ -5,16 +5,15 @@ body {
 }
 
 body div {
-    grid-area: one;
-    height: 5vh;
-    width: 90vw;
+    position: relative;
+    text-align: center;
+    width: 83.5vw;
+    background-color:#9354A4;
     margin-left: auto;
     margin-right: auto;
-
-    margin-top: 6vh;
 }
 
-#scroll {
+.scroll {
     width:100%;
     margin-left: auto;
     margin-right: auto;
@@ -49,4 +48,5 @@ label{
     width: 75vw;
     word-wrap: break-word;
     margin-right: 10px;
+    border: solid #2d1d36 2px;
 }
