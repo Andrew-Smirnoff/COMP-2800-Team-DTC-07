@@ -155,12 +155,12 @@ function updateDatabase(document_id, item_price, item_id) {
 
     var existing_profile_pics = doc.data().profile_pics;
     console.log('existing_profile_pics', existing_profile_pics);
-    console.log(typeof(existing_profile_pics));
+    // console.log(typeof(existing_profile_pics));
     var item_id_url = '"./images/Profile pictures/' + item_id + '.png"';
     console.log('222', item_id_url);
 
     console.log('heyheyhey', existing_profile_pics.includes(item_id_url));
-    
+
     // console.log("correct?", item_id_url);
     // console.log('true or false', item_id_url in doc.data().profile_pics == true)
     
