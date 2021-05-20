@@ -38,20 +38,20 @@ section {
 p {
     padding:5px;
     font-size: 18px;
-    color: white;
+    color: #2d1d36;
     margin-top: 5vh;
     margin-left: 3vw;
     margin-right: 3vw;
     background-color: #9354A4;
-    border: black 4px solid;
+    border: #2d1d36 4px solid;
 }
 
 #start {
     background-color: #9354A4; 
-    color: black;
+    color: #2d1d36;
     width: 80vw;
     height: 5vh;
-    border: black 4px solid;
+    border: #2d1d36 4px solid;
 
     font-size: larger;
 
@@ -61,8 +61,8 @@ p {
 
 #logout {
     background-color: #9354A4; 
-    color: black;
-    border: black 4px solid;
+    color: #2d1d36;
+    border: #2d1d36 4px solid;
     width: 80vw;
     height: 5vh;
     font-size: larger;
@@ -95,14 +95,14 @@ p {
 #snackbar {
     visibility: hidden; /* Hidden by default. Visible on click */
     background-color: #9354A4; /* Black background color */
-    color: #fff; /* White text color */
+    color: #2d1d36; /* White text color */
     text-align: center; /* Centered text */
     border-radius: 2px; /* Rounded borders */
     padding: 16px; /* Padding */
     position: fixed; /* Sit on top of the screen */
     z-index: 1; /* Add a z-index if needed */
     top: 15%; /* 30px from the bottom */
-    border: black 4px solid;
+    border: #2d1d36 4px solid;
     width: 80vw;
     margin-left: 10vw;
     margin-right: 10vw;
