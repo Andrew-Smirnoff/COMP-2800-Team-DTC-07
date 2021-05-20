@@ -95,7 +95,7 @@ function displayBgPicsInStore() {
 displayBgPicsInStore();
 
 
-// to get document_id in sessionStorage
+// to get document_id in sessionStorage for identifying current user
 function getDocumentId() {
   firebase.auth().onAuthStateChanged((user) => {
     let document_id = user.uid
@@ -114,8 +114,8 @@ function buyProfilePic(id) {
         if (id == doc.data().name) {
           let item_price = doc.data().price;
           console.log('item_price: ', item_price)
-          // sessionStorage.setItem('item_price', item_price)
-          let document_id = sessionStorage.getItem('document_id');
+          sessionStorage.setItem('item_price', item_price)
+          let document_id = sessionStorage.getItem('document_id'); //the user id
           console.log('33', document_id);
           console.log('44', typeof (document_id));
           updateDatabase(document_id, item_price, id);
@@ -148,34 +148,22 @@ function buyBgPic(id) {
 function updateDatabase(document_id, item_price, item_id) {
 
   db.collection('users').doc(document_id).get().then((doc) => {
-    // console.log('item_id', item_id)
-    // console.log('3: ', doc.data());
-    // console.log('coins', doc.data().coins);
-    // console.log('existing_profile_pics', doc.data().profile_pics)
 
     var existing_profile_pics = doc.data().profile_pics;
-    console.log('existing_profile_pics', existing_profile_pics);
-    // console.log(typeof(existing_profile_pics));
-    var item_id_url = '"./images/Profile pictures/' + item_id + '.png"';
-    console.log('222', item_id_url);
+    var item_id_url = './images/Profile pictures/' + item_id + '.png';
 
-    console.log('heyheyhey', existing_profile_pics.includes(item_id_url));
-
-    // console.log("correct?", item_id_url);
-    // console.log('true or false', item_id_url in doc.data().profile_pics == true)
-    
-    if (doc.data().coins >= item_price) {
+    if (existing_profile_pics.includes(item_id_url)) {
+      console.log(existing_profile_pics.includes(item_id_url));
+      alert('Hey, you have got this pic!');
+    } else if (doc.data().coins < item_price) {
+      snackbar();
+    } else {
       var balance = doc.data().coins - item_price;
       db.collection("users")
-      .doc(document_id).update({
-        "coins": balance
-      })
-    displayBalanceAfterBuying(balance);
-    console.log('current balance', balance)
-    } else if (existing_profile_pics.includes(item_id_url) == true) {
-      alert('Hey, you have got this pic!')
-    } else {
-      snackbar();
+        .doc(document_id).update({
+          "coins": balance
+        })
+      displayBalanceAfterBuying(balance);
     }
   })
 
@@ -219,7 +207,7 @@ function givePlayerBgPic(id) {
           db.collection("users")
             .doc(document_id).update({
               "background_pics": firebase.firestore.FieldValue.arrayUnion(bg_pic_url)
-            })   
+            })
         }
 
       })
@@ -234,6 +222,6 @@ function snackbar() {
   x.className = "show";
 
   // After 3 seconds, remove the show class from DIV
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
 
