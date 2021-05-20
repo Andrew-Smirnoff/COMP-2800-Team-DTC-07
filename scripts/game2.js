@@ -13,6 +13,7 @@ db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (
         let new_li = document.createElement('li')
         let ul = document.querySelector('ul')
         new_li.innerHTML = players[i]
+        new_li.setAttribute('class', 'player')
         ul.appendChild(new_li)
     }
 })

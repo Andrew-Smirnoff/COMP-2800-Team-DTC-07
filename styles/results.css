@@ -26,26 +26,3 @@ body div {
     background-color:#9354A4;
     border: none;
 }
-
-h1{
-    background-color: rgba(147, 84, 164, 1);
-    padding:10px;
-}
-
-input[type="radio"] {
-    transform: scale(2);
-    vertical-align: middle;
-}
-
-p{
-    color:white;
-    font-size: 20px;
-    border: 5px solid #2d1d36;
-    padding: 10px;
-}
-
-label{
-    width: 75vw;
-    word-wrap: break-word;
-    margin-right: 10px;
-}
