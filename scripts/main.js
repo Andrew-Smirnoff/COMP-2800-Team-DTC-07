@@ -58,9 +58,10 @@ $("#start").click(function(){
                     players.push(sessionStorage.getItem('name'))
                     transaction.update(db.collection('rooms').doc(room_number), {players: players, stories: stories})
                 } else if(snap.data()['started'] == true){
-                    $('.toast-header').text("Game Started")
-                    $('.toast-body').text("Could not join this game: it has already started.")
-                    $('.toast').toast('show');
+                    //show snackbar - it's snack time BABY
+                    let snack = document.getElementById('snackbar')
+                    snack.className = "show"
+                    setTimeout(function(){snack.className = snack.className.replace("show", "");}, 3000)
                 }
             } else {
                 sessionStorage.setItem('is_host', true)
