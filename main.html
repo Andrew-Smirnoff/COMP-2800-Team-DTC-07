@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-
+    <link rel="shortcut icon" type="image/jpg" href="images/icon_without_background.png"/>
     <!-- Optional styles and scripts of your own -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -29,17 +29,11 @@
     <section class="grid-container">
 
         <div class="grid-item">
+            <img src='./images/logo_title.png' id='logo'>
             <p>Enter a room password to join an existing room, or enter a new password to create a room.</p>
         </div>
         <textarea placeholder='input room password' id='room_number'></textarea>
-        <div class="toast">
-            <div class="toast-header">
-                Insufficient Players
-            </div>
-            <div class="toast-body">
-                You must select 2-5 other players.
-            </div>
-        </div>
+        <div id='snackbar'>Error: this game has already started!</div>
 
         <div class="grid-item"><button id="start">Start Game</button></div>
         <div class="grid-item"><a href='login.html'><button id="logout">Log Out</button></a></div>

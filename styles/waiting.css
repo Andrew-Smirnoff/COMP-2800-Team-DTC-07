@@ -8,15 +8,16 @@ body {
     position: relative;
     text-align: center;
     width: 83.5vw;
-    background-color:#9354A4;
     margin-left: auto;
     margin-right: auto;
+    background-color:#9354A4;
 }
 
 .scroll {
     width:100%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 
 }
 
@@ -47,5 +48,139 @@ body {
 
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
+
+#player_header{
+    margin-top: 5vh;
+}
+
+#host_div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    color: white;
+}
+
+#host_header{
+    width: 100%;
+    text-align: center;
+}
+
+li{
+    font-size: 20px;
+    list-style-type: none;
+    text-align: center;
+    color: white;
+}
+
+#decrement{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    margin-right: 5vw;
+    border: 2px solid #9354A4;
+    background-color: #2d1d36;
+    color: #9354A4;
+}
+
+#increment{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    margin-left: 5vw;
+    border: 2px solid #9354A4;
+    background-color: #2d1d36;
+    color: #9354A4;
+}
+
+#start_game{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    border: 2px solid #9354A4;
+    background-color: #2d1d36;
+    color: #9354A4;
+}
+
+#rounds{
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#round_number{
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    border: 2px solid #9354A4;
+    background-color: #2d1d36;
+    color: #9354A4;
+}
+
+p{
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    background-color: rgba(147, 84, 164, 1);
+    padding: 10px;
+}
+
+#host_options{
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    background-color: rgba(147, 84, 164, 0.7);
+    padding-bottom: 20px;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    background-color: #9354A4; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    top: 45%; /* 30px from the bottom */
+    border: black 4px solid;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {top: 45%; opacity: 0;}
+    to {top: 45%; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {top: 45%; opacity: 0;}
+    to {top: 45%; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {top: 45%; opacity: 1;}
+    to {top: 45%; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {top: 45%; opacity: 1;}
+    to {top: 45%; opacity: 0;}
+  }

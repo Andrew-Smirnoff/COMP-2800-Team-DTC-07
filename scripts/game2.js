@@ -9,11 +9,17 @@ db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (
 // setting list of names
 db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
     let players = snap.data()['players']
+    let stories = snap.data()['stories']
     for (i = 0; i < players.length; i++) {
+        let new_image = document.createElement('img')
         let new_li = document.createElement('li')
         let ul = document.querySelector('ul')
-        new_li.innerHTML = players[i]
+        new_image.setAttribute("src", stories[i]['picture'])
+        new_li.setAttribute('class', 'player')
+        new_li.setAttribute('id', i)
         ul.appendChild(new_li)
+        $("#" + i).html(new_image)
+        $("#" + i).append(players[i])
     }
 })
 

@@ -7,8 +7,11 @@ let full_date = year + '/' + month + '/' + day
 
 if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
     let host_header = document.createElement('h1');
-    host_header.innerHTML = "You are the host"
-    $("#host").append(host_header)
+    host_header.innerHTML = "You are the host!"
+    host_header.setAttribute('id', 'host_header')
+    $("#host_div").append(host_header)
+
+    $("#waiting").text('You may start the game when there are 3 or more players.')
 
     let decrement = document.createElement('button')
     decrement.innerHTML = '-'
@@ -19,9 +22,12 @@ if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
     let increment = document.createElement('button')
     increment.innerHTML = '+'
     increment.setAttribute('id', 'increment')
-    $("#host_options").append(decrement)
-    $("#host_options").append(round_number)
-    $("#host_options").append(increment)
+    let pick_rounds = document.createElement('p')
+    pick_rounds.innerHTML = "Pick the number of rounds you'd like to play:"
+    $("#host_options").prepend(pick_rounds)
+    $("#rounds").append(decrement)
+    $("#rounds").append(round_number)
+    $("#rounds").append(increment)
     $("#round_number").val(5)
 
     let host_button = document.createElement('button')
@@ -41,23 +47,29 @@ if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
 
     $("#start_game").click(function () {
         db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-            if(snap.data()['stories'].length >= 3 && $("#round_number").val() >= 3 && $("#round_number").val() <= 8){
+            if(snap.data()['stories'].length >= 1 && $("#round_number").val() >= 3 && $("#round_number").val() <= 8){
                 shuffle();
             } else if(snap.data()['stories'].length < 3){
-                $('.toast-header').text("Not Enough Players")
-                $('.toast-body').html("Could not start the game: Please wait for at least three <a href='https://cdn.discordapp.com/attachments/836376365519077436/844687181352140820/The_Creation_Of_Fiendship.png'>players.</a>")
-                $('.toast').toast('show');
+                //show snackbar - it's snack time BABAAAYYYYY
+                let snack = document.getElementById('snackbar')
+                snack.className = "show"
+                setTimeout(function(){snack.className = snack.className.replace("show", "");}, 3000)
+                $('#snackbar').html("Could not start the game: Please wait for at least three <a href='https://fiendship-85fa8.web.app/easteregg.html'>players.</a>")
             } else if($("#round_number").val() < 3){
-                $('.toast-header').text("Not Enough Rounds")
-                $('.toast-body').text("Could not start the game: Please enter a number of round from 3-8.")
-                $('.toast').toast('show');
+                $('#snackbar').text("Could not start the game: Please enter a number of round from 3-8.")
+                let snack = document.getElementById('snackbar')
+                snack.className = "show"
+                setTimeout(function(){snack.className = snack.className.replace("show", "");}, 3000)
             } else if($("#round_number").val() > 8){
-                $('.toast-header').text("Not Enough Rounds")
-                $('.toast-body').text("Could not start the game: Please enter a number of round from 3-8.")
-                $('.toast').toast('show');
+                $('#snackbar').text("Could not start the game: Please enter a number of round from 3-8.")
+                let snack = document.getElementById('snackbar')
+                snack.className = "show"
+                setTimeout(function(){snack.className = snack.className.replace("show", "");}, 3000)
             }
         })
     })
+} else {
+    $("#host_options").remove();
 }
 
 const sleep = (milliseconds) => {
