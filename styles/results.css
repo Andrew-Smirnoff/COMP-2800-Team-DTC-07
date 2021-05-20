@@ -5,11 +5,11 @@ body {
 }
 
 body div {
-    grid-area: one;
-    width: 83vw;
+    position: relative;
+    text-align: center;
+    width: 83.5vw;
     margin-left: auto;
     margin-right: auto;
-
     background-color:#9354A4;
 }
 
@@ -23,7 +23,7 @@ body div {
 #submit {
     color: #2d1d36;
     background-color:#9354A4;
-    border: none;
+    border: solid #2d1d36 2px;
 }
 
 .picture{
