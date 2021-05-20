@@ -12,6 +12,7 @@ db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(s
             new_input.setAttribute('id', story_array[i]['story'])
             new_input.setAttribute('value', story_array[i]['name'])
             new_label.setAttribute('for', story_array[i]['story'])
+            new_label.setAttribute('name', 'vote')
             new_label.innerHTML = story_array[i]['story']
             form_selections.append(new_label)
             form_selections.append(new_input)
