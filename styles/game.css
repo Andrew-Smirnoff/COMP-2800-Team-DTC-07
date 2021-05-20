@@ -67,13 +67,14 @@ input {
     height: 25vh;
     margin-left: auto;
     margin-right: auto;
+    border: solid #9354A4 2px;
 }
 
 #submit-btn {
     display: block;
     color: #2d1d36;
     background-color:#9354A4;
-    border: 1px solid #2d1d36;
+    border: none;
     width: 50vw;
     height: 5vh;
     font-size: 20px;
@@ -106,7 +107,7 @@ input {
 }
 
 #scenario-goes-here{
-    color: white;
+    color: #9354A4;
     font-size: 20px;
     margin-left: 15px;
     margin-right: 15px;
@@ -115,7 +116,7 @@ input {
 }
 
 #new_scenario{
-    color: white;
+    color: #9354A4;
     margin-top: 15px;
     margin-left: 15px;
     margin-bottom: 0px;
@@ -127,8 +128,9 @@ input {
 
 #subject_header{
     background-color: #2d1d36;
-    color: white;
+    color: #9354A4;
     font-size: 20px;
+    padding-left: 15px;
 }
 
 .player{
