@@ -68,6 +68,8 @@ if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
             }
         })
     })
+} else {
+    $("#host_options").remove();
 }
 
 const sleep = (milliseconds) => {
