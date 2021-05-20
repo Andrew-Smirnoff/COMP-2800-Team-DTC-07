@@ -66,7 +66,7 @@ function displayProfilePicsInStore() {
         $(".tabcontent:visible").append("<div class='pic-container' ></div>");
         $('.pic-container:last').append("<img class='profile-pic' src=' " + pic_url + " ' alt='Avatar'>");
         $('.pic-container:last').append("<p class='price'> price " + price + "</p>");
-        $('.pic-container:last').append("<button class='buy-btn' id='" + name + "' onclick='buyProfilePic(this.id);givePlayerProfilePic(this.id);'>buy</button>");
+        $('.pic-container:last').append("<button class='buy-btn' id='" + name + "' onclick='buyProfilePic(this.id);'>buy</button>");
       })
     })
 }
@@ -150,6 +150,7 @@ function updateDatabase(document_id, item_price, item_id) {
   db.collection('users').doc(document_id).get().then((doc) => {
 
     var existing_profile_pics = doc.data().profile_pics;
+    console.log('333', existing_profile_pics);
     var item_id_url = './images/Profile pictures/' + item_id + '.png';
 
     if (existing_profile_pics.includes(item_id_url)) {
@@ -163,6 +164,7 @@ function updateDatabase(document_id, item_price, item_id) {
         .doc(document_id).update({
           "coins": balance
         })
+      givePlayerProfilePic(item_id);
       displayBalanceAfterBuying(balance);
     }
   })
@@ -174,13 +176,13 @@ function givePlayerProfilePic(id) {
 
   let document_id = sessionStorage.getItem('document_id');  // 2NzrYFa3yoZ82NvAnWViY1tuSZl2 (Kris's tester doc.id)
 
-  console.log('may18 document_id', document_id)
+  console.log('may19 document_id', document_id)
   db.collection("profile_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
         if (id == doc.data().name) {
           let profile_pic_url = doc.data().url;
-          console.log('may18 item_url: ', profile_pic_url);
+          console.log('may19 item_url: ', profile_pic_url);
 
           db.collection("users")
             .doc(document_id).update({
