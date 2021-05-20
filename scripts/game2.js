@@ -10,11 +10,14 @@ db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (
 db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
     let players = snap.data()['players']
     for (i = 0; i < players.length; i++) {
+        let new_image = document.createElement('img')
         let new_li = document.createElement('li')
         let ul = document.querySelector('ul')
-        new_li.innerHTML = players[i]
+        new_image.setAttribute("src", "./images/Profile pictures/beepboop.png")
         new_li.setAttribute('class', 'player')
         ul.appendChild(new_li)
+        $(".player").html(new_image)
+        $(".player").append(players[i])
     }
 })
 
