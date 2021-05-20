@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <div id='host_div'></div>
 
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
@@ -25,28 +26,12 @@
     <!-- Header Navigation Bar -->
     <!-- <h1 class="display-4"> Hello, <span id="name-goes-here">CST!</span> </h1> -->
     <section class="grid-container">
-        <h1 id='waiting'>Waiting for players...</h1>
-        <h1 id='player_header'>Current Players:</h1>
-        <h1 id='host'></h1>
+        <h1 id='waiting'>Waiting for the host to start the game...</h1>
+        <h1 id='player_header'>Players Waiting:</h1>
         <ul id='player_list'></ul>
-
-        <div class="grid-item">
-            <div class="bottom-navbar">
-                <a href='/'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
-                <a href='/'><span class="iconify" data-icon="eva:book-fill" data-inline="false"></span></a>
-                <a href='./profile.html'><span class="iconify" data-icon="mdi:account-box" data-inline="false"></span></a>
-            </div>
-        </div>
     </section>
-    <div id="host_options"></div>
-    <div class="toast">
-        <div class="toast-header">
-            Insufficient Players
-        </div>
-        <div class="toast-body">
-            You must select 2-5 other players.
-        </div>
-    </div>
+    <div id="host_options"><div id='rounds'></div></div>
+    <div id='snackbar'>Error: this game has already started!</div>
 
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!----------------------------------------------->
