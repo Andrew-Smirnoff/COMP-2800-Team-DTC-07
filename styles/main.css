@@ -12,7 +12,7 @@ body {
     width: 80vw;
     height: 5vh;
 
-    margin-top: 12vh;
+    margin-top: 20vh;
     margin-left: 10vw;
     margin-right: 10vw;
 }
@@ -28,6 +28,7 @@ section {
 }
 
 p {
+    padding:5px;
     font-size: 5vw;
     color: #2d1d36;
     margin-top: 25vh;
@@ -78,6 +79,5 @@ p {
 }
 
 .toast{
-    grid-row: 3;
     position: absolute;
 }
