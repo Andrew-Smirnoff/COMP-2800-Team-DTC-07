@@ -105,6 +105,7 @@ function changeProfilePic(id) {
     var setWithMerge = user_data.set({
         current_profile_pic: id
     }, {merge: true});
+    sessionStorage.setItem('Current_Profile_Pic', id);
 }
 
 function changeBgPic(id) {
