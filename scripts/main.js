@@ -45,6 +45,7 @@ function startApp() {
     })
 }
 
+// press start button
 $("#start").click(function(){
     let room_number = $("#room_number").val();
     db.runTransaction((transaction) => {
