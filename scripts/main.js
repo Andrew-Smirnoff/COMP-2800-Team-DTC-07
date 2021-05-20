@@ -31,7 +31,7 @@ function startApp() {
                 .doc(user.uid)                                  // the user's UID
                 .get()                                          //READ !!
                 .then(function (doc) {
-                    var picture = doc.data().picture;
+                    var picture = doc.data().current_profile_picture;
                     var name = doc.data().name;                 // point to user's name in the document
                     var friends = doc.data().friends;
                     var coins = doc.data().coins;  // get user coins                  
