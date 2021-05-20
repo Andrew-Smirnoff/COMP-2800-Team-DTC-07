@@ -31,12 +31,14 @@ function startApp() {
                 .doc(user.uid)                                  // the user's UID
                 .get()                                          //READ !!
                 .then(function (doc) {
+                    var picture = doc.data().picture;
                     var name = doc.data().name;                 // point to user's name in the document
                     var friends = doc.data().friends;
                     var coins = doc.data().coins;  // get user coins                  
                     sessionStorage.setItem('name', name);
                     sessionStorage.setItem('friends', friends);
                     sessionStorage.setItem('coins', coins);
+                    sessionStorage.setItem('Current_Profile_Picture', picture);
                     $('#name-goes-here').text(sessionStorage.getItem('name', name));    
                 })
         }
@@ -53,7 +55,7 @@ $("#start").click(function(){
                     sessionStorage.setItem('is_host', false)
                     let players = snap.data()['players']
                     let stories = snap.data()['stories']
-                    let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0, "current_round": 0}
+                    let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0, "current_round": 0, "picture": sessionStorage.getItem("Current_Profile_Picture")}
                     stories.push(dict)
                     players.push(sessionStorage.getItem('name'))
                     transaction.update(db.collection('rooms').doc(room_number), {players: players, stories: stories})
@@ -71,7 +73,7 @@ $("#start").click(function(){
                 let month = String(today.getMonth())
                 let year = String(today.getFullYear())
                 let full_date = year + '/' + month + '/' + day
-                let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0, "current_round": 0}
+                let dict = {'name': sessionStorage.getItem('name'), 'story': "", "points": 0, "current_points": 0, "current_round": 0, "picture": sessionStorage.getItem("Current_Profile_Picture")}
                 transaction.set(db.collection('rooms').doc(room_number), {players: [sessionStorage.getItem('name')],
                 room_number: room_number, stories: [dict], votes: 0, created: full_date, started: false})
             }
