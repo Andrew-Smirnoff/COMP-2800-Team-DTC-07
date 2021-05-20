@@ -1,28 +1,40 @@
 startApp();
+delete_games();
+
+function make_date(){
+    let today = new Date();
+    let day = String(today.getDate())
+    let month = String(today.getMonth())
+    let year = String(today.getFullYear())
+    let full_date = year + '/' + month + '/' + day
+    return full_date;
+}
+
+function date_difference(full_date, document_date){
+    full_date = full_date.split('/')
+            full_date = Number(full_date[0] + full_date[1] + full_date[2])
+
+            document_date = document_date.split('/')
+            document_date = Number(document_date[0] + document_date[1] + document_date[2])
+
+            return document_date - full_date;
+}
 
 //delete old games
-db.collection('rooms').get().then(function(snap){
-    snap.forEach(function(doc){
-        let document_date = doc.data()['created']
-        let today = new Date();
-        let day = String(today.getDate())
-        let month = String(today.getMonth())
-        let year = String(today.getFullYear())
-        let full_date = year + '/' + month + '/' + day
+function delete_games(){
+    db.collection('rooms').get().then(function(snap){
+        snap.forEach(function(doc){
+            let document_date = doc.data()['created']
+            let full_date = make_date()
 
-        full_date = full_date.split('/')
-        full_date = Number(full_date[0] + full_date[1] + full_date[2])
+            let difference = date_difference(full_date, document_date)
 
-        document_date = document_date.split('/')
-        document_date = Number(document_date[0] + document_date[1] + document_date[2])
-
-        let difference = document_date - full_date
-
-        if(difference < -2){
-            db.collection("rooms").doc(doc.data()['room_number']).delete()
-        }
+            if(difference < -2){
+                db.collection("rooms").doc(doc.data()['room_number']).delete()
+            }
+        })
     })
-})
+}
 
 function startApp() {
     firebase.auth().onAuthStateChanged(function (user) {        // Check the user that's logged in
