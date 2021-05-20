@@ -88,7 +88,7 @@ function displayBgPicsInStore() {
         $('.bg-tabcontent').append("<div class='bg-pic-container'></div>");
         $('.bg-pic-container:last').append("<img class='bg-pic' src=' " + bg_pic_url + " ' alt='Avatar'>");
         $('.bg-pic-container:last').append("<p class='bg-price'> price " + price + "</p>");
-        $('.bg-pic-container:last').append("<button class='bg-buy-btn' id='" + name + "' onclick='buyBgPic(this.id);givePlayerBgPic(this.id);'>buy</button>");
+        $('.bg-pic-container:last').append("<button class='bg-buy-btn' id='" + name + "' onclick='buyBgPic(this.id);'>buy</button>");
       })
     })
 }
@@ -138,7 +138,7 @@ function buyBgPic(id) {
           let document_id = sessionStorage.getItem('document_id');
           // console.log('33', document_id);
           // console.log('44', typeof (document_id));
-          updateDatabase(document_id, item_price);
+          updateDatabaseForBgPic(document_id, item_price, id);
         }
 
       })
@@ -165,6 +165,32 @@ function updateDatabase(document_id, item_price, item_id) {
           "coins": balance
         })
       givePlayerProfilePic(item_id);
+      displayBalanceAfterBuying(balance);
+    }
+  })
+
+}
+
+function updateDatabaseForBgPic(document_id, item_price, item_id) {
+
+  db.collection('users').doc(document_id).get().then((doc) => {
+
+    var existing_profile_pics = doc.data().background_pics;
+    console.log('444', existing_profile_pics);
+    var item_id_url = './images/Background pictures/' + item_id + '.png';
+
+    if (existing_profile_pics.includes(item_id_url)) {
+      console.log(existing_profile_pics.includes(item_id_url));
+      alert('Hey, you have got this pic!');
+    } else if (doc.data().coins < item_price) {
+      snackbar();
+    } else {
+      var balance = doc.data().coins - item_price;
+      db.collection("users")
+        .doc(document_id).update({
+          "coins": balance
+        })
+      givePlayerBgPic(item_id);
       displayBalanceAfterBuying(balance);
     }
   })
