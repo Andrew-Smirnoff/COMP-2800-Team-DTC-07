@@ -10,13 +10,13 @@ body {
     width: 83.5vw;
     margin-left: auto;
     margin-right: auto;
+    background-color:#9354A4;
 }
 
 .scroll {
     width:100%;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px;
     text-align: center;
 
 }
