@@ -160,7 +160,7 @@ function updateDatabase(document_id, item_price) {
     displayBalanceAfterBuying(balance);
     console.log('current balance', balance)
     } else {
-      myFunction();
+      snackbar();
     }
     
   })
@@ -205,7 +205,7 @@ function givePlayerBgPic(id) {
           db.collection("users")
             .doc(document_id).update({
               "background_pics": firebase.firestore.FieldValue.arrayUnion(bg_pic_url)
-            })
+            })   
         }
 
       })
