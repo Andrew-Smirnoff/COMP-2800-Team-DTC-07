@@ -24,14 +24,13 @@ h1{
 }
 
 #friends{
-    display:block;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     background-color: #9354A4;
-    border:none;
-    border:2px solid black;
     font-size: 36px;
     margin-top: 30px;
+    width: 95vw;
 }
 
 a{
