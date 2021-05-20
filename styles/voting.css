@@ -45,6 +45,7 @@ p{
 }
 
 label{
+    color:white;
     width: 75vw;
     word-wrap: break-word;
     margin-right: 10px;

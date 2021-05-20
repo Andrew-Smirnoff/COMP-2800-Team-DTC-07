@@ -16,9 +16,10 @@ db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (
         let ul = document.querySelector('ul')
         new_image.setAttribute("src", stories[i]['picture'])
         new_li.setAttribute('class', 'player')
+        new_li.setAttribute('id', i)
         ul.appendChild(new_li)
-        $(".player").html(new_image)
-        $(".player").append(players[i])
+        $("#" + i).html(new_image)
+        $("#" + i).append(players[i])
     }
 })
 

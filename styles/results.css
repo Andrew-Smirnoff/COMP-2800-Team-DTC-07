@@ -26,3 +26,9 @@ body div {
     background-color:#9354A4;
     border: none;
 }
+
+.picture{
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
