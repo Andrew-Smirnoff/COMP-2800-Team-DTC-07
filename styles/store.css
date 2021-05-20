@@ -58,6 +58,12 @@ main {
     width:100%;
   }
 
+  .bg-tabcontent {
+    height: 56.5vh;
+    overflow-y:scroll;
+    width:100%;
+  }
+
  .profile-pic {
       border-radius: 50%;
       width: 15vh;
