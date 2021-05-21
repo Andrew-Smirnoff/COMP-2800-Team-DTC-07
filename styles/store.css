@@ -33,7 +33,7 @@ main {
 .tab {
     margin-top: 25vh;
     overflow: hidden;
-    border: 3px solid rgb(5, 4, 4);
+    border: 3px solid #2d1d36;
     background-color: #9354A4;
   }
   
@@ -70,7 +70,7 @@ main {
   }
 
   .price {
-      color: black;
+      color: #2d1d36;
       font-size: 3vh;
       margin: auto;
       background-color: #9354A4;
@@ -83,7 +83,7 @@ main {
   }
 
   .bg-price {
-      background-color: rgb(129, 63, 102);
+      background-color: #9354A4;
       text-align: center;
       margin-bottom: 0;
   }
@@ -94,12 +94,19 @@ main {
       'one two';
   }
 
+.buy-btn {
+  background-color: #9354A4;
+  border: solid #2d1d36 2px;
+}
+
 .bg-buy-btn {
-    margin-left: 19vw;
+  background-color: #9354A4;
+  border: solid #2d1d36 2px;
+  margin-left: 19vw;
 }
 
 .balance {
-    color: white;
+    color: #9354A4;
     margin-bottom: 0;
 }
 
