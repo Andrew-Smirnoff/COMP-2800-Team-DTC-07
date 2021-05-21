@@ -18,7 +18,7 @@ db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(s
     console.log(sorted_players)
     for(i = 0; i < snap.data()['stories'].length; i++){
         let new_item = document.createElement('li')
-        new_item.innerHTML = snap.data()['stories'][i]['name'] + " ended with " + snap.data()['stories'][i]['points'] + " points."
+        new_item.innerHTML = sorted_players[i]['name'] + " ended with " + sorted_players[i]['points'] + " points."
         $("ul").append(new_item)
     }
 })
