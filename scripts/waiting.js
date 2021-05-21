@@ -92,7 +92,7 @@ function main(){
                     new_li.innerHTML = players_waiting[i]
                     ul.appendChild(new_li)
                 }
-                if (sessionStorage.getItem('is_host') == false) {
+                if (sessionStorage.getItem('is_host') == "false") {
                     if (snap.data()['started'] == true) {
                         document.location.href = "./game2.html";
                     }
