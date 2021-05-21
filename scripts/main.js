@@ -37,14 +37,16 @@ function setup_player() {
     firebase.auth().onAuthStateChanged(function (user) {        // Check the user that's logged in
         if (user) {
             db.collection('users').doc(user.uid).get().then(function (doc) {
-                    var picture = doc.data().current_profile_picture;
-                    var name = doc.data().name;                 // point to user's name in the document
-                    var friends = doc.data().friends;
-                    var coins = doc.data().coins;  // get user coins                  
-                    sessionStorage.setItem('name', name);
-                    sessionStorage.setItem('friends', friends);
-                    sessionStorage.setItem('coins', coins);
-                    sessionStorage.setItem('Current_Profile_Pic', picture);
+                var prof_picture = doc.data().current_profile_picture;
+                var name = doc.data().name;                 // point to user's name in the document
+                var friends = doc.data().friends;
+                var coins = doc.data().coins;  // get user coins
+                var bg_picture = doc.data().current_bg_pic;                  
+                sessionStorage.setItem('name', name);
+                sessionStorage.setItem('friends', friends);
+                sessionStorage.setItem('coins', coins);
+                sessionStorage.setItem('Current_Profile_Pic', prof_picture);
+                sessionStorage.setItem('Current_Bg_Pic', bg_picture);
                     $('#name-goes-here').text(sessionStorage.getItem('name', name));    
                 })
         }
