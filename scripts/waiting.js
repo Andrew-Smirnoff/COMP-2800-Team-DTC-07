@@ -92,7 +92,7 @@ function main(){
                     new_li.innerHTML = players_waiting[i]
                     ul.appendChild(new_li)
                 }
-                if (sessionStorage.getItem('is_host') != true) {
+                if (sessionStorage.getItem('is_host') == false) {
                     if (snap.data()['started'] == true) {
                         document.location.href = "./game2.html";
                     }
@@ -121,7 +121,7 @@ function main(){
                     started: true,
                     rounds: parseInt($("#round_number").val()) * snap.data()['players'].length
                 }).then(function () {
-                    document.location.href = "./game2.html";
+                    //document.location.href = "./game2.html";
                 })
             })
         })
