@@ -1,0 +1,27 @@
+body {
+    background-image: url("../images/cliff.png");
+    background-color: #cccccc;
+    background-size: 100%;
+}
+
+body div {
+    position: relative;
+    text-align: center;
+    width: 83.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#9354A4;
+}
+
+.scroll {
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#finish {
+    color: #2d1d36;
+    background-color:#9354A4;
+    border: solid #2d1d36 2px;
+}
