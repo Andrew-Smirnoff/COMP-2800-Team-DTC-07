@@ -235,7 +235,7 @@ function givePlayerBgPic(id) {
           db.collection("users")
             .doc(document_id).update({
               "background_pics": firebase.firestore.FieldValue.arrayUnion(bg_pic_url)
-            })
+            })   
         }
 
       })
