@@ -7,7 +7,7 @@ function getDocumentId() {
       sessionStorage.setItem('document_id', document_id)
     });
   }
-
+//
 function main(){
     getDocumentId();
     var document_id = sessionStorage.getItem('document_id');
