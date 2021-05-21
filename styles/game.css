@@ -1,18 +1,14 @@
-section {
-    display: grid;
-    grid-template-rows: 10vh 25vh 25vh 30vh 10vh;
-    grid-template-areas: 
-    'one'
-    'one'
-    'two'
-    'three'
-    'bottom';
-}
 
 body {
     background-image: url("../images/cliff.png");
     background-color: #cccccc;
     background-size: 100%;
+}
+
+.grid-container {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #story {
@@ -25,7 +21,6 @@ body {
 .scenario-container {
     background-color:#2D1D36;
     grid-area: one;
-    height: 20vh;
     width: 90vw;
     margin-left: auto;
     margin-right: auto;
@@ -38,12 +33,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
-}
-
-.player-container {
-    width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .round {
@@ -68,6 +57,11 @@ input {
     margin-left: auto;
     margin-right: auto;
     border: solid #9354A4 2px;
+}
+
+.player-container {
+    background-color: #2d1d36;
+    color: #9354A4;
 }
 
 #submit-btn {
@@ -122,15 +116,11 @@ input {
     margin-bottom: 0px;
 }
 
-.player-container{
-    background-color: rgba(147, 84, 164, 0.7);
-}
-
 #subject_header{
-    background-color: #2d1d36;
     color: #9354A4;
     font-size: 20px;
     padding-left: 15px;
+    background-color: #2D1D36;
 }
 
 .player{
