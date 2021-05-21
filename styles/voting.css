@@ -23,7 +23,8 @@ body div {
 #submit {
     color: #2d1d36;
     background-color:#9354A4;
-    border: none;
+    border: solid #2d1d36 2px;
+    margin-top: 5vw;
 }
 
 h1{
