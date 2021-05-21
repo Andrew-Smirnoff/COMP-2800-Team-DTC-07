@@ -15,8 +15,8 @@ function bubbleSort(players){
 db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
     let all_players = snap.data()['stories']
     let sorted_players = bubbleSort(all_players)
-    console.log(sorted_players)
-    for(i = 0; i < snap.data()['stories'].length; i++){
+    for(i = sorted_players.length - 1; i >= 0 ; i--){
+        console.log(sorted_players)
         let new_item = document.createElement('li')
         new_item.innerHTML = sorted_players[i]['name'] + " ended with " + sorted_players[i]['points'] + " points."
         $("ul").append(new_item)
