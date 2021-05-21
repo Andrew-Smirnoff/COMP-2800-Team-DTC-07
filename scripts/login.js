@@ -19,13 +19,8 @@ var uiConfig = {
                 db.collection("users").doc(user.uid).set({         //write to firestore
                         name: user.displayName,                    //"users" collection
                         email: user.email,
-<<<<<<< HEAD
-                        coins: 0,
-                        current_profile_picture: "./images/Profile pictures/Discount_Rorschach.png"
-=======
                         friends: [],
                         coins: 0                          //with authenticated user's ID (user.uid)
->>>>>>> Denes_Gyorgy_Branch1
                     }).then(function () {
                         console.log("New user added to firestore");
                         window.location.assign("main.html");       //re-direct to main.html after signup
