@@ -7,9 +7,9 @@ function getDocumentId() {
       sessionStorage.setItem('document_id', document_id)
     });
   }
-getDocumentId();
 
 function main(){
+    getDocumentId();
     var document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {
