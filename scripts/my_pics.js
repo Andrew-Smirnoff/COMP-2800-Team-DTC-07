@@ -110,5 +110,9 @@ function changeProfilePic(id) {
 function changeBgPic(id) {
     console.log(id);
     $('body').css('background-image', "url('" + id + "')");
-    // $('elementTag/#Id/.Class').css('background-image', 'url("../images/otherimage.jpg")');
+    let document_id = sessionStorage.getItem('document_id');
+    let user_data = db.collection("users").doc(document_id);
+    var setWithMerge = user_data.set({
+        current_bg_pic: id
+    }, {merge: true});
 }
