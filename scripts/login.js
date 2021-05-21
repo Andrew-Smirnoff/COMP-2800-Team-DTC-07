@@ -21,7 +21,7 @@ var uiConfig = {
                         name: user.displayName,                    //"users" collection
                         email: user.email,
                         coins: 0,
-                        current_profile_picture: "./images/Profile pictures/Discount_Rorschach.png",
+                        current_profile_pic: "./images/Profile pictures/Discount_Rorschach.png",
                         current_bg_pic: "./images/Background pictures/cave.png",
                         background_pics: ["./images/Background pictures/cave.png"],
                         profile_pics: ["./images/Profile pictures/Discount_Rorschach.png"]

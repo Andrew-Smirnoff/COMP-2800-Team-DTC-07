@@ -45,7 +45,7 @@ function setup_player() {
     firebase.auth().onAuthStateChanged(function (user) {        // Check the user that's logged in
         if (user) {
             db.collection('users').doc(user.uid).get().then(function (doc) {
-                    var prof_picture = doc.data().current_profile_picture;
+                    var prof_picture = doc.data().current_profile_pic;
                     var name = doc.data().name;                 // point to user's name in the document
                     var friends = doc.data().friends;
                     var coins = doc.data().coins;  // get user coins
