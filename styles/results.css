@@ -6,7 +6,6 @@ body {
 
 body div {
     position: relative;
-    text-align: center;
     width: 83.5vw;
     margin-left: auto;
     margin-right: auto;
@@ -21,13 +20,26 @@ body div {
 }
 
 #submit {
+    display: block;
     color: #2d1d36;
     background-color:#9354A4;
     border: solid #2d1d36 2px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .picture{
     width: 50px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+li{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin-top: 20px;
+}
+
+h1{
+    text-align: center;
 }

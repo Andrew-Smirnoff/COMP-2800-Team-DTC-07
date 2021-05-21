@@ -5,11 +5,13 @@ function display_stories(){
         for (i = 0; i < stories.length; i++) {
             let new_item = document.createElement('li')
             let new_image = document.createElement('img')
+            let new_line = document.createElement("hr")
             new_image.setAttribute("src", stories[i]['picture'])
             new_image.setAttribute("class", "picture")
             new_item.setAttribute('class', 'player')
             new_item.setAttribute('id', i)
             story_list.append(new_item)
+            story_list.append(new_line)
             $("#" + i).html(new_image)
             $("#" + i).append(stories[i]['name'] + " wrote: " + stories[i]['story'] + ", and was rewarded " + stories[i]['current_points'] + " points. They now have " + stories[i]['points'] + " points.")
         }
