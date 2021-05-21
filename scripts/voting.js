@@ -1,25 +1,3 @@
-let story_array = []
-let form_selections = $("form")
-
-db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-    story_array = snap.data()['stories'];
-}).then(function(){
-    for(i = 0; i < story_array.length; i++){
-        if(story_array[i]['name'] != sessionStorage.getItem('name')){
-            let new_label = document.createElement('label')
-            let new_input = document.createElement('input')
-            new_input.setAttribute('type', 'radio')
-            new_input.setAttribute('id', story_array[i]['story'])
-            new_input.setAttribute('value', story_array[i]['name'])
-            new_label.setAttribute('for', story_array[i]['story'])
-            new_label.setAttribute('name', 'vote')
-            new_label.innerHTML = story_array[i]['story']
-            form_selections.append(new_label)
-            form_selections.append(new_input)
-        }
-    }
-})
-
 $('#submit').click(function(){
     $('input:checked').each(function () {
         let vote = this.value;
@@ -41,3 +19,33 @@ $('#submit').click(function(){
         })
     });
 })
+
+function display_stories(){
+    let story_array = []
+    let form_selections = $("form")
+
+    db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
+        story_array = snap.data()['stories'];
+    }).then(function(){
+        for(i = 0; i < story_array.length; i++){
+            if(story_array[i]['name'] != sessionStorage.getItem('name')){
+                let new_label = document.createElement('label')
+                let new_input = document.createElement('input')
+                new_input.setAttribute('type', 'radio')
+                new_input.setAttribute('name', 'vote')
+                new_input.setAttribute('id', story_array[i]['story'])
+                new_input.setAttribute('value', story_array[i]['name'])
+                new_label.setAttribute('for', story_array[i]['story'])
+                new_label.innerHTML = story_array[i]['story']
+                form_selections.append(new_label)
+                form_selections.append(new_input)
+            }
+        }
+    })
+}
+
+function main(){
+    display_stories()
+}
+
+main()
