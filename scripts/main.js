@@ -1,3 +1,11 @@
+function getDocumentId() {
+    firebase.auth().onAuthStateChanged((user) => {
+      let document_id = user.uid
+      console.log('document_id: ', document_id)
+      sessionStorage.setItem('document_id', document_id)
+    })
+  }
+
 function make_date(){
     let today = new Date();
     let day = String(today.getDate())
@@ -118,6 +126,7 @@ function begin_game(){
 }
 
 function main(){
+    getDocumentId();
     setup_player();
     delete_games();
     $("#start").click(function(){

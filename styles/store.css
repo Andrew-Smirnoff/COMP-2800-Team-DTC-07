@@ -58,6 +58,12 @@ main {
     width:100%;
   }
 
+  .bg-tabcontent {
+    height: 56.5vh;
+    overflow-y:scroll;
+    width:100%;
+  }
+
  .profile-pic {
       border-radius: 50%;
       width: 15vh;
@@ -126,7 +132,7 @@ main {
     position: fixed; /* Sit on top of the screen */
     z-index: 1; /* Add a z-index if needed */
     left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
+    bottom: 70vh; /* 30px from the bottom */
     border: black 4px solid;
   }
   
@@ -142,20 +148,20 @@ main {
   /* Animations to fade the snackbar in and out */
   @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    to {bottom: 70vh; opacity: 1;}
   }
   
   @keyframes fadein {
     from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    to {bottom: 70vh; opacity: 1;}
   }
   
   @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
+    from {bottom: 70vh; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
   
   @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
+    from {bottom: 70vh; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }

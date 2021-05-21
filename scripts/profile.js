@@ -1,14 +1,5 @@
 main();
 
-function getDocumentId() {
-    firebase.auth().onAuthStateChanged((user) => {
-      let document_id = user.uid
-      console.log('document_id: ', document_id)
-      sessionStorage.setItem('document_id', document_id)
-    });
-  }
-getDocumentId();
-
 function main(){
     var document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);

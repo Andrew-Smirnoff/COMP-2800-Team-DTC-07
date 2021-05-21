@@ -35,17 +35,6 @@ function getDocumentId() {
   getDocumentId();
 
 
-  // getting the document_id into the session storage
-  function getDocumentId() {
-      firebase.auth().onAuthStateChanged((user) =>{
-        let document_id = user.uid;
-        sessionStorage.setItem('document_id', document_id);
-      })
-  }
-  getDocumentId();
-
-
-
 function getUserProfPics() {
     db.collection("users").get().then(function (snap) {
         snap.forEach(function (doc) {
@@ -75,15 +64,6 @@ function getUserBgPics() {
 } 
 getUserBgPics();
 
-// function getMainProfPic() {
-//     db.collection("users").get().then(function(snap) {
-//         snap.forEach(function (doc) {
-//         if(doc.data().name == sessionStorage.name) {
-//             let mainProfPicLink = doc.data().current_profile_picture;
-//             console.log(mainProfPicLink);
-//         })
-//     }) }
-// } getMainProfPic();
 
 function getMainProfilePic() {
     db.collection("users").get().then(function(snap) {
@@ -111,5 +91,9 @@ function changeProfilePic(id) {
 function changeBgPic(id) {
     console.log(id);
     $('body').css('background-image', "url('" + id + "')");
-    // $('elementTag/#Id/.Class').css('background-image', 'url("../images/otherimage.jpg")');
+    let document_id = sessionStorage.getItem('document_id');
+    let user_data = db.collection("users").doc(document_id);
+    var setWithMerge = user_data.set({
+        current_bg_pic: id
+    }, {merge: true});
 }
