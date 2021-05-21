@@ -2,7 +2,7 @@ const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-const refresh = async () => {
+const main = async () => {
   while (1 > 0) {
     await sleep(2000)
     db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
@@ -18,4 +18,5 @@ const refresh = async () => {
     })
   }
 }
-refresh()
+
+main()

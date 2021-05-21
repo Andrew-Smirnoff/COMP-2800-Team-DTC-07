@@ -1,3 +1,4 @@
+sessionStorage.clear();
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
@@ -19,7 +20,11 @@ var uiConfig = {
                 db.collection("users").doc(user.uid).set({         //write to firestore
                         name: user.displayName,                    //"users" collection
                         email: user.email,
-                        friends: []                          //with authenticated user's ID (user.uid)
+                        coins: 0,
+                        current_profile_pic: "./images/Profile pictures/Discount_Rorschach.png",
+                        current_bg_pic: "./images/Background pictures/cave.png",
+                        background_pics: ["./images/Background pictures/cave.png"],
+                        profile_pics: ["./images/Profile pictures/Discount_Rorschach.png"]
                     }).then(function () {
                         console.log("New user added to firestore");
                         window.location.assign("main.html");       //re-direct to main.html after signup
