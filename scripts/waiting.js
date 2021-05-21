@@ -121,7 +121,7 @@ function main(){
                     started: true,
                     rounds: parseInt($("#round_number").val()) * snap.data()['players'].length
                 }).then(function () {
-                    //document.location.href = "./game2.html";
+                    document.location.href = "./game2.html";
                 })
             })
         })
