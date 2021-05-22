@@ -48,7 +48,7 @@ function main(){
 
         $("#start_game").click(function () {
             db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
-                if(snap.data()['stories'].length >= 1 && $("#round_number").val() >= 3 && $("#round_number").val() <= 8){
+                if(snap.data()['stories'].length >= 2 && $("#round_number").val() >= 3 && $("#round_number").val() <= 8){
                     shuffle();
                 } else if(snap.data()['stories'].length < 3){
                     //show snackbar - it's snack time BABAAAYYYYY
@@ -56,7 +56,7 @@ function main(){
                     snack.className = "show"
                     setTimeout(function(){snack.className = snack.className.replace("show", "");}, 3000)
                     $('#snackbar').html("Could not start the game: Please wait for at least three <a href='https://fiendship-85fa8.web.app/easteregg.html'>players.</a>")
-                } else if($("#round_number").val() < 2){
+                } else if($("#round_number").val() < 3){
                     $('#snackbar').text("Could not start the game: Please enter a number of round from 3-8.")
                     let snack = document.getElementById('snackbar')
                     snack.className = "show"
