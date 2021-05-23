@@ -131,6 +131,29 @@ p{
     padding: 10px;
 }
 
+.player{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    padding: 10px;
+    background: none;
+    text-align:center;
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
+.profile_picture{
+    width: 100%;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+#player_list{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
 #host_options{
     margin-top: 5vh;
     margin-left: auto;

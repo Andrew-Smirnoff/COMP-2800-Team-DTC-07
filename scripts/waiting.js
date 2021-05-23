@@ -81,16 +81,24 @@ function main(){
         while (1 > 0) {
             await sleep(2000)
             db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
-                players_waiting = snap.data()['players']
-                let old_li = document.querySelectorAll('li')
-                for (i = 0; i < old_li.length; i++) {
-                    old_li[i].remove()
+                let players_waiting = snap.data()['players']
+                let old_players = document.getElementsByClassName('player')
+                console.log(old_players)
+                let old_player_length = old_players.length;
+                let old_pictures = document.getElementsByClassName('profile_picture')
+                for (i = 0; i < old_player_length; i++) {
+                    old_players[i].remove()
+                    old_pictures[i].remove()
                 }
                 for (i = 0; i < players_waiting.length; i++) {
-                    let new_li = document.createElement('li')
-                    let ul = document.querySelector('ul')
-                    new_li.innerHTML = players_waiting[i]
-                    ul.appendChild(new_li)
+                    let new_player = document.createElement('p')
+                    let new_picture = document.createElement('img')
+                    new_picture.setAttribute('src', snap.data()['stories'][i]['picture'])
+                    new_picture.setAttribute('class', 'profile_picture')
+                    new_player.innerHTML = players_waiting[i]
+                    new_player.setAttribute('class', 'player')
+                    $("#player_list").append(new_picture)
+                    $("#player_list").append(new_player)
                 }
                 if (sessionStorage.getItem('is_host') == "false") {
                     if (snap.data()['started'] == true) {
