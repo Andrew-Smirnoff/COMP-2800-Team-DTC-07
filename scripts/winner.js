@@ -23,8 +23,27 @@ db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(s
     }
 })
 
+function getCurrentBackgroundPic() {
+    let document_id = sessionStorage.getItem('document_id');
+    var docRef = db.collection('users').doc(document_id);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log('[user current background pic] ', doc.data().current_bg_pic);
+            let user_current_bg_pic = doc.data().current_bg_pic;
+            $('body').css('background-image', "url('" + user_current_bg_pic + "')");
+        } else {
+            console.log('no such document')
+        }
+    }).catch((error)=> {
+        console.log('Error getting document: ', error)
+    })
+}
+getCurrentBackgroundPic();
+
+
 $("#finish").click(function(){
     db.collection("rooms").doc(sessionStorage.getItem('room')).delete().then(() => {
         document.location.href = "./main.html";
     });
 })
+
