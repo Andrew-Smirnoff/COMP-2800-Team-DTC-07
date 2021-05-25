@@ -91,6 +91,22 @@ p {
     position: absolute;
 }
 
+.twitter-share-button{
+  margin-top: 20px;
+}
+
+#twitter_p{
+  display:inline;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3.2vw;
+}
+
+#twitter{
+  margin-top: 10%;
+}
+
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
     visibility: hidden; /* Hidden by default. Visible on click */

@@ -8,14 +8,14 @@ function display_players(snap) {
     let stories = snap.data()['stories']
     for (i = 0; i < players.length; i++) {
         let new_image = document.createElement('img')
-        let new_li = document.createElement('li')
-        let ul = document.querySelector('ul')
+        let new_player = document.createElement('p')
+        let all_players = document.getElementById('player_list')
         new_image.setAttribute("src", stories[i]['picture'])
-        new_li.setAttribute('class', 'player')
-        new_li.setAttribute('id', i)
-        ul.appendChild(new_li)
-        $("#" + i).html(new_image)
-        $("#" + i).append(players[i])
+        new_image.setAttribute('class', 'profile_picture')
+        new_player.setAttribute('class', 'player')
+        new_player.innerHTML = players[i]
+        all_players.appendChild(new_image)
+        all_players.appendChild(new_player)
     }
 }
 

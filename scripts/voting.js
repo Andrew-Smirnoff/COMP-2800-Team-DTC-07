@@ -1,25 +1,3 @@
-$('#submit').click(function(){
-    $('input:checked').each(function () {
-        let vote = this.value;
-        db.runTransaction((transaction) => {
-            return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function(snap){
-                let stories = snap.data()['stories']
-                let vote_count = snap.data()['votes']
-                vote_count++;
-                for(i = 0; i < stories.length; i++){
-                    if(stories[i]['name'] == vote){
-                        stories[i]['points'] ++;
-                        stories[i]['current_points'] ++;
-                        transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories, votes: vote_count, rounds: snap.data()['rounds'] - 1})
-                    }
-                }
-            })
-        }).then(function(){
-            document.location.href = "./vote_waiting.html";
-        })
-    });
-})
-
 function display_stories(){
     let story_array = []
     let form_selections = $("form")
@@ -46,6 +24,27 @@ function display_stories(){
 
 function main(){
     display_stories()
+    $('#submit').click(function(){
+        $('input:checked').each(function () {
+            let vote = this.value;
+            db.runTransaction((transaction) => {
+                return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function(snap){
+                    let stories = snap.data()['stories']
+                    let vote_count = snap.data()['votes']
+                    vote_count++;
+                    for(i = 0; i < stories.length; i++){
+                        if(stories[i]['name'] == vote){
+                            stories[i]['points'] ++;
+                            stories[i]['current_points'] ++;
+                            transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories, votes: vote_count, rounds: snap.data()['rounds'] - 1})
+                        }
+                    }
+                })
+            }).then(function(){
+                document.location.href = "./vote_waiting.html";
+            })
+        });
+    })
 }
 
 main()
