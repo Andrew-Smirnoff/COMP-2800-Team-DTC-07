@@ -18,28 +18,6 @@ function display_stories(){
     })
 }
 
-function main(){
-    display_stories()
-    $("#submit").click(function () {
-        db.runTransaction((transaction) => {
-            return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function (snap) {
-                let stories = snap.data()['stories'];
-                for (i = 0; i < stories.length; i++) {
-                    if(stories[i]['name'] == sessionStorage.getItem('name')){
-                        stories[i]['current_points'] = 0
-                        stories[i]['story'] = ""
-                        stories[i]['current_round'] = stories[i]['current_round'] + 1
-                    }
-                }
-                transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories,
-                votes: 0})
-            })
-        }).then(function () {
-            document.location.href = "./game2.html";
-        })
-    })
-}
-
 function getCurrentBackgroundPic() {
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
@@ -59,6 +37,24 @@ function getCurrentBackgroundPic() {
 function main(){
     getCurrentBackgroundPic();
     display_stories()
+    $("#submit").click(function () {
+        db.runTransaction((transaction) => {
+            return transaction.get(db.collection('rooms').doc(sessionStorage.getItem('room'))).then(function (snap) {
+                let stories = snap.data()['stories'];
+                for (i = 0; i < stories.length; i++) {
+                    if(stories[i]['name'] == sessionStorage.getItem('name')){
+                        stories[i]['current_points'] = 0
+                        stories[i]['story'] = ""
+                        stories[i]['current_round'] = stories[i]['current_round'] + 1
+                    }
+                }
+                transaction.update(db.collection('rooms').doc(sessionStorage.getItem('room')), {stories: stories,
+                votes: 0})
+            })
+        }).then(function () {
+            document.location.href = "./game2.html";
+        })
+    })
 }
 
 main();
