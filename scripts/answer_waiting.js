@@ -3,9 +3,11 @@ const sleep = (milliseconds) => {
 }
 
 function remove_old_list(){
-  let old_li = document.querySelectorAll('li')
-  for (i = 0; i < old_li.length; i++) {
-    old_li[i].remove()
+  let old_p = document.querySelectorAll('p')
+  let old_pic = document.getElementsByClassName('profile_picture')
+  for (i = 0; i < old_p.length; i++) {
+    old_p[i].remove()
+    old_pic[i].remove()
   }
 }
 
@@ -15,9 +17,14 @@ function create_new_lists(stories){
     all_stories.push(stories[i])
     if (all_stories[i]['story'] == "") {
       next_page = false
-      let player = document.createElement("li")
-      player.innerHTML = all_stories[i]['name']
-      $("#player_list").append(player)
+      let new_player = document.createElement('p')
+      let new_picture = document.createElement('img')
+      new_player.innerHTML = all_stories[i]['name']
+      new_picture.setAttribute('src', all_stories[i]['picture'])
+      new_picture.setAttribute('class', 'profile_picture')
+      new_player.setAttribute('class', 'player')
+      $("#player_list").append(new_picture)
+      $("#player_list").append(new_player)
     }
   }
   return all_stories
