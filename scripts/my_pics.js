@@ -90,10 +90,27 @@ function changeProfilePic(id) {
 
 function changeBgPic(id) {
     console.log(id);
-    $('body').css('background-image', "url('" + id + "')");
     let document_id = sessionStorage.getItem('document_id');
     let user_data = db.collection("users").doc(document_id);
     var setWithMerge = user_data.set({
         current_bg_pic: id
     }, {merge: true});
+    getCurrentBackgroundPic();
 }
+
+function getCurrentBackgroundPic() {
+    let document_id = sessionStorage.getItem('document_id');
+    var docRef = db.collection('users').doc(document_id);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log('[user current background pic] ', doc.data().current_bg_pic);
+            let user_current_bg_pic = doc.data().current_bg_pic;
+            $('body').css('background-image', "url('" + user_current_bg_pic + "')");
+        } else {
+            console.log('no such document')
+        }
+    }).catch((error)=> {
+        console.log('Error getting document: ', error)
+    })
+}
+getCurrentBackgroundPic();
