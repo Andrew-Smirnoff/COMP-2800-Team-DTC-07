@@ -4,10 +4,11 @@ const sleep = (milliseconds) => {
 
 function remove_old_list(){
   let old_p = document.querySelectorAll('p')
-  let p_length = old_p.length
   let old_pic = document.getElementsByClassName('profile_picture')
-  for (i = 0; i < p_length; i++) {
+  let pic_length = old_pic.length
+  for (i = 0; i < pic_length; i++) {
     old_p[0].remove()
+    old_p[1].remove()
     old_pic[0].remove()
   }
 }
