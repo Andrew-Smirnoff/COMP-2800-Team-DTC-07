@@ -1,11 +1,12 @@
+// delay function
 const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
+// removes all pictures and names
 function remove_old_list(){
   let old_p = document.getElementsByClassName('player')
   let old_pic = document.getElementsByClassName('profile_picture')
-  let pic_length = old_pic.length
   let p_length = old_p.length
   for (i = 0; i < p_length; i++) {
     old_p[0].remove()
