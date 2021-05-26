@@ -1,41 +1,48 @@
 function openInventory(evt, inventoryType) {
-    // Declare all variables
+/**
+ * Supports tab display.
+ * I found this code on www.w3schools.com
+ * 
+ * @author www.w3schools.com
+ * @see https://www.w3schools.com/howto/howto_js_tabs.asp
+ */
+        
     var i, tabcontent, tablinks;
 
-
-    // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for(i=0; i<tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
 
-    // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for(i = 0; i< tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    // Show the current tab and add an "active" class to the button that opened the tab
     document.getElementById(inventoryType).style.display = "grid";
     evt.currentTarget.className += " active";
-
 }
+
 
 document.getElementById("defaultOpen").click();
 
 
-// to get document_id in sessionStorage
 function getDocumentId() {
+    
+    // To get document_id in sessionStorage
+
     firebase.auth().onAuthStateChanged((user) => {
       let document_id = user.uid
-      console.log('document_id: ', document_id)
       sessionStorage.setItem('document_id', document_id)
     });
-  }
-  getDocumentId();
+}
+getDocumentId();
 
 
 function getUserProfPics() {
+
+    // GETS all of the profile pics the user has bought and places them dynamically on 'my_pics.html'
+    
     db.collection("users").get().then(function (snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
@@ -51,6 +58,9 @@ getUserProfPics();
 
 
 function getUserBgPics() {
+
+    // GETS all of the background pics the user has bought from database and places them dynamically on 'my_pics.html'
+
     db.collection("users").get().then(function (snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
@@ -66,6 +76,9 @@ getUserBgPics();
 
 
 function getMainProfilePic() {
+
+    // GETS the current profile pic from the database and places it dynamically at top of 'my_pics.html' page
+
     db.collection("users").get().then(function(snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
@@ -74,11 +87,15 @@ function getMainProfilePic() {
             }
         })
     })
-}getMainProfilePic(); 
+}
+getMainProfilePic(); 
 
 
 function changeProfilePic(id) {
-    console.log(id);
+
+    // When a profile picture from the collection is clicked on 'my_pics.html', the clicked picture gets updated
+    // in the database as well as in the src attribute of the main profile picture
+    
     $('.main-prof-pic').attr("src", id);
     let document_id = sessionStorage.getItem('document_id');
     let user_data = db.collection("users").doc(document_id);
@@ -88,8 +105,12 @@ function changeProfilePic(id) {
     sessionStorage.setItem('Current_Profile_Pic', id);
 }
 
+
 function changeBgPic(id) {
-    console.log(id);
+
+    // Changes background picture on click of one of the background pictures in the collection on 'my_pics.html';
+    // The current background field also gets updated in the database
+
     let document_id = sessionStorage.getItem('document_id');
     let user_data = db.collection("users").doc(document_id);
     var setWithMerge = user_data.set({
@@ -98,12 +119,15 @@ function changeBgPic(id) {
     getCurrentBackgroundPic();
 }
 
+
 function getCurrentBackgroundPic() {
+
+    // Changes background pic url of 'my_pics.html' to the users current background pic
+
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {
         if (doc.exists) {
-            console.log('[user current background pic] ', doc.data().current_bg_pic);
             let user_current_bg_pic = doc.data().current_bg_pic;
             $('body').css('background-image', "url('" + user_current_bg_pic + "')");
         } else {
