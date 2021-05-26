@@ -45,6 +45,12 @@ Part 2 - firebase and firestore
 You will be invited to our firebase project via your email. To access it, go to https://firebase.google.com/ and click the “Get Started” button. Fiendship should be listed as a project for you. You can click on the “Firestore Database” tab on the left to view the database.
 
 
+TEST PLAN
+
+Here is the link to a spreadsheet containing our app’s test plan.
+https://docs.google.com/spreadsheets/d/1KICIlaE_0rjcoqqFiA10RVGSh6Mg7ZkMB2YyphhB2-U/edit#gid=0
+
+
 
 
 REFERENCES
