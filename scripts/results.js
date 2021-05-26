@@ -38,9 +38,7 @@ function main(){
             document.location.href = "./game2.html";
         })
     })
-<<<<<<< HEAD
-=======
-})
+}
 
 function getCurrentBackgroundPic() {
     let document_id = sessionStorage.getItem('document_id');
@@ -61,7 +59,6 @@ function getCurrentBackgroundPic() {
 function main(){
     getCurrentBackgroundPic();
     display_stories()
->>>>>>> fffdee647f15b4eb5e89a8255ce7ec8cac9ec34e
 }
 
 main();
