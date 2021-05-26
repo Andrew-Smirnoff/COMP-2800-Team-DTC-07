@@ -1,4 +1,11 @@
+// sorts players by number of points
 function bubbleSort(players) {
+    /**
+   * bubble sort function to sort players by point values 
+   * I found this on medium.com
+   * Author: Kyle Jensen
+   * https://medium.com/javascript-algorithms/javascript-algorithms-bubble-sort-3d27f285c3b2
+   */
     let player_count = players.length;
     for (let i = player_count - 1; i >= 0; i--) {
         for (let j = 1; j <= i; j++) {
@@ -13,6 +20,9 @@ function bubbleSort(players) {
 }
 
 function show_players(snap){
+    /**
+     * shows the players in the order of points they received
+     */
     let all_players = snap.data()['stories']
     let sorted_players = bubbleSort(all_players)
     for (i = sorted_players.length - 1; i >= 0; i--) {
@@ -28,6 +38,9 @@ function show_players(snap){
 }
 
 function award_coins(snap){
+    /**
+     * gives the players some sweet coins
+     */
     db.collection('users').doc(sessionStorage.getItem('document_id')).get().then(function (snap2) {
         for (let i = 0; i < snap.data()['stories'].length; i++) {
             if (snap.data()['stories'][i]['name'] == sessionStorage.getItem('name')) {
@@ -54,7 +67,11 @@ function main(){
 }
 
 main();
+
 function getCurrentBackgroundPic() {
+    /**
+     * places curent background picture
+     */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {

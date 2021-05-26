@@ -1,7 +1,9 @@
 function display_stories(){
+    /**
+     * displays all stories for voting with buttons to select which one
+     */
     let story_array = []
     let form_selections = $("form")
-
     db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function(snap){
         story_array = snap.data()['stories'];
     }).then(function(){
@@ -23,6 +25,9 @@ function display_stories(){
 }
 
 function getCurrentBackgroundPic() {
+    /**
+     * places current background picture
+     */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {

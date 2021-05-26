@@ -1,4 +1,7 @@
 function shuffle() {
+    /**
+     * shuffles all scenarios and starts the game
+     */
     let all_scenarios = []
     let shuffled = []
     db.collection("scenario").get().then(function (snap) {
@@ -23,6 +26,9 @@ function shuffle() {
 }
 
 function apply_host_buttons() {
+    /**
+     * makes host buttons appear if the player is the host
+     */
     let decrement = document.createElement('button')
     decrement.innerHTML = '-'
     decrement.setAttribute('id', 'decrement')
@@ -42,6 +48,9 @@ function apply_host_buttons() {
 }
 
 function host_function() {
+    /**
+     * this function changes the waiting room for the host
+     */
     if (JSON.parse(sessionStorage.getItem('is_host')) == true) {
         let host_header = document.createElement('h1');
         host_header.innerHTML = "You are the host!"
@@ -72,7 +81,14 @@ function host_function() {
                 if (snap.data()['stories'].length >= 2 && $("#round_number").val() >= 3 && $("#round_number").val() <= 8) {
                     shuffle();
                 } else if (snap.data()['stories'].length < 3) {
-                    //show snackbar - it's snack time BABAAAYYYYY
+                    /**
+                     * Supports snackbar display.
+                     * It's snack time BABAAAYYYYY!
+                     * I found this code on www.w3schools.com
+                     * 
+                     * @author www.w3schools.com
+                     * @see https://www.w3schools.com/howto/howto_js_snackbar.asp
+                     */
                     let snack = document.getElementById('snackbar')
                     snack.className = "show"
                     setTimeout(function () { snack.className = snack.className.replace("show", ""); }, 3000)
@@ -96,6 +112,9 @@ function host_function() {
 }
 
 function remove_old_players() {
+    /**
+     * removes old players so that the refresh works properly
+     */
     let old_players = document.getElementsByClassName('player')
     let old_player_length = old_players.length;
     let old_pictures = document.getElementsByClassName('profile_picture')
@@ -106,6 +125,9 @@ function remove_old_players() {
 }
 
 function add_new_players(players_waiting, snap) {
+    /**
+     * adds new players and their pictures
+     */
     for (i = 0; i < players_waiting.length; i++) {
         let new_player = document.createElement('p')
         let new_picture = document.createElement('img')
@@ -119,14 +141,6 @@ function add_new_players(players_waiting, snap) {
 }
 
 function main() {
-    // is this ever used? Maybe remove it
-    players_waiting = []
-    let today = new Date();
-    let day = String(today.getDate())
-    let month = String(today.getMonth())
-    let year = String(today.getFullYear())
-    let full_date = year + '/' + month + '/' + day
-
     host_function();
 
     const sleep = (milliseconds) => {
@@ -152,6 +166,9 @@ function main() {
 }
 
 function getCurrentBackgroundPic() {
+    /**
+     * place current background picture
+     */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {

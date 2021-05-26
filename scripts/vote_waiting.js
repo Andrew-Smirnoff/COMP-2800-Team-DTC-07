@@ -1,7 +1,14 @@
 const sleep = (milliseconds) => {
+  /**
+   * delay function 
+   * I found this on sitepoint.com
+   * @author James Hibbard
+   * @see https://www.sitepoint.com/delay-sleep-pause-wait/
+   */
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
+// main refreshes every two seconds
 const main = async () => {
   while (1 > 0) {
     await sleep(2000)
@@ -20,6 +27,9 @@ const main = async () => {
 }
 
 function getCurrentBackgroundPic() {
+  /**
+   * places current background picture
+   */
   let document_id = sessionStorage.getItem('document_id');
   var docRef = db.collection('users').doc(document_id);
   docRef.get().then((doc) => {

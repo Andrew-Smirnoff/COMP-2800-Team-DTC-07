@@ -1,4 +1,7 @@
 function getCurrentBackgroundPic() {
+    /**
+     * places the current background picture
+     */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {
@@ -14,9 +17,10 @@ function getCurrentBackgroundPic() {
     })
 }
 
-
-
 function getDocumentId() {
+    /**
+     * saves the player's docID into session
+     */
     firebase.auth().onAuthStateChanged((user) => {
       let document_id = user.uid
       console.log('document_id: ', document_id)
@@ -27,6 +31,9 @@ function getDocumentId() {
   }
 
 function make_date(){
+    /**
+     * makes a string of today's date
+     */
     let today = new Date();
     let day = String(today.getDate())
     let month = String(today.getMonth())
@@ -36,6 +43,9 @@ function make_date(){
 }
 
 function date_difference(full_date, document_date){
+    /**
+     * calculates the difference between two dates
+     */
     full_date = full_date.split('/')
     full_date = Number(full_date[0] + full_date[1] + full_date[2])
 
@@ -45,8 +55,10 @@ function date_difference(full_date, document_date){
     return document_date - full_date;
 }
 
-//delete old games
 function delete_games(){
+    /**
+     * delete old games
+     */
     db.collection('rooms').get().then(function(snap){
         snap.forEach(function(doc){
             let document_date = doc.data()['created']
@@ -62,6 +74,9 @@ function delete_games(){
 }
 
 function setup_player() {
+    /**
+     * sets up the player's data in session
+     */
     firebase.auth().onAuthStateChanged(function (user) {        // Check the user that's logged in
         if (user) {
             db.collection('users').doc(user.uid).get().then(function (doc) {
@@ -82,6 +97,9 @@ function setup_player() {
 }
 
 function join_game(snap){
+    /**
+     * lets the player join a game, and decides if they're the host or not
+     */
     if(snap.data()['started'] == false){
         sessionStorage.setItem('is_host', false)
         let players = snap.data()['players']
@@ -99,6 +117,9 @@ function join_game(snap){
 }
 
 function host_game(snap){
+    /**
+     * sets the player as the host and creates their game
+     */
     sessionStorage.setItem('is_host', true)
     players_waiting = []
     let full_date = make_date();
@@ -108,6 +129,9 @@ function host_game(snap){
 }
 
 function begin_game(){
+    /**
+     * starts a game
+     */
     let room_number = $("#room_number").val();
     db.runTransaction((transaction) => {
         return transaction.get(db.collection('rooms').doc(room_number)).then(function(snap){
@@ -121,7 +145,14 @@ function begin_game(){
                     players.push(sessionStorage.getItem('name'))
                     transaction.update(db.collection('rooms').doc(room_number), {players: players, stories: stories})
                 } else if(snap.data()['started'] == true){
-                    //show snackbar - it's snack time BABY
+                    /**
+                     * Supports snackbar display.
+                     * It's snack time DUDES!
+                     * I found this code on www.w3schools.com
+                     * 
+                     * @author www.w3schools.com
+                     * @see https://www.w3schools.com/howto/howto_js_snackbar.asp
+                     */
                     let snack = document.getElementById('snackbar')
                     snack.className = "show"
                     setTimeout(function(){snack.className = snack.className.replace("show", "");}, 3000)

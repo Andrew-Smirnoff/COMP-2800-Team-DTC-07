@@ -1,4 +1,7 @@
 function display_stories(){
+    /**
+     * displays all stories and the info associated with them
+     */
     let story_list = $("#player_list")
     db.collection('rooms').doc(sessionStorage.getItem('room')).get().then(function (snap) {
         let stories = snap.data()['stories']
@@ -19,6 +22,9 @@ function display_stories(){
 }
 
 function getCurrentBackgroundPic() {
+    /**
+     * places the current background picture
+     */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {
