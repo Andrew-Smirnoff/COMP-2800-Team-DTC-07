@@ -105,7 +105,7 @@ function remove_old_players() {
     }
 }
 
-function add_new_players() {
+function add_new_players(players_waiting, snap) {
     for (i = 0; i < players_waiting.length; i++) {
         let new_player = document.createElement('p')
         let new_picture = document.createElement('img')
@@ -139,7 +139,7 @@ function main() {
             db.collection("rooms").doc(sessionStorage.getItem('room')).get().then(function (snap) {
                 let players_waiting = snap.data()['players']
                 remove_old_players();
-                add_new_players(players_waiting);
+                add_new_players(players_waiting, snap);
                 if (sessionStorage.getItem('is_host') == "false") {
                     if (snap.data()['started'] == true) {
                         document.location.href = "./game2.html";

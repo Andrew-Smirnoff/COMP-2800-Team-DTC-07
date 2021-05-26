@@ -105,6 +105,11 @@ p {
 
 #twitter{
   margin-top: 10%;
+  text-align: center;
+}
+
+#twitter_link{
+  color: white;
 }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
