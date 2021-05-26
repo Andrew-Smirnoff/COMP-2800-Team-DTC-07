@@ -44,3 +44,12 @@ Part 1 - cloning the project
 Part 2 - firebase and firestore
 You will be invited to our firebase project via your email. To access it, go to https://firebase.google.com/ and click the “Get Started” button. Fiendship should be listed as a project for you. You can click on the “Firestore Database” tab on the left to view the database.
 
+
+
+
+REFERENCES
+
+Pause function by James Hibbard: https://www.sitepoint.com/delay-sleep-pause-wait/
+Bubble Sort function by Kyle Jensen: https://medium.com/javascript-algorithms/javascript-algorithms-bubble-sort-3d27f285c3b2
+Snackbar by W3Schools: https://www.w3schools.com/howto/howto_js_snackbar.asp
+Tabs by W3Schools: https://www.w3schools.com/howto/howto_js_tabs.asp
