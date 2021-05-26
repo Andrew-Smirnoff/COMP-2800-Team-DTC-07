@@ -1,8 +1,28 @@
+function getCurrentBackgroundPic() {
+    let document_id = sessionStorage.getItem('document_id');
+    var docRef = db.collection('users').doc(document_id);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log('[user current background pic] ', doc.data().current_bg_pic);
+            let user_current_bg_pic = doc.data().current_bg_pic;
+            $('body').css('background-image', "url('" + user_current_bg_pic + "')");
+        } else {
+            console.log('no such document')
+        }
+    }).catch((error)=> {
+        console.log('Error getting document: ', error)
+    })
+} 
+
+
+
+
 main();
 
 function main(){
     sessionStorage.setItem('player_counter', 0);
     sessionStorage.setItem('all_scenarios', JSON.stringify({}));
+    getCurrentBackgroundPic();
     greeting();
     showStory();
     display_names();
@@ -89,3 +109,19 @@ function showStory(){
     let scenarios = JSON.parse(sessionStorage.getItem('scenarios'))
     $("#scenario-goes-here").text(scenarios[0])
 }
+
+function getCurrentBackgroundPic() {
+    let document_id = sessionStorage.getItem('document_id');
+    var docRef = db.collection('users').doc(document_id);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log('[user current background pic] ', doc.data().current_bg_pic);
+            let user_current_bg_pic = doc.data().current_bg_pic;
+            $('body').css('background-image', "url('" + user_current_bg_pic + "')");
+        } else {
+            console.log('no such document')
+        }
+    }).catch((error)=> {
+        console.log('Error getting document: ', error)
+    })
+} 

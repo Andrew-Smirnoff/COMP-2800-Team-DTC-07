@@ -133,6 +133,22 @@ img{
     margin-right: 10px;
 }
 
+#player_list{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.profile_picture{
+    width: 100%;
+    margin: 10px;
+}
+
+.player{
+    margin-left: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
     visibility: hidden; /* Hidden by default. Visible on click */

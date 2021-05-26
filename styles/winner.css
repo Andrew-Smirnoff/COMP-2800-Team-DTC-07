@@ -25,3 +25,20 @@ body div {
     background-color:#9354A4;
     border: solid #2d1d36 2px;
 }
+
+#standings{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.picture{
+    width: 100%;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.player{
+    margin-left: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+}

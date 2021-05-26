@@ -14,38 +14,33 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <link rel="shortcut icon" type="image/jpg" href="images/icon_without_background.png"/>
     <!-- Optional styles and scripts of your own -->
-    <link rel="stylesheet" href="styles/game.css">
+    <link rel="stylesheet" href="styles/social_media.css">
 </head>
 
 <body>
 
+    <h1>We have a twitter account. Tweet to let your friends know about us, or give us a follow!</h1>
+
+    <div id='timeline'>
+        <a class="twitter-timeline" data-width="300" data-height="300" data-theme="dark" href="https://twitter.com/Fiendman3?ref_src=twsrc%5Etfw">Tweets by Fiendman3</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div id='twitter-buttons'>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Tired of the same old games? Play Fiendship with me, the only unique game made in years!" data-url="https://fiendship-85fa8.web.app/" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/Fiendman3?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-text="Tired of the same old games? Play Fiendship with me, the only unique game made in years!" data-url="https://fiendship-85fa8.web.app/" data-show-screen-name="false" data-show-count="false">Follow @Fiendman3</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <div class="grid-item">
+        <div class="bottom-navbar">
+            <a href='./store.html'><span class="iconify" data-icon="jam:coin-f" data-inline="false"></span></a>
+            <a href='./main.html'><span class="iconify" data-icon="ant-design:home-filled" data-inline="false"></span></a>
+            <a href='./profile.html'><span class="iconify" data-icon="mdi:account-box" data-inline="false"></span></a>
+        </div>
+    </div>
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
     <!-- <h1 class="display-4"> Hello, <span id="name-goes-here">CST!</span> </h1> -->
-    <div class="top-navbar">
-        <h1 class="round"><span id="round-goes-here">Round X</span></h1>
-    </div>
-    <section class="grid-container">
-
-        <article class="scenario-container">
-            <p id="new_scenario">New Scenario:</p>
-            <p class="scenario" id="scenario-goes-here"></p>
-        </article>
-
-        <div class="player-container">
-            <p id="subject_header">Potential Subjects:</p>
-            <div id="player_list"></div>
-        </div>
-
-        <span class="input-container">
-            <input type="textarea" id='story' placeholder="Type your crazy story here!">
-            <button type="submit" id="submit-btn">Submit</button>
-        </span>
-    </section>
-
-    <div id='snackbar'>Error: this game has already started!</div>
 
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!----------------------------------------------->
@@ -61,7 +56,6 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebase_api.js"></script>
-    <script src="scripts/game2.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->

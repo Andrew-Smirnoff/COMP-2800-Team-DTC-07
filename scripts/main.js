@@ -1,8 +1,28 @@
+function getCurrentBackgroundPic() {
+    let document_id = sessionStorage.getItem('document_id');
+    var docRef = db.collection('users').doc(document_id);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log('[user current background pic] ', doc.data().current_bg_pic);
+            let user_current_bg_pic = doc.data().current_bg_pic;
+            $('body').css('background-image', "url('" + user_current_bg_pic + "')");
+        } else {
+            console.log('no such document')
+        }
+    }).catch((error)=> {
+        console.log('Error getting document: ', error)
+    })
+}
+
+
+
 function getDocumentId() {
     firebase.auth().onAuthStateChanged((user) => {
       let document_id = user.uid
       console.log('document_id: ', document_id)
-      sessionStorage.setItem('document_id', document_id)
+      sessionStorage.setItem('document_id', document_id);
+      getCurrentBackgroundPic();
+      
     })
   }
 
@@ -125,6 +145,7 @@ function begin_game(){
     })
 }
 
+
 function main(){
     getDocumentId();
     setup_player();
@@ -133,5 +154,4 @@ function main(){
         begin_game();
     })
 }
-
 main();

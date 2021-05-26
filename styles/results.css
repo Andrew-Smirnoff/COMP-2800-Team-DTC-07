@@ -43,3 +43,23 @@ li{
 h1{
     text-align: center;
 }
+
+#player_list{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.picture{
+    width: 100%;
+    margin: 10px;
+}
+
+.story{
+    margin-left: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+hr{
+    grid-column: 1 / span 2;
+}
