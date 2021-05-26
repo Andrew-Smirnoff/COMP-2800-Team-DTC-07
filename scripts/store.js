@@ -1,7 +1,15 @@
+// Adds back button to go back to main page.
 $("#back").click(function(){
     document.location.href = "./main.html";
 })
 
+/**
+ * Supports tab display.
+ * I found this code on www.w3schools.com
+ * 
+ * @author www.w3schools.com
+ * @see https://www.w3schools.com/howto/howto_js_tabs.asp
+ */
 function storeChoice(evt, choiceName) {
 
   var i, tabcontent, bgtabcontent, tablinks;
@@ -30,13 +38,11 @@ function storeChoice(evt, choiceName) {
 
 document.getElementById("defaultOpen").click();
 
-// for display user coin balance
+// Displays user coin balance.
 function displayBalance() {
   db.collection("users").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
-        // console.log(doc.data().name)
-        // console.log(doc.data().coins)
         if (doc.data().name == sessionStorage.name) {
           console.log(doc.data().coins)
           $('#balance-goes-here').text(doc.data().coins);
@@ -47,24 +53,22 @@ function displayBalance() {
 }
 displayBalance();
 
+
+// Displays user coin balance after purchasing an item.
 function displayBalanceAfterBuying(balance) {
 
   $('#balance-goes-here').text(balance);
 
 }
 
+// Displays all available profile pictures from the database.
 function displayProfilePicsInStore() {
   db.collection("profile_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
-        // console.log('doc: ', doc.data())
-        // console.log('name: ', doc.data().name)
         let name = doc.data().name;
         let price = doc.data().price;
         let pic_url = doc.data().url;
-        // console.log(name);
-        // console.log(price);
-        // console.log(pic_url);
 
         $(".tabcontent:visible").append("<div class='pic-container' ></div>");
         $('.pic-container:last').append("<img class='profile-pic' src=' " + pic_url + " ' alt='Avatar'>");
@@ -75,18 +79,14 @@ function displayProfilePicsInStore() {
 }
 displayProfilePicsInStore();
 
+// Displays all available background pictures from the database.
 function displayBgPicsInStore() {
   db.collection("background_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
-        // console.log('doc: ', doc.data())
-        // console.log('name: ', doc.data().name)
         let name = doc.data().name;
         let price = doc.data().price;
         let bg_pic_url = doc.data().url;
-        // console.log(name);
-        // console.log(price);
-        // console.log(pic_url);
 
         $('.bg-tabcontent').append("<div class='bg-pic-container'></div>");
         $('.bg-pic-container:last').append("<img class='bg-pic' src=' " + bg_pic_url + " ' alt='Avatar'>");
@@ -98,7 +98,7 @@ function displayBgPicsInStore() {
 displayBgPicsInStore();
 
 
-// to get document_id in sessionStorage for identifying current user
+// Gets document_id in sessionStorage for identifying current user.
 function getDocumentId() {
   firebase.auth().onAuthStateChanged((user) => {
     let document_id = user.uid
@@ -108,19 +108,15 @@ function getDocumentId() {
 }
 getDocumentId();
 
-// to get item_price in sessionStorage 
+// Gets item_price in sessionStorage when buying a profile picture.
 function buyProfilePic(id) {
-  console.log('btn-id: ', id) // btn-id: Tired, Angry, Solider...
   db.collection("profile_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
         if (id == doc.data().name) {
           let item_price = doc.data().price;
-          console.log('item_price: ', item_price)
           sessionStorage.setItem('item_price', item_price)
-          let document_id = sessionStorage.getItem('document_id'); //the user id
-          console.log('33', document_id);
-          console.log('44', typeof (document_id));
+          let document_id = sessionStorage.getItem('document_id'); 
           updateDatabase(document_id, item_price, id);
         }
 
@@ -128,19 +124,14 @@ function buyProfilePic(id) {
     })
 }
 
-// to get item_price in sessionStorage when buying background picture
+// Gets item_price in sessionStorage when buying a background picture.
 function buyBgPic(id) {
-  console.log('btn-id: ', id)
   db.collection("background_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
         if (id == doc.data().name) {
           let item_price = doc.data().price;
-          console.log('item_price: ', item_price)
-          // sessionStorage.setItem('item_price', item_price)
           let document_id = sessionStorage.getItem('document_id');
-          // console.log('33', document_id);
-          // console.log('44', typeof (document_id));
           updateDatabaseForBgPic(document_id, item_price, id);
         }
 
@@ -148,16 +139,15 @@ function buyBgPic(id) {
     })
 }
 
+// Updates the database after a profile picture is bought.
 function updateDatabase(document_id, item_price, item_id) {
 
   db.collection('users').doc(document_id).get().then((doc) => {
 
     var existing_profile_pics = doc.data().profile_pics;
-    console.log('333', existing_profile_pics);
     var item_id_url = './images/Profile pictures/' + item_id + '.png';
 
     if (existing_profile_pics.includes(item_id_url)) {
-      console.log(existing_profile_pics.includes(item_id_url));
       alert('Hey, you have got this pic!');
     } else if (doc.data().coins < item_price) {
       snackbar();
@@ -174,16 +164,15 @@ function updateDatabase(document_id, item_price, item_id) {
 
 }
 
+// Updates the database after a background picture is bought.
 function updateDatabaseForBgPic(document_id, item_price, item_id) {
 
   db.collection('users').doc(document_id).get().then((doc) => {
 
     var existing_profile_pics = doc.data().background_pics;
-    console.log('444', existing_profile_pics);
     var item_id_url = './images/Background pictures/' + item_id + '.png';
 
     if (existing_profile_pics.includes(item_id_url)) {
-      console.log(existing_profile_pics.includes(item_id_url));
       alert('Hey, you have got this pic!');
     } else if (doc.data().coins < item_price) {
       snackbar();
@@ -200,18 +189,16 @@ function updateDatabaseForBgPic(document_id, item_price, item_id) {
 
 }
 
-// for adding the purchased profile picture(s) url to user account in db
+// Adds the purchased profile picture(s) url to user account in the database.
 function givePlayerProfilePic(id) {
 
-  let document_id = sessionStorage.getItem('document_id');  // 2NzrYFa3yoZ82NvAnWViY1tuSZl2 (Kris's tester doc.id)
+  let document_id = sessionStorage.getItem('document_id'); 
 
-  console.log('may19 document_id', document_id)
   db.collection("profile_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
         if (id == doc.data().name) {
           let profile_pic_url = doc.data().url;
-          console.log('may19 item_url: ', profile_pic_url);
 
           db.collection("users")
             .doc(document_id).update({
@@ -223,17 +210,16 @@ function givePlayerProfilePic(id) {
     })
 }
 
+// Adds the purchased background picture(s) url to user account in the database.
 function givePlayerBgPic(id) {
 
-  let document_id = sessionStorage.getItem('document_id');  // 2NzrYFa3yoZ82NvAnWViY1tuSZl2 (Kris's tester doc.id)
+  let document_id = sessionStorage.getItem('document_id');
 
-  console.log('may18 document_id', document_id)
   db.collection("background_pictures").get()
     .then(function (snap) {
       snap.forEach(function (doc) {
         if (id == doc.data().name) {
           let bg_pic_url = doc.data().url;
-          console.log('may18 item_url: ', bg_pic_url);
 
           db.collection("users")
             .doc(document_id).update({
@@ -245,6 +231,13 @@ function givePlayerBgPic(id) {
     })
 }
 
+/**
+ * Supports snackbar display.
+ * I found this code on www.w3schools.com
+ * 
+ * @author www.w3schools.com
+ * @see https://www.w3schools.com/howto/howto_js_snackbar.asp
+ */
 function snackbar() {
   // Get the snackbar DIV
   var x = document.getElementById("snackbar");
