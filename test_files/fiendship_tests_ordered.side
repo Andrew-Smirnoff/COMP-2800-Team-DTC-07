@@ -1,0 +1,3338 @@
+{
+  "id": "88c033b8-8713-4529-86ea-d91b80728217",
+  "version": "2.0",
+  "name": "fiendship",
+  "url": "https://fiendship-85fa8.web.app",
+  "tests": [{
+    "id": "f95546c3-e4fa-44c0-84f5-37a0696f4840",
+    "name": "[U1]-1 If the user enters an email that isn't in the database, that email will be saved to the database.",
+    "commands": [{
+      "id": "ade51954-6b0c-4359-926f-4720feda02d8",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8821c5ec-242f-41ce-9985-bd89279f0040",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "100b967a-4ef1-4775-a803-dce40d0fff0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "22874201-b878-42bd-affd-cfec0b29aa55",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "asdfg@gmail.com"
+    }, {
+      "id": "2d87e1ac-e46a-42b7-b038-a2fa1efa67c1",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "b491dd33-feb7-40bd-98a8-c651d60943e6",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.firebaseui-id-name", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Jackson M"
+    }, {
+      "id": "26f929db-6e17-453e-a214-9109e6f24e66",
+      "comment": "",
+      "command": "click",
+      "target": "name=newPassword",
+      "targets": [
+        ["name=newPassword", "name"],
+        ["css=.firebaseui-id-new-password", "css:finder"],
+        ["xpath=//input[@name='newPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "480247c2-1467-4c58-a438-1df9941ab948",
+      "comment": "",
+      "command": "type",
+      "target": "name=newPassword",
+      "targets": [
+        ["name=newPassword", "name"],
+        ["css=.firebaseui-id-new-password", "css:finder"],
+        ["xpath=//input[@name='newPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "62171299-1f76-4591-8408-fb9a5afe903a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "888b272a-90b2-429f-b1dd-d246c31d064f",
+      "comment": "",
+      "command": "open",
+      "target": "https://console.firebase.google.com/project/fiendship-85fa8/authentication/users",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "31ec001a-026b-43b7-be60-6d1de59da546",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//table[@id='auth-users-table']/thead/tr/th[3]/div/div/div",
+      "targets": [
+        ["css=.ng-tns-c49-11 .header-cell-wrapper", "css:finder"],
+        ["xpath=//table[@id='auth-users-table']/thead/tr/th[3]/div/div/div", "xpath:idRelative"],
+        ["xpath=//th[3]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6273a07-f07f-4685-8018-e3fa9735634b",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.mat-row:nth-child(1) .identifier-text",
+      "targets": [
+        ["css=.mat-row:nth-child(1) .identifier-text", "css:finder"],
+        ["xpath=//table[@id='auth-users-table']/tbody/tr/td/div/div/div", "xpath:idRelative"],
+        ["xpath=//td/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "349aaafc-2f75-4365-b07a-42a4efc9dc9a",
+    "name": "[U1]-2 When the user creates an account, they will be redirected to the main.html page.",
+    "commands": [{
+      "id": "6eb1f8c6-e81e-4166-83f5-c0bfd9e22517",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59a71e45-1cf6-49ca-8f39-0f204a47a1d4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "945807c0-cc85-4ea4-a929-d0b37ee864ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c9449db-5328-46ba-8a8e-f0a86435f7bd",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "asdfg@gmail.com"
+    }, {
+      "id": "5122211a-a617-4b9a-8b92-f5bdd33510ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c9f9250-cfae-4399-9c25-5f0878e009de",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.firebaseui-id-name", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Jackson M"
+    }, {
+      "id": "eb319955-7582-4052-b856-18325d55daf5",
+      "comment": "",
+      "command": "click",
+      "target": "id=firebaseui-auth-container",
+      "targets": [
+        ["id=firebaseui-auth-container", "id"],
+        ["css=#firebaseui-auth-container", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']", "xpath:attributes"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4349e068-f7a4-4924-bf9b-1a3e54d4da84",
+      "comment": "",
+      "command": "click",
+      "target": "name=newPassword",
+      "targets": [
+        ["name=newPassword", "name"],
+        ["css=.firebaseui-id-new-password", "css:finder"],
+        ["xpath=//input[@name='newPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7882e9c-3fa5-47e5-a572-a1f502a969c7",
+      "comment": "",
+      "command": "type",
+      "target": "name=newPassword",
+      "targets": [
+        ["name=newPassword", "name"],
+        ["css=.firebaseui-id-new-password", "css:finder"],
+        ["xpath=//input[@name='newPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "171fc2ee-de9a-492d-996d-06e94e6a8487",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a418c2a1-10d4-4d9e-84ee-278126f2e0ce",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cdfad6c9-76ba-4e9f-89c5-eb849333fd62",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "pageUrl"
+    }, {
+      "id": "2b8271b3-17c4-46e0-988b-4769dcfcb671",
+      "comment": "",
+      "command": "assert",
+      "target": "pageUrl",
+      "targets": [],
+      "value": "https://fiendship-85fa8.web.app/main.html"
+    }]
+  }, {
+    "id": "ce3fc137-dd35-41ec-b767-61ed24c85158",
+    "name": "[U1]-3 A user who has already registered can login using email",
+    "commands": [{
+      "id": "ade41373-0972-4649-84ed-cadd57bf6473",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f0869ea-dbb9-4cfe-b47d-ab469bb3c904",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a9210ff-42de-4f4c-b80d-7cef08bdb03f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2cdd2f3-3518-40fd-85f6-58ef338abfe1",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "saxophone@gmail.com"
+    }, {
+      "id": "b76888ce-877f-471d-adf4-dd90ec9bfe11",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "a5b80b40-7aa3-41db-87a8-d8f4f4df7b98",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "05f645cf-e0b1-4ac7-b10f-801891960bdf",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "cecb2630-f8de-45c4-86e1-4a1f620174e1",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "999a300b-9ea1-4f38-875d-814517eb1e46",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "pageUrl"
+    }, {
+      "id": "cbc5ce1c-5caf-4b8a-abc0-dbd3ee88ef69",
+      "comment": "",
+      "command": "assert",
+      "target": "pageUrl",
+      "targets": [],
+      "value": "https://fiendship-85fa8.web.app/main.html"
+    }]
+  }, {
+    "id": "bc9f0514-a81c-4def-a7d0-5d120e53fb44",
+    "name": "[U1]-4 If a user types in something that isn't an email in the email field, it prevents them from progressing.",
+    "commands": [{
+      "id": "8c65087b-2de3-4e48-931d-74b90408c67d",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b40cf674-5c3e-4e4e-aa04-f0f790d8248c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "60884fd5-5441-46ce-b4d3-a3d732db0b39",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c59fcd8a-acce-41a9-a577-1693c40cb769",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "banana"
+    }, {
+      "id": "9f73783d-2466-4ad2-aaab-155f1b95e1b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6735645-dbd9-4680-950e-cae0fc6aaf6e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "pageUrl"
+    }, {
+      "id": "5bb57872-64e1-4fda-9c9e-da8868d69407",
+      "comment": "",
+      "command": "assert",
+      "target": "pageUrl",
+      "targets": [],
+      "value": "https://fiendship-85fa8.web.app/?mode=select"
+    }, {
+      "id": "6c40a8c0-311b-4124-82de-1cf0d81d3972",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=.firebaseui-textfield:nth-child(3)",
+      "targets": [
+        ["css=.firebaseui-textfield:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d0f5d011-6611-4b92-bd20-38731d617a00",
+    "name": "[U1]-5 If the user types the wrong password for an account, it prevents them from progressing.",
+    "commands": [{
+      "id": "a3aa101a-c6eb-45af-b0c7-0bd00fab7811",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b1f9942-7d87-451f-81bd-7c468fd5a974",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "490b21cd-c4b3-4d96-bb46-a2235a5436e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b76b494-1088-41a9-b712-624384d5976d",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "saxophone@gmail.com"
+    }, {
+      "id": "5d12f98b-7e49-43f2-b0b8-5c4be3e68e6e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "388b66d4-8bcc-4e1c-8aa7-82098b71b306",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "banana"
+    }, {
+      "id": "283768dd-3621-493f-a36e-e57c059dff22",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca6a9a03-7e30-40df-ac4a-4756ef0d76d2",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "pageUrl"
+    }, {
+      "id": "15af8c9a-c9a1-494e-9f35-6f64426363c0",
+      "comment": "",
+      "command": "assert",
+      "target": "pageUrl",
+      "targets": [],
+      "value": "https://fiendship-85fa8.web.app/?mode=select"
+    }]
+  }, {
+    "id": "9d0a1dbf-9d98-4b98-9b81-c0d6ee551d60",
+    "name": "[U1]-7 When a new user logs in, the correct data is stored in session.",
+    "commands": [{
+      "id": "53295540-834e-488b-b691-08b5469abcc9",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bb085ea-9e02-43da-b866-6ef5c6dd80ac",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "290328c6-b4ba-4e68-b9e0-b996022e573c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a561b642-db04-471f-8db1-1001c409026e",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "saxophone@gmail.com"
+    }, {
+      "id": "8f475eb8-eed4-43b0-bf94-8c2b616442fb",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "eecc425f-3f21-455d-80a8-a5c1cac47c9a",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=newPassword", "name"],
+        ["css=.firebaseui-id-new-password", "css:finder"],
+        ["xpath=//input[@name='newPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "3cabb62d-308f-4f78-a8c0-02339682278b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de6d7599-e302-4cd1-9ca3-5efe5d7ce2fa",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4606a5ad-e95c-40f0-86cd-2e4fd68eae88",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('name')",
+      "targets": [],
+      "value": "name"
+    }, {
+      "id": "fa232dc2-b120-4574-abe7-7f203dbcd519",
+      "comment": "",
+      "command": "assert",
+      "target": "name",
+      "targets": [],
+      "value": "Saxy Dan"
+    }, {
+      "id": "18ce7c2a-0f95-48c1-9c3d-a03d8a8c28fb",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('Current_Profile_Pic')",
+      "targets": [],
+      "value": "pic"
+    }, {
+      "id": "e20d582e-6cfd-40c0-8758-30100db85b9f",
+      "comment": "",
+      "command": "assert",
+      "target": "pic",
+      "targets": [],
+      "value": "./images/Profile pictures/Discount_Rorschach.png"
+    }, {
+      "id": "bfdca503-7146-4435-b2ea-dba14529d5d2",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('coins')",
+      "targets": [],
+      "value": "coins"
+    }, {
+      "id": "f5cb9eb0-bd98-48be-9212-e0664d1c841b",
+      "comment": "",
+      "command": "assert",
+      "target": "coins",
+      "targets": [],
+      "value": "90"
+    }, {
+      "id": "f60d4bd5-d659-46c4-b124-1affc3b8b9a8",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('Current_Bg_Pic')",
+      "targets": [],
+      "value": "bg"
+    }, {
+      "id": "bd70622c-bf78-44c6-95d1-5bf14e1503d8",
+      "comment": "",
+      "command": "assert",
+      "target": "bg",
+      "targets": [],
+      "value": "./images/Background pictures/cave.png"
+    }]
+  }, {
+    "id": "c6a788aa-0cbf-48a8-b9d4-42c1156b9632",
+    "name": "[U1]-6 When a user logs in to their account, the correct data is loaded into session storage.",
+    "commands": [{
+      "id": "0ecefc5e-eab1-4b63-b7cc-9bcd06fc2d67",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7be91c24-10de-456d-b758-1b2fd5ea3f99",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b96552f1-e764-475d-9b05-eafa53e0db64",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b29affd6-c561-4a25-836a-fd460d7857ff",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "asdfg@gmail.com"
+    }, {
+      "id": "5492a38a-188a-40c9-a329-695c0ba5a740",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "b8142360-48ea-497d-817a-5d52a8f46b0a",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.firebaseui-id-name", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "51d87e12-1c4d-43ef-a04f-7102d9abcd2f",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.firebaseui-id-name", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Jackson M"
+    }, {
+      "id": "1fddbd1d-c5a4-466a-afde-099fb7427eb5",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.firebaseui-id-name", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "022c4a93-e31d-47cd-a111-84582d0b6538",
+      "comment": "",
+      "command": "type",
+      "target": "name=newPassword",
+      "targets": [
+        ["name=newPassword", "name"],
+        ["css=.firebaseui-id-new-password", "css:finder"],
+        ["xpath=//input[@name='newPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[5]/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "9c1a7c67-b9a1-4613-a632-98d13b4d7175",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "988d9411-c564-4c7e-9ba1-8eccb142d479",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "744e79d5-de03-4e96-9d8f-31f960f81b4a",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('name')",
+      "targets": [],
+      "value": "name"
+    }, {
+      "id": "2a8fc179-a68b-46ea-8224-4a0bc40f5bd8",
+      "comment": "",
+      "command": "assert",
+      "target": "name",
+      "targets": [],
+      "value": "Jackson M"
+    }, {
+      "id": "149a1457-b5ce-4587-b7a6-aee05f2f3f27",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('Current_Profile_Pic')",
+      "targets": [],
+      "value": "pic"
+    }, {
+      "id": "dcbd2152-e416-4ec7-8fed-03f766f0cf51",
+      "comment": "",
+      "command": "assert",
+      "target": "pic",
+      "targets": [],
+      "value": "./images/Profile pictures/Discount_Rorschach.png"
+    }, {
+      "id": "72c6379f-efd1-4fdf-a7bd-fd34b27137d6",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('coins')",
+      "targets": [],
+      "value": "coins"
+    }, {
+      "id": "792ee3ee-6f68-402b-9d7b-cf2f8252422f",
+      "comment": "",
+      "command": "assert",
+      "target": "coins",
+      "targets": [],
+      "value": "0"
+    }, {
+      "id": "783e4a8b-5dfb-409d-be8f-3dd08a231421",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.sessionStorage.getItem('Current_Bg_Pic')",
+      "targets": [],
+      "value": "bg"
+    }, {
+      "id": "a70dbb79-49a5-46f3-be3f-3824fd467254",
+      "comment": "",
+      "command": "assert",
+      "target": "bg",
+      "targets": [],
+      "value": "./images/Background pictures/cave.png"
+    }]
+  }, {
+    "id": "83f58631-5342-4889-a91e-0465687c0847",
+    "name": "[U8]-2 The host can set the password for a new game room.",
+    "commands": [{
+      "id": "dc4a3879-fcd7-43e9-bb25-d6e7a6104a41",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3bec14b1-61e0-48fd-9214-5bf43b56edda",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "088c35f9-9a94-44c4-9dce-0e18e25a909c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24a5dc26-b26c-4fee-82aa-40ccf31fd16d",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "jackson@gmail.com"
+    }, {
+      "id": "87a55f04-c6db-440c-a55c-6c0ec67fcf3f",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "9bf0a632-2441-42e8-8bb5-23c7940514e7",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "dbc5f998-d979-489d-b1d0-7f6c20f081f5",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d33156b8-c611-4790-9a9c-0069e7b8ce82",
+      "comment": "",
+      "command": "click",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8ed772c-1c75-4101-befd-e9b03168c3f8",
+      "comment": "",
+      "command": "type",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "newroom"
+    }, {
+      "id": "5f337edf-c296-49f0-9c11-6f45fde2fa07",
+      "comment": "",
+      "command": "click",
+      "target": "id=start",
+      "targets": [
+        ["id=start", "id"],
+        ["css=#start", "css:finder"],
+        ["xpath=//button[@id='start']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Start Game')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8220218a-2c8f-40da-a29b-47c09d21b00e",
+      "comment": "",
+      "command": "pause",
+      "target": "4000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9059da8a-2beb-4ede-869b-c2e86dd6de38",
+      "comment": "",
+      "command": "open",
+      "target": "https://firebase.google.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01ef1996-8fd6-46d0-9643-894d9da93602",
+      "comment": "",
+      "command": "click",
+      "target": "css=.homepage-hero__content",
+      "targets": [
+        ["css=.homepage-hero__content", "css:finder"],
+        ["xpath=//section[@id='firebase-helps-you-build-and-run-successful-apps']/div", "xpath:idRelative"],
+        ["xpath=//main/section/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9f8d1fc-2df6-4c99-b07f-9d5b76801b64",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Get started",
+      "targets": [
+        ["linkText=Get started", "linkText"],
+        ["css=.cta-button--white", "css:finder"],
+        ["xpath=//a[contains(text(),'Get started')]", "xpath:link"],
+        ["xpath=//section[@id='firebase-helps-you-build-and-run-successful-apps']/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://console.firebase.google.com/')]", "xpath:href"],
+        ["xpath=//section/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Get started')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "23177d89-5ba7-47c2-adcf-7d07ea929a59",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-tns-c19-0:nth-child(3) .project-display-name",
+      "targets": [
+        ["css=.ng-tns-c19-0:nth-child(3) .project-display-name", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/fire-landing/div/div[2]/project-card/mat-card/div", "xpath:idRelative"],
+        ["xpath=//mat-card/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e084e93b-7c35-470f-ac14-20b75644bc27",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='nav-group-container-Build']/div/div[2]/fire-navbar-item[2]/a/div",
+      "targets": [
+        ["css=.cdk-focused > .link-name", "css:finder"],
+        ["xpath=//div[@id='nav-group-container-Build']/div/div[2]/fire-navbar-item[2]/a/div", "xpath:idRelative"],
+        ["xpath=//fire-navbar-item[2]/a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "309525d0-9a16-47e1-9842-be094a45491f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div/div[2]/div/f7e-collection-panel/f7e-data-panel/div[2]/mat-list/virtual-scroll/div[3]/mat-list-item[3]/div/div[3]/p",
+      "targets": [
+        ["css=.f7e-data-list-item:nth-child(3) .f7e-click-target > .ng-tns-c68-9", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div/div[2]/div/f7e-collection-panel/f7e-data-panel/div[2]/mat-list/virtual-scroll/div[3]/mat-list-item[3]/div/div[3]/p", "xpath:idRelative"],
+        ["xpath=//mat-list-item[3]/div/div[3]/p", "xpath:position"],
+        ["xpath=//p[contains(.,'rooms')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf7b505d-d21f-4e5e-95d8-0283daaefcc0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.selected .click-target-id",
+      "targets": [
+        ["css=.selected .click-target-id", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div/div[2]/div[2]/f7e-document-panel/f7e-data-panel/div[2]/mat-list/virtual-scroll/div[3]/fs-animate-changes/mat-list-item/div/div[3]/div/p", "xpath:idRelative"],
+        ["xpath=//div[3]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'beep')]", "xpath:innerText"]
+      ],
+      "value": "newroom"
+    }]
+  }, {
+    "id": "f9c37767-32f0-45c3-b647-3620c09105cc",
+    "name": "[U8]-3 The host can choose the number of rounds in the game.",
+    "commands": [{
+      "id": "9be8869f-a18c-44f9-870d-8c2d27aafd9b",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ba08107-abff-440a-a38c-df8cf5c10935",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "540b1a2d-42a7-473f-9ebc-36ddf1b7690c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "166be316-4be6-4ff1-8f47-fd6c349b1941",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "jackson@gmail.com"
+    }, {
+      "id": "eaf26eb8-f0fe-4bfd-b03f-8e258b0c499a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d298ee26-2207-412d-bd4d-1cfd4f0bc0ce",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "d86698c5-c765-491b-8344-6c33e795df72",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "cae1b4a4-0bad-476d-9efa-ef17c3df1e8d",
+      "comment": "",
+      "command": "click",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "947837b6-4ef0-402c-9cce-ef6661d9f72e",
+      "comment": "",
+      "command": "type",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "testroom2"
+    }, {
+      "id": "b6c1b538-cbd2-443f-a014-072ab100018e",
+      "comment": "",
+      "command": "click",
+      "target": "id=start",
+      "targets": [
+        ["id=start", "id"],
+        ["css=#start", "css:finder"],
+        ["xpath=//button[@id='start']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Start Game')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "95f5047c-389b-4ae3-8efc-bc41b6b5cdd9",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,306)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff89a409-119e-4bb7-9e21-21d8116af2eb",
+      "comment": "",
+      "command": "click",
+      "target": "id=decrement",
+      "targets": [
+        ["id=decrement", "id"],
+        ["css=#decrement", "css:finder"],
+        ["xpath=//button[@id='decrement']", "xpath:attributes"],
+        ["xpath=//div[@id='rounds']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'-')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "144dd56b-af1e-40b1-90b6-7c0fa78acc17",
+      "comment": "",
+      "command": "storeValue",
+      "target": "id=round_number",
+      "targets": [
+        ["id=round_number", "id"],
+        ["css=#round_number", "css:finder"],
+        ["xpath=//input[@id='round_number']", "xpath:attributes"],
+        ["xpath=//div[@id='rounds']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "rounds"
+    }, {
+      "id": "35074bdd-7a7c-4d04-acab-cd822164ea6a",
+      "comment": "",
+      "command": "assert",
+      "target": "rounds",
+      "targets": [],
+      "value": "4"
+    }]
+  }, {
+    "id": "d86ca066-60b9-4226-91c2-c1d60baab3c4",
+    "name": "[U8]-5 The host should be greeted with a unique screen that signals they are the host.",
+    "commands": [{
+      "id": "9bef357a-b068-48dc-8c5f-8c4ca1d340bc",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1eb507b-8137-4407-bad2-3caec1ec3e5b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c548ea33-96f7-46fc-babd-31a9445d008f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7f17d3b-73a1-4966-b560-1dfaaab0291e",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40a51ea1-db90-4446-8657-a828b4d84af9",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "jackson@gmail.com"
+    }, {
+      "id": "83323a73-b473-4954-a4ff-59310e64b651",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "3cc4b37a-6e8b-41ec-b511-38b78583b296",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "586387e3-5afb-4900-a883-101fb80f3c89",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "57531f4d-e464-477a-823c-e609cebde013",
+      "comment": "",
+      "command": "click",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e339b75-340c-4c7b-a6dd-75f35f471bc5",
+      "comment": "",
+      "command": "type",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "testroom3"
+    }, {
+      "id": "8e18ed28-1724-4dd9-98b4-0b229025041f",
+      "comment": "",
+      "command": "click",
+      "target": "id=start",
+      "targets": [
+        ["id=start", "id"],
+        ["css=#start", "css:finder"],
+        ["xpath=//button[@id='start']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Start Game')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f917dece-ec4a-492d-98be-dfe28154945c",
+      "comment": "",
+      "command": "pause",
+      "target": "4000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01786710-6a2c-4178-9d38-67d67918fb9c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=host_header",
+      "targets": [
+        ["id=host_header", "id"],
+        ["css=#host_header", "css:finder"],
+        ["xpath=//h1[@id='host_header']", "xpath:attributes"],
+        ["xpath=//div[@id='host_div']/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'You are the host!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "05e51506-e925-4ca8-a23b-a7a515de5854",
+    "name": "[U8]-10 Game can't start without another player.",
+    "commands": [{
+      "id": "35294bbf-58b3-4bd5-9bbc-2de0beed529b",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0bc3cef7-1117-41ca-b2ce-e966595eae0f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2478cfd1-4ffc-40f6-a675-ca9d90bdce82",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c7611f4-0f83-4b7a-8188-13dde03fd2dc",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "jackson@gmail.com"
+    }, {
+      "id": "88b7cdcf-d122-455f-a2d5-d3d357c267fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c8698a4-a967-4093-a94a-da154730e120",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "8607fc2e-ffcd-440a-a211-472279b2c6f6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f0c397d-fce6-4887-a964-b6747dafc2ca",
+      "comment": "",
+      "command": "click",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78dfff45-4a83-4ad2-9b42-b734f4c41c21",
+      "comment": "",
+      "command": "type",
+      "target": "id=room_number",
+      "targets": [
+        ["id=room_number", "id"],
+        ["css=#room_number", "css:finder"],
+        ["xpath=//textarea[@id='room_number']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "testroom4"
+    }, {
+      "id": "e51cb1ab-d49f-4fdd-8e24-2c4275624b39",
+      "comment": "",
+      "command": "click",
+      "target": "id=start",
+      "targets": [
+        ["id=start", "id"],
+        ["css=#start", "css:finder"],
+        ["xpath=//button[@id='start']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Start Game')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "26177625-5c8e-436f-937f-f8a2f5f7425b",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,200)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f26973c-5cef-40e9-83c8-0ac873c907eb",
+      "comment": "",
+      "command": "click",
+      "target": "id=start_game",
+      "targets": [
+        ["id=start_game", "id"],
+        ["css=#start_game", "css:finder"],
+        ["xpath=//button[@id='start_game']", "xpath:attributes"],
+        ["xpath=//div[@id='host_options']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Start Game')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b914b10f-d76e-4ae2-99a3-829458308948",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=snackbar",
+      "targets": [
+        ["id=snackbar", "id"],
+        ["css=#snackbar", "css:finder"],
+        ["xpath=//div[@id='snackbar']", "xpath:attributes"],
+        ["xpath=//div[2]", "xpath:position"],
+        ["xpath=//div[contains(.,'Could not start the game: Please wait for at least three players.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8826b9b9-58d9-4971-8635-c7e1173ffcb3",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=snackbar",
+      "targets": [
+        ["id=snackbar", "id"],
+        ["css=#snackbar", "css:finder"],
+        ["xpath=//div[@id='snackbar']", "xpath:attributes"],
+        ["xpath=//div[4]", "xpath:position"],
+        ["xpath=//div[contains(.,'Could not start the game: Please wait for at least three players.')]", "xpath:innerText"]
+      ],
+      "value": "Could not start the game: Please wait for at least three players."
+    }]
+  }, {
+    "id": "6d05ed00-b6e5-4717-af78-d571e9cabe17",
+    "name": "[U9]-9 After a user buys a new profile picture, the picture should show up in the profile tab in profile page.",
+    "commands": [{
+      "id": "776bd74a-4e59-4783-8684-8781b54aba90",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "815f82bc-f0a4-4176-a5b5-8c76cc61cc76",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1439x812",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "04184329-ea99-4d2f-af21-def9dc9b3927",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8d30cb3-7587-44af-ab03-a1437faad7b8",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester@kris.com"
+    }, {
+      "id": "7f16b858-94fc-4de5-9c6f-f73bde7a234c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afa74cf5-1aa4-4fdc-a892-dc67dc7bfa88",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "42defabc-6490-44de-9534-fd45104ad0f5",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "wwwwww"
+    }, {
+      "id": "85ced76f-1a9b-4abc-971d-2f2a78c50667",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d040e151-cc7f-4555-bcf8-332eb0702e93",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bottom-navbar > a:nth-child(1)",
+      "targets": [
+        ["css=.bottom-navbar > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(@href, './store.html')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "44f5e915-f566-460e-b996-89402536b6fd",
+      "comment": "",
+      "command": "click",
+      "target": "id=Soldier",
+      "targets": [
+        ["id=Soldier", "id"],
+        ["css=#Soldier", "css:finder"],
+        ["xpath=//button[@id='Soldier']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'buy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "26194133-07aa-49fb-97b9-f0f2571b9587",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2329f401-2965-4609-a08e-24c8c2110569",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bottom-navbar:nth-child(3) > a:nth-child(3) path",
+      "targets": [
+        ["css=.bottom-navbar:nth-child(3) > a:nth-child(3) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b171b365-43dc-487c-902d-575dccdecd81",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a49f7856-5636-4bfb-9262-4235994bb699",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=profile_pic",
+      "targets": [],
+      "value": "src=\"./images/Profile pictures/cosplayer.png\""
+    }]
+  }, {
+    "id": "aeea9b2f-040f-4bac-86ab-655f11581248",
+    "name": "[U9]-8 If the user goes to my profile page after buying a new item, new balance should show.",
+    "commands": [{
+      "id": "492e08dd-7509-4d06-8d5d-aafd736b1245",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0ae2ff3c-03c9-4b85-9d8a-9cd73fb04c17",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1439x812",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "32bd917f-bd3b-42dd-9dda-f40952e4b860",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "235c1874-adb1-4c67-8463-08e6cb5f0f05",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester@kris.com"
+    }, {
+      "id": "f6525a49-05de-4663-9b20-8c5d301a00ad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd604087-c3d7-45dc-ae91-cc05d0637281",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38946f5b-033a-4c12-b9e1-727c070e299c",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "wwwwww"
+    }, {
+      "id": "82d2e54c-e343-45dd-b3b1-f6bacbac2f9e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "127ffa49-a9be-44fb-a60f-56f680f77fb8",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) path",
+      "targets": [
+        ["css=a:nth-child(1) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a038143-ee68-48ae-9ca5-c54155b06d97",
+      "comment": "",
+      "command": "click",
+      "target": "id=Angry",
+      "targets": [
+        ["id=Angry", "id"],
+        ["css=#Angry", "css:finder"],
+        ["xpath=//button[@id='Angry']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa0613f5-3a2f-46a8-a1b1-6cdf47da91b6",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71e13841-2493-410b-a6ac-3ddd3d3a9259",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=balance-goes-here",
+      "targets": [],
+      "value": "3100"
+    }]
+  }, {
+    "id": "9c9f30be-b34e-4289-af0a-9b2f388f242a",
+    "name": "[U9]-7 If user buys a new profile pic, updated balance should show on the same page.",
+    "commands": [{
+      "id": "ada4f6dd-9b59-41e1-a678-c20ba3f8bd4c",
+      "comment": "",
+      "command": "open",
+      "target": "/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67a2f21e-1bf8-4704-a64e-93adf58310f3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d6ee2af-ee7e-4a62-8803-dabfade9a7cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "12fa5a94-db3a-42ca-bcff-dcb872427992",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester@kris.com"
+    }, {
+      "id": "f02cb5c4-0ba6-4df3-8bda-0222f8a859e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "523281ed-9d21-4f67-8882-25755698967a",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39040202-e44d-4c43-8835-9eaab214ce01",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "wwwwww"
+    }, {
+      "id": "5e1b69a8-5b37-4f73-b303-04c17e5b1a65",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd2ff090-1001-466c-8ffb-77bdf21bb2c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) > .iconify",
+      "targets": [
+        ["css=a:nth-child(1) > .iconify", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfe60060-43cb-42c0-809a-9519d2d076ff",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af5a032f-89de-46fd-8eb8-ceae6b7e465a",
+      "comment": "",
+      "command": "click",
+      "target": "id=Soldier",
+      "targets": [
+        ["id=Soldier", "id"],
+        ["css=#Soldier", "css:finder"],
+        ["xpath=//button[@id='Soldier']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'buy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d00f398-d410-4396-9b90-04142fab96d9",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3776045f-df77-4b0d-823b-64dc071c4562",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=balance-goes-here",
+      "targets": [],
+      "value": "3250"
+    }]
+  }, {
+    "id": "7b19a411-3bc7-4ab2-b7f9-154e4e73d19d",
+    "name": "[U9]-3 If the user doesn't have enough coins for a profile picture, the user won't be able to buy said picture.",
+    "commands": [{
+      "id": "cd6b4203-42bb-4a8f-9340-aa1405a0fe3c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "422a2d8b-0cb4-491e-9a84-598a6f3b5fa4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2dab33ff-10cf-48f6-a535-b2168e0a657e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b6b66e5-30e2-42db-ae69-a6dcad9bd065",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "fiendship@gmail.com"
+    }, {
+      "id": "eed26dab-3c81-4929-a84f-f897173cad6c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e39adbd-4642-4fbe-8de4-3ff4f478bb0a",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7159a70-bc4f-4d77-a656-7f68738bb23f",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "wwwwww"
+    }, {
+      "id": "4729a9b2-2ff9-47ce-a8fb-a3a59b81f0dc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14095d2b-b5d6-43b8-a3b5-2b0145af88b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) > .iconify",
+      "targets": [
+        ["css=a:nth-child(1) > .iconify", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d90bd84-ac4d-4d5f-9c57-95c5b0b4a086",
+      "comment": "",
+      "command": "click",
+      "target": "id=Soldier",
+      "targets": [
+        ["id=Soldier", "id"],
+        ["css=#Soldier", "css:finder"],
+        ["xpath=//button[@id='Soldier']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'buy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "adce1c29-3e36-4423-bf2b-5ea5c6de28ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=snackbar",
+      "targets": [
+        ["id=snackbar", "id"],
+        ["css=#snackbar", "css:finder"],
+        ["xpath=//div[@id='snackbar']", "xpath:attributes"],
+        ["xpath=//main/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bacc8bca-2e05-46b4-ae2f-219b4db64a13",
+    "name": "[U9]-4 If the user doesn't have enough coins for a background picture, the user won't be able to buy said picture.",
+    "commands": [{
+      "id": "2a5a23a7-b0ae-48cf-9734-716d687b2722",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "58552d3f-896a-47dc-8057-cfc26fc93d3b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d26c5f71-7be9-4968-8891-88fc9b117415",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "25381a9b-e1ee-4db6-b3e9-a204cadb8e59",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "fiendship@gmail.com"
+    }, {
+      "id": "2699d0d6-10b6-45d7-bc03-3f5fed192247",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a97b5ee-e0e3-4be1-92e6-3dd6d632e495",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c87ad17e-ea3c-4690-abac-4f7ae6ac2260",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "wwwwww"
+    }, {
+      "id": "0e36a9a7-ca29-41ad-9be3-991890142538",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8165ab0-4aea-464f-97ac-90fb21a32660",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) path",
+      "targets": [
+        ["css=a:nth-child(1) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab6ca622-365c-49a4-b319-100a0dbfbb53",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tablinks:nth-child(2)",
+      "targets": [
+        ["css=.tablinks:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"storeChoice(event, 'bgs')\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'backgrounds')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcce8d42-86f5-4773-b072-2d8597f24753",
+      "comment": "",
+      "command": "click",
+      "target": "id=cave",
+      "targets": [
+        ["id=cave", "id"],
+        ["css=#cave", "css:finder"],
+        ["xpath=//button[@id='cave']", "xpath:attributes"],
+        ["xpath=//div[@id='bgs']/div/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "edcf7330-e10b-4a1e-9350-72eb5a09f7ce",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Hey, you have got this pic!",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8ef3742e-4a53-45cb-bde6-6d509be1dd19",
+    "name": "[U9]-5 If the user has already bought a profile picture, then they won't be able to buy it again.",
+    "commands": [{
+      "id": "9ba399c6-65c2-48fb-bb97-40e084f8f606",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "be024db1-8142-4185-81a3-b3b544ffedd9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "effb9b6c-1e58-4a4e-ae94-04697a3cec52",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8270955-8372-44fb-b366-d3afdbe4ad06",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "fiendship@gmail.com"
+    }, {
+      "id": "74123549-23a4-4fb9-bf87-5904662574e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "295ed714-90ca-4e46-a79b-3817b6939fbe",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c0abcb5-cdc1-4de5-bd1d-f8c7d4cfff0a",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "wwwwww"
+    }, {
+      "id": "da91b430-9297-4be0-8067-1035127970d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "892b7b63-5c08-4c2a-a22d-ff5cd1d65260",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) path",
+      "targets": [
+        ["css=a:nth-child(1) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "1966a120-3291-4122-8924-70c1ee2889d6",
+      "comment": "",
+      "command": "click",
+      "target": "id=Discount_Rorschach",
+      "targets": [
+        ["id=Discount_Rorschach", "id"],
+        ["css=#Discount_Rorschach", "css:finder"],
+        ["xpath=//button[@id='Discount_Rorschach']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/div[7]/button", "xpath:idRelative"],
+        ["xpath=//div[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa2bc352-5900-4a44-92c6-b474ba10b83d",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Hey, you have got this pic!",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "1207268b-7a71-47a3-9660-9c320bcec584",
+    "name": "[U9]-2 User buys new background database updates.",
+    "commands": [{
+      "id": "e142e770-eace-4af4-8239-7258920aab3d",
+      "comment": "",
+      "command": "open",
+      "target": "https://console.firebase.google.com/project/fiendship-85fa8/firestore/data~2Fusers~2F4KKJhzRwKnQ9JIdgRN3hliBekXp1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b7982f7-12c5-4322-88da-e7ea48027d62",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-tns-c50-12 .database-children .database-key-value",
+      "targets": [
+        ["css=.ng-tns-c50-12 .database-children .database-key-value", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div/div[2]/div[3]/f7e-field-panel/f7e-data-panel/div[2]/div[2]/fs-animate-changes/f7e-data-tree/div/div[2]/f7e-data-tree/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/f7e-data-tree/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f563df4-0964-4722-859b-7067f701b0f5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.f7e-close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.f7e-close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div[2]/f7e-inline-editor/mat-card/mat-card-content/form/mat-card-actions/div/button/span", "xpath:idRelative"],
+        ["xpath=//mat-card-actions/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Cancel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "844f6f31-b583-41ed-8148-d9550f30f832",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/?mode=select",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c974892-4b88-4300-a1ed-dff064b516a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a98ebac-3722-46b2-b782-986d0c7c92cb",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "denesgyorgy97@gmail.com"
+    }, {
+      "id": "cc9e8599-fa49-42fa-bcf2-aa9fb4f56bbb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c08c1715-a65f-4dac-a755-5b5cfb75e6cf",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "djandras"
+    }, {
+      "id": "2eff8b39-686b-47f3-9715-8a83a38f5d00",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4d64fb7-dbf1-4f53-aa2e-d6dcfde78467",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) > .iconify",
+      "targets": [
+        ["css=a:nth-child(1) > .iconify", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c8a15c4-efa0-4627-8dcc-78115b1a540e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tablinks:nth-child(2)",
+      "targets": [
+        ["css=.tablinks:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"storeChoice(event, 'bgs')\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'backgrounds')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea3a6fe5-2802-4ff6-ba0a-4120f026b2a9",
+      "comment": "",
+      "command": "click",
+      "target": "id=cliff",
+      "targets": [
+        ["id=cliff", "id"],
+        ["css=#cliff", "css:finder"],
+        ["xpath=//button[@id='cliff']", "xpath:attributes"],
+        ["xpath=//div[@id='bgs']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c6fe36b-b117-4aab-9c11-26f917e3c8ee",
+      "comment": "",
+      "command": "open",
+      "target": "https://console.firebase.google.com/project/fiendship-85fa8/firestore/data~2Fusers~2F4KKJhzRwKnQ9JIdgRN3hliBekXp1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1e9edc8-b1dd-4abd-9f90-665ca675d44b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-tns-c50-12 .ng-star-inserted:nth-child(1) .database-key-value",
+      "targets": [
+        ["css=.ng-tns-c50-12 .ng-star-inserted:nth-child(1) .database-key-value", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div/div[2]/div[3]/f7e-field-panel/f7e-data-panel/div[2]/div[2]/fs-animate-changes/f7e-data-tree/div/div[2]/f7e-data-tree/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/f7e-data-tree/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "254bcfd9-a917-4e00-b356-d1fc10bcc437",
+      "comment": "",
+      "command": "click",
+      "target": "css=.f7e-close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.f7e-close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div[2]/f7e-inline-editor/mat-card/mat-card-content/form/mat-card-actions/div/button/span", "xpath:idRelative"],
+        ["xpath=//mat-card-actions/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Cancel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "05c33c34-90ae-47f3-be8c-ae31a65cbad8",
+    "name": "[U9]-1 User updates profile picture.",
+    "commands": [{
+      "id": "da7f5577-21d8-4c66-a118-de84e73a56ef",
+      "comment": "",
+      "command": "open",
+      "target": "https://console.firebase.google.com/project/fiendship-85fa8/firestore/data~2Fusers~2F4KKJhzRwKnQ9JIdgRN3hliBekXp1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d72c0302-6274-47a5-bc07-529a9f83c30a",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd45c086-be57-4c27-9a23-f2d712e120f6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ng-tns-c50-12 .database-children .database-key-value",
+      "targets": [
+        ["css=.ng-tns-c50-12 .database-children .database-key-value", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div/div[2]/div[3]/f7e-field-panel/f7e-data-panel/div[2]/div[2]/fs-animate-changes/f7e-data-tree/div/div[2]/f7e-data-tree/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/f7e-data-tree/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5889515-7558-4e02-b173-506616436663",
+      "comment": "",
+      "command": "click",
+      "target": "css=.f7e-close-button > .mat-button-wrapper",
+      "targets": [
+        ["css=.f7e-close-button > .mat-button-wrapper", "css:finder"],
+        ["xpath=//main[@id='main']/fire-router-outlet/firestore-data/f7e-data/div/div/data/div/mat-card/div[2]/f7e-inline-editor/mat-card/mat-card-content/form/mat-card-actions/div/button/span", "xpath:idRelative"],
+        ["xpath=//mat-card-actions/div/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Cancel')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d94bb298-5c7a-4669-8d6c-e5215da0c564",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/?mode=select",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bcbaa001-3f5f-480d-89ce-edc8534fe677",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6de90969-04ae-4f7d-89a8-cf23db475f51",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "denesgyorgy97@gmail.com"
+    }, {
+      "id": "51fb53dd-ce37-4d2d-9b20-4430264d360e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "74072baa-75c8-4284-8bb0-37fa4ee05ce3",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "43fd515a-726f-4beb-a051-985b69ae0012",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "534e37d8-db80-4839-97dd-9ef7875046a5",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "djandras"
+    }, {
+      "id": "47c9510d-4f67-494b-9f60-0b6c192b978b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1fb8b5a7-5d1d-4900-86ed-b80b5197c3e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) path",
+      "targets": [
+        ["css=a:nth-child(1) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d41c2ad-fac5-4c79-a898-e089bf0f33f8",
+      "comment": "",
+      "command": "click",
+      "target": "id=Angry",
+      "targets": [
+        ["id=Angry", "id"],
+        ["css=#Angry", "css:finder"],
+        ["xpath=//button[@id='Angry']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d89c644-a22a-4708-ab5c-c40108d45081",
+      "comment": "",
+      "command": "open",
+      "target": "https://console.firebase.google.com/project/fiendship-85fa8/firestore/data~2Fusers~2F4KKJhzRwKnQ9JIdgRN3hliBekXp1",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "520b98e2-e49c-40d6-a796-e0f7eedfebef",
+    "name": "[U9]-6 If the user has already bought a background, then they won't be able to buy it again.",
+    "commands": [{
+      "id": "3a84b97b-9974-48e1-8121-49672e2f4cda",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7f4e19e8-1b6a-4733-913f-87c316e65b80",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "658x658",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "163d52d6-dda9-424f-9aeb-aed9b6a09cae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b970d26-d36d-44e5-a597-e604d68cea7a",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iAlreadyBoughtIt@gmail.com"
+    }, {
+      "id": "8adcfb43-3b5c-4a7c-88cf-a77b9ba751e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aaa874c9-66c4-4112-b0ac-e5f969562e26",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfd8b667-9169-40c0-b1a1-0e2fcb5a0f7a",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e687a9d-b1bf-419f-8428-3c120d99c387",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "djandras"
+    }, {
+      "id": "c16d365d-643c-4bd2-b0ef-e761cea35be9",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "388683d2-adef-46f4-8cba-8dff17508f09",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) path",
+      "targets": [
+        ["css=a:nth-child(1) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "81820136-213b-4ca7-b508-b9970dd8bce3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tablinks:nth-child(2)",
+      "targets": [
+        ["css=.tablinks:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"storeChoice(event, 'bgs')\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'backgrounds')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cac50837-1ccf-4f44-ba30-d9807c92eec3",
+      "comment": "",
+      "command": "click",
+      "target": "id=door",
+      "targets": [
+        ["id=door", "id"],
+        ["css=#door", "css:finder"],
+        ["xpath=//button[@id='door']", "xpath:attributes"],
+        ["xpath=//div[@id='bgs']/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3283563e-b1c9-43fa-ab2a-b1e134646599",
+      "comment": "",
+      "command": "click",
+      "target": "id=diamond",
+      "targets": [
+        ["id=diamond", "id"],
+        ["css=#diamond", "css:finder"],
+        ["xpath=//button[@id='diamond']", "xpath:attributes"],
+        ["xpath=//div[@id='bgs']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ecd7469-9b84-4097-8f49-f8b26a6423f7",
+      "comment": "",
+      "command": "click",
+      "target": "id=diamond",
+      "targets": [
+        ["id=diamond", "id"],
+        ["css=#diamond", "css:finder"],
+        ["xpath=//button[@id='diamond']", "xpath:attributes"],
+        ["xpath=//div[@id='bgs']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7388366c-49aa-4896-baed-2d5eeb9cddee",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Hey, you have got this pic!",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "607fb182-db7a-4a2e-bf66-2f4c3aa04266",
+    "name": "[U9]-10 After a user buys a new background picture, the new background should show up in the background tab in profile page.",
+    "commands": [{
+      "id": "cfcb963f-1d05-4b7b-b5c9-543c5a7535b6",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12fc49ee-eeb4-49d5-b5fa-8cb9ab617b39",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "658x658",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "604cfda6-1e6e-43a7-844e-d5ec6a7eceb6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f2b78eb-c06f-47f3-ab2f-a07f674388e2",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "buyBackground@gmail.com"
+    }, {
+      "id": "c70c14c2-a8a1-4940-ba6b-4511a0136aac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6ebc81a-dfe1-473c-8251-a37d3205ac91",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27c6e146-93d8-402b-855b-e6bcb1b1ebd8",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "djandras"
+    }, {
+      "id": "66bd6ded-c649-4cba-85e5-b6aa2b68324e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "7b8bf78b-a8f9-4b5e-b0ae-f06167ce48b3",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) path",
+      "targets": [
+        ["css=a:nth-child(1) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "3596b01d-316e-469e-9f42-015a90ff302f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tablinks:nth-child(2)",
+      "targets": [
+        ["css=.tablinks:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"storeChoice(event, 'bgs')\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'backgrounds')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f484b8bf-f03c-4fb0-ba2f-0fd21741dfda",
+      "comment": "",
+      "command": "click",
+      "target": "id=diamond",
+      "targets": [
+        ["id=diamond", "id"],
+        ["css=#diamond", "css:finder"],
+        ["xpath=//button[@id='diamond']", "xpath:attributes"],
+        ["xpath=//div[@id='bgs']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f63ca6ab-ea96-40f0-9d99-28dd766d7312",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bottom-navbar:nth-child(3) > a:nth-child(3) path",
+      "targets": [
+        ["css=.bottom-navbar:nth-child(3) > a:nth-child(3) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ebfd649-0e23-4485-965d-c90b013f158a",
+      "comment": "",
+      "command": "click",
+      "target": "id=friends",
+      "targets": [
+        ["id=friends", "id"],
+        ["css=#friends", "css:finder"],
+        ["xpath=//button[@id='friends']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Appearance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf3e7ea6-14ce-4c2d-b8f7-978c61015733",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tab-bg",
+      "targets": [
+        ["css=.tab-bg", "css:finder"],
+        ["xpath=//button[@onclick=\"openInventory(event, 'bg-pics')\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Background')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "5e29652d-b329-497a-823e-e906f0b0a04e",
+    "name": "[U9]-12 User can chose a new background picture.",
+    "commands": [{
+      "id": "4d76c76c-98b9-44d7-af1f-ae9a0107a3e3",
+      "comment": "",
+      "command": "open",
+      "target": "https://fiendship-85fa8.web.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a428db96-05ff-4cbb-9fb2-a5ba99cc9965",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "658x658",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f151089c-809f-4b4a-8bfe-133d6345963d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password > .firebaseui-idp-text-long",
+      "targets": [
+        ["css=.firebaseui-idp-password > .firebaseui-idp-text-long", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/button/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Sign in with email')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bccaba89-9d4b-4189-8450-92d45ed714d9",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9a97b90-8df9-4cec-9e8a-3e952e4e6de8",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ialreadyboughtit@gmail.com"
+    }, {
+      "id": "0e3ce32a-7f8c-4b25-b051-9f3668f94608",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "4d6ad4e5-ced4-4fc1-a512-c4006558a0fa",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "djandras"
+    }, {
+      "id": "e98fb1cd-333e-47d1-95d0-176adbfcfab7",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "f57942d4-850d-4883-acd2-144d5d730585",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7ff2e558-9ac5-46fb-95fc-8fa4c821ad3b",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(3) > .iconify",
+      "targets": [
+        ["css=a:nth-child(3) > .iconify", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "443db574-fae8-42f5-9cb0-d4971beb6edb",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "141a7c7a-8548-41f1-ac20-699c990e6110",
+      "comment": "",
+      "command": "click",
+      "target": "id=friends",
+      "targets": [
+        ["id=friends", "id"],
+        ["css=#friends", "css:finder"],
+        ["xpath=//button[@id='friends']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Appearance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bcbce99-d874-4659-b90e-652cd35c83f8",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3cff569c-fa09-4010-94a2-8bb040308d73",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tab-bg",
+      "targets": [
+        ["css=.tab-bg", "css:finder"],
+        ["xpath=//button[@onclick=\"openInventory(event, 'bg-pics')\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Background')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "73712995-367b-4508-96aa-f4ff44308b77",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cef54b0d-2716-4aff-a157-236937fdec52",
+      "comment": "",
+      "command": "click",
+      "target": "id=./images/Background pictures/diamond.png",
+      "targets": [
+        ["id=./images/Background pictures/diamond.png", "id"],
+        ["css=#\\.\\/images\\/Background\\ pictures\\/diamond\\.png", "css:finder"],
+        ["xpath=(//img[@alt='Avatar'])[2]", "xpath:img"],
+        ["xpath=//img[@id='./images/Background pictures/diamond.png']", "xpath:attributes"],
+        ["xpath=//div[@id='bg-pics']/img[2]", "xpath:idRelative"],
+        ["xpath=//img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "be549ab2-ceb8-42ce-96c2-719a23fbed39",
+    "name": "[U9]-11 User can chose a new profile picture.",
+    "commands": [{
+      "id": "6482d330-dd92-4854-815d-525c41258049",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2ace82c-4904-4b2f-9dd2-13b066c32415",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "781x805",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3d25ab9a-e6a9-4e9b-a820-d42b7bd90ce7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-idp-password",
+      "targets": [
+        ["css=.firebaseui-idp-password", "css:finder"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/div/form/ul/li[2]/button", "xpath:idRelative"],
+        ["xpath=//li[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c95f5189-a67c-4e52-a9b7-c1ed435d9e0a",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mdl-textfield__input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tester@kris.com"
+    }, {
+      "id": "4d997c31-8aa6-4922-a9a2-cf89ef45c190",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7fb954c-4f1b-4361-8371-a962ce7c2321",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.firebaseui-id-password", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "wwwwww"
+    }, {
+      "id": "97963aec-f215-4cdf-a719-8e79c3960dc2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.firebaseui-id-submit",
+      "targets": [
+        ["css=.firebaseui-id-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='firebaseui-auth-container']/div/form/div[3]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba06230f-71b4-48cd-a42a-e13bc1c65894",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3f0fe0d7-9373-40fd-8122-19edc637e773",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(1) > .iconify",
+      "targets": [
+        ["css=a:nth-child(1) > .iconify", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d916e67-9164-44d8-a0c1-77031f45cbe1",
+      "comment": "",
+      "command": "click",
+      "target": "id=cosplayer",
+      "targets": [
+        ["id=cosplayer", "id"],
+        ["css=#cosplayer", "css:finder"],
+        ["xpath=//button[@id='cosplayer']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbd11ee4-03cd-467a-90e2-e24431a6f05e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bottom-navbar:nth-child(3) > a:nth-child(3) > .iconify",
+      "targets": [
+        ["css=.bottom-navbar:nth-child(3) > a:nth-child(3) > .iconify", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5e13bb1-56a5-4c87-b8d7-3d2b831476dd",
+      "comment": "",
+      "command": "click",
+      "target": "id=friends",
+      "targets": [
+        ["id=friends", "id"],
+        ["css=#friends", "css:finder"],
+        ["xpath=//button[@id='friends']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Appearance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2713a70-ba24-47e6-8b34-108f3286dc01",
+      "comment": "",
+      "command": "click",
+      "target": "id=./images/Profile pictures/cosplayer.png",
+      "targets": [
+        ["id=./images/Profile pictures/cosplayer.png", "id"],
+        ["css=#\\.\\/images\\/Profile\\ pictures\\/cosplayer\\.png", "css:finder"],
+        ["xpath=//img[@id='./images/Profile pictures/cosplayer.png']", "xpath:attributes"],
+        ["xpath=//div[@id='pics']/img[2]", "xpath:idRelative"],
+        ["xpath=//img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f79a28e9-84d2-44d3-bc10-10bc8379d5aa",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://fiendship-85fa8.web.app/"],
+  "plugins": []
+}
