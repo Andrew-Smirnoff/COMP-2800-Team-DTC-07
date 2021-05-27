@@ -28,9 +28,9 @@ document.getElementById("defaultOpen").click();
 
 
 function getDocumentId() {
-    
-    // To get document_id in sessionStorage
-
+    /** 
+     * To get document_id in sessionStorage
+    */
     firebase.auth().onAuthStateChanged((user) => {
       let document_id = user.uid
       sessionStorage.setItem('document_id', document_id)
@@ -40,9 +40,9 @@ getDocumentId();
 
 
 function getUserProfPics() {
-
-    // GETS all of the profile pics the user has bought and places them dynamically on 'my_pics.html'
-    
+    /** 
+     * GETS all of the profile pics the user has bought and places them dynamically on 'my_pics.html'
+    */
     db.collection("users").get().then(function (snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
@@ -58,9 +58,9 @@ getUserProfPics();
 
 
 function getUserBgPics() {
-
-    // GETS all of the background pics the user has bought from database and places them dynamically on 'my_pics.html'
-
+    /**
+     * GETS all of the background pics the user has bought from database and places them dynamically on 'my_pics.html'
+    */
     db.collection("users").get().then(function (snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
@@ -76,9 +76,9 @@ getUserBgPics();
 
 
 function getMainProfilePic() {
-
-    // GETS the current profile pic from the database and places it dynamically at top of 'my_pics.html' page
-
+    /**
+     * GETS the current profile pic from the database and places it dynamically at top of 'my_pics.html' page
+    */
     db.collection("users").get().then(function(snap) {
         snap.forEach(function (doc) {
             if(doc.data().name == sessionStorage.name) {
@@ -92,10 +92,11 @@ getMainProfilePic();
 
 
 function changeProfilePic(id) {
-
-    // When a profile picture from the collection is clicked on 'my_pics.html', the clicked picture gets updated
-    // in the database as well as in the src attribute of the main profile picture
-    
+    /** 
+     * When a profile picture from the collection is clicked on 'my_pics.html', the clicked picture gets updated
+     * in the database as well as in the src attribute of the main profile picture
+     * @param {String} id link to profile picture being changed
+    */
     $('.main-prof-pic').attr("src", id);
     let document_id = sessionStorage.getItem('document_id');
     let user_data = db.collection("users").doc(document_id);
@@ -107,10 +108,11 @@ function changeProfilePic(id) {
 
 
 function changeBgPic(id) {
-
-    // Changes background picture on click of one of the background pictures in the collection on 'my_pics.html';
-    // The current background field also gets updated in the database
-
+    /** 
+     * Changes background picture on click of one of the background pictures in the collection on 'my_pics.html';
+     * The current background field also gets updated in the database
+     * @param {String} id link to background picture being changed
+    */
     let document_id = sessionStorage.getItem('document_id');
     let user_data = db.collection("users").doc(document_id);
     var setWithMerge = user_data.set({
@@ -121,9 +123,9 @@ function changeBgPic(id) {
 
 
 function getCurrentBackgroundPic() {
-
-    // Changes background pic url of 'my_pics.html' to the users current background pic
-
+    /** 
+     * Changes background pic url of 'my_pics.html' to the users current background pic
+    */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {

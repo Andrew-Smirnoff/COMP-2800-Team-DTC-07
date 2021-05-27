@@ -1,9 +1,9 @@
 main();
 
 function main() {
-
-    // driver function; places name of user and their current balance dynamically on page
-
+    /** 
+     * driver function; places name of user and their current balance dynamically on page
+    */
     var document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     getCurrentBackgroundPic();
@@ -27,9 +27,9 @@ function main() {
 }
 
 function getCurrentProfilePic() {
-    
-    // Updates profile picture on 'profile.html' to the user's current profile pic
-
+    /** 
+     * Updates profile picture on 'profile.html' to the user's current profile pic
+    */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {
@@ -50,9 +50,9 @@ function getCurrentProfilePic() {
 
 
 function getCurrentBackgroundPic() {
-
-   // Changes background picture url of 'profile.html' to the user's current background pic
-    
+    /**
+     * Changes background picture url of 'profile.html' to the user's current background pic
+    */
     let document_id = sessionStorage.getItem('document_id');
     var docRef = db.collection('users').doc(document_id);
     docRef.get().then((doc) => {
