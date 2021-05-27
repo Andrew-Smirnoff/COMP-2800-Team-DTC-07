@@ -1,7 +1,9 @@
 const sleep = (milliseconds) => {
   /**
-   * delay function 
+   * Delay function 
    * I found this on sitepoint.com
+   * @param {Number} milliseconds A number representing the number of milliseconds to pause for
+   * @return {Promise}            A promise which delays program execution
    * @author James Hibbard
    * @see https://www.sitepoint.com/delay-sleep-pause-wait/
    */
@@ -24,6 +26,8 @@ function remove_old_list(){
 function create_new_lists(stories){
   /**
    * adds new pictures and names
+   * @param {Object} stories  An object representing a player's info during any given round
+   * @return {Array}          An array containing the stories of all players
    */
   let all_stories = []
   for (i = 0; i < stories.length; i++) {
@@ -46,6 +50,8 @@ function create_new_lists(stories){
 function should_continue(all_stories, first_player_round){
   /**
    * decides whether or not it should continue to the next page
+   * @param {Array} all_stories         An array containing the info about all playrs and their stories
+   * @param {Number} first_player_round A number representing the round that the first player is on. This is needed to compare to the rounds of other players
    */
   let next_page = true
   for(let i = 0; i < all_stories.length; i++){

@@ -2,6 +2,8 @@ const sleep = (milliseconds) => {
   /**
    * delay function 
    * I found this on sitepoint.com
+   * @param {Number} milliseconds A number representing the number of milliseconds to pause for
+   * @return {Promise}            A promise which delays program execution
    * @author James Hibbard
    * @see https://www.sitepoint.com/delay-sleep-pause-wait/
    */
