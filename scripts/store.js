@@ -1,4 +1,6 @@
-// Adds back button to go back to main page.
+/** 
+ * Adds back button to go back to main page.
+ */
 $("#back").click(function(){
     document.location.href = "./main.html";
 })
@@ -9,6 +11,9 @@ $("#back").click(function(){
  * 
  * @author www.w3schools.com
  * @see https://www.w3schools.com/howto/howto_js_tabs.asp
+ * 
+ * @param {object} evt A triggered event.
+ * @param {string} choiceName Id for the selected element. 
  */
 function storeChoice(evt, choiceName) {
 
@@ -38,7 +43,10 @@ function storeChoice(evt, choiceName) {
 
 document.getElementById("defaultOpen").click();
 
-// Displays user coin balance.
+
+/** 
+ * Displays user coin balance.
+ */
 function displayBalance() {
   db.collection("users").get()
     .then(function (snap) {
@@ -54,14 +62,20 @@ function displayBalance() {
 displayBalance();
 
 
-// Displays user coin balance after purchasing an item.
+/** 
+ * Displays user coin balance after purchasing an item.
+ * @param {number} balance The current user's account balance.
+ */
 function displayBalanceAfterBuying(balance) {
 
   $('#balance-goes-here').text(balance);
 
 }
 
-// Displays all available profile pictures from the database.
+ 
+/** 
+ * Displays all available profile pictures from the database.
+ */
 function displayProfilePicsInStore() {
   db.collection("profile_pictures").get()
     .then(function (snap) {
@@ -79,7 +93,10 @@ function displayProfilePicsInStore() {
 }
 displayProfilePicsInStore();
 
-// Displays all available background pictures from the database.
+ 
+/** 
+ * Displays all available background pictures from the database.
+ */
 function displayBgPicsInStore() {
   db.collection("background_pictures").get()
     .then(function (snap) {
@@ -98,7 +115,9 @@ function displayBgPicsInStore() {
 displayBgPicsInStore();
 
 
-// Gets document_id in sessionStorage for identifying current user.
+/** 
+ * Gets document_id in sessionStorage for identifying current user.
+ */
 function getDocumentId() {
   firebase.auth().onAuthStateChanged((user) => {
     let document_id = user.uid
@@ -108,7 +127,11 @@ function getDocumentId() {
 }
 getDocumentId();
 
-// Gets item_price in sessionStorage when buying a profile picture.
+
+/** 
+ * Gets item_price in sessionStorage when buying a profile picture.
+ * @param {string} id The current user's account id in the database.
+ */
 function buyProfilePic(id) {
   db.collection("profile_pictures").get()
     .then(function (snap) {
@@ -124,7 +147,11 @@ function buyProfilePic(id) {
     })
 }
 
-// Gets item_price in sessionStorage when buying a background picture.
+
+/** 
+ * Gets item_price in sessionStorage when buying a background picture.
+ * @param {string} id The current user's account id in the database.
+ */
 function buyBgPic(id) {
   db.collection("background_pictures").get()
     .then(function (snap) {
@@ -139,7 +166,13 @@ function buyBgPic(id) {
     })
 }
 
-// Updates the database after a profile picture is bought.
+
+/** 
+ * Updates the database after a profile picture is bought.
+ * @param {string} document_id The current user's account id in the database.
+ * @param {number} item_price The price of the selected item.
+ * @param {string} item_id The name of the selected item.
+ */
 function updateDatabase(document_id, item_price, item_id) {
 
   db.collection('users').doc(document_id).get().then((doc) => {
@@ -164,7 +197,13 @@ function updateDatabase(document_id, item_price, item_id) {
 
 }
 
-// Updates the database after a background picture is bought.
+
+/** 
+ * Updates the database after a background picture is bought.
+ * @param {string} document_id The current user's account id in the database.
+ * @param {number} item_price The price of the selected item.
+ * @param {string} item_id The name of the selected item.
+ */
 function updateDatabaseForBgPic(document_id, item_price, item_id) {
 
   db.collection('users').doc(document_id).get().then((doc) => {
@@ -189,7 +228,11 @@ function updateDatabaseForBgPic(document_id, item_price, item_id) {
 
 }
 
-// Adds the purchased profile picture(s) url to user account in the database.
+
+/** 
+ * Adds the purchased profile picture(s) url to user account in the database.
+ * @param {string} id The current user's account id in the database.
+ */
 function givePlayerProfilePic(id) {
 
   let document_id = sessionStorage.getItem('document_id'); 
@@ -210,7 +253,11 @@ function givePlayerProfilePic(id) {
     })
 }
 
-// Adds the purchased background picture(s) url to user account in the database.
+
+/** 
+ * Adds the purchased background picture(s) url to user account in the database.
+ * @param {string} id The current user's account id in the database.
+ */
 function givePlayerBgPic(id) {
 
   let document_id = sessionStorage.getItem('document_id');

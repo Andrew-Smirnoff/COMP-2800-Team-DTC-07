@@ -33,6 +33,7 @@ function getDocumentId() {
 function make_date(){
     /**
      * makes a string of today's date
+     * @return {String} A string representing the current date
      */
     let today = new Date();
     let day = String(today.getDate())
@@ -45,6 +46,9 @@ function make_date(){
 function date_difference(full_date, document_date){
     /**
      * calculates the difference between two dates
+     * @param {String} full_date        A string representing the date of today
+     * @param {String} document_date    A string representing the date of a given document
+     * @return {Number}                 A number representing the difference in days between two dates
      */
     full_date = full_date.split('/')
     full_date = Number(full_date[0] + full_date[1] + full_date[2])
@@ -99,6 +103,7 @@ function setup_player() {
 function join_game(snap){
     /**
      * lets the player join a game, and decides if they're the host or not
+     * @param {Object} snap A snapshot of a game room, with access to info about players and their stories
      */
     if(snap.data()['started'] == false){
         sessionStorage.setItem('is_host', false)
@@ -119,6 +124,7 @@ function join_game(snap){
 function host_game(snap){
     /**
      * sets the player as the host and creates their game
+     * @param {Object} snap A snapshot of a game room, with access to info about players and their stories
      */
     sessionStorage.setItem('is_host', true)
     players_waiting = []

@@ -2,6 +2,7 @@ function display_scenario(snap) {
     /**
    * delay function 
    * I found this on sitepoint.com
+   * @param {Object} snap A snapshot of a game room, used to gain info about players and their stories
    * @author James Hibbard
    * @see https://www.sitepoint.com/delay-sleep-pause-wait/
    */
@@ -12,6 +13,7 @@ function display_scenario(snap) {
 function display_players(snap) {
     /**
      * displays all players and their profile pictures
+     * @param {Object} snap A snapshot of a game room, used to gain info about players and their stories
      */
     let players = snap.data()['players']
     let stories = snap.data()['stories']

@@ -127,6 +127,8 @@ function remove_old_players() {
 function add_new_players(players_waiting, snap) {
     /**
      * adds new players and their pictures
+     * @param {Array} players_waiting   An array of all of the players in a given room
+     * @param {Object} snap             A snapshot of a game room, with access to info about players and their stories
      */
     for (i = 0; i < players_waiting.length; i++) {
         let new_player = document.createElement('p')

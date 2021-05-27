@@ -82,3 +82,7 @@ form{
     padding: 0 24px;
     display: none;
 }
+
+.firebase-ui-auth-container{
+    background: none;
+}
